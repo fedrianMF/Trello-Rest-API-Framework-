@@ -10,16 +10,19 @@ stages:
 flake8:
   stage: Static Analysis
   script:
-  #- flake8 features/*.py
-  #- flake8 features/*/*.py
+    - flake8 */*.py
+    - flake8 */*/*.py
+    
 
 pylint:
   stage: Static Analysis
   script:
-  #- pylint features/*.py
-  #- pylint features/*/*.py
+    - pylint */*.py
+    - pylint */*/*.py
 
 pycodestyle:
   stage: Static Analysis
   script:
-  #- pycodestyle features/
+    - pycodestyle core/
+    - pycodestyle features/
+    - pycodestyle main/
