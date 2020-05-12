@@ -17,12 +17,8 @@ flake8:
 pylint:
   stage: Static Analysis
   script:
-    - pylint core/*.py
-    - pylint core/*/*.py
-    - pylint features/*.py
-    - pylint features/*/*.py
-    - pylint main/*.py
-    - pylint main/*/*.py
+    - pylint */*.py
+    - pylint */*/*.py
 
 pycodestyle:
   stage: Static Analysis
