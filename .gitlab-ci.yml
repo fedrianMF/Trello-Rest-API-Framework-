@@ -1,0 +1,25 @@
+image: "python:3.7"
+
+before_script:
+  - python --version
+  - pip install -r requirements.txt
+
+stages:
+  - Static Analysis
+
+flake8:
+  stage: Static Analysis
+  script:
+  #- flake8 features/*.py
+  #- flake8 features/*/*.py
+
+pylint:
+  stage: Static Analysis
+  script:
+  #- pylint features/*.py
+  #- pylint features/*/*.py
+
+pycodestyle:
+  stage: Static Analysis
+  script:
+  #- pycodestyle features/
