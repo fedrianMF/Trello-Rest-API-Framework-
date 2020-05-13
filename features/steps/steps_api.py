@@ -16,6 +16,7 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     """
     context.endpoint = endpoint
     context.http_method = http_method
+    context.data_table = context.table
 
 
 @step(u"The request is sent")
@@ -26,7 +27,8 @@ def step_impl_send(context):
     :type context: obj
     """
     context.status_code, context.json_response = context.rm.do_request(context.http_method,
-                                                                       context.endpoint)
+                                                                       context.endpoint,
+                                                                       context.data_table)
 
 
 @step(u'The status code should be {status_code:d}')
