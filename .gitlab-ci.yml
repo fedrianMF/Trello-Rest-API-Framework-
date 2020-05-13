@@ -23,6 +23,5 @@ pylint:
 pycodestyle:
   stage: Static Analysis
   script:
-    - pycodestyle core/
     - pycodestyle features/
     - pycodestyle main/
