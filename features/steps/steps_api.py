@@ -39,3 +39,15 @@ def step_impl_status(context, status_code):
     :type status_code: int
     """
     assert_that(context.status_code).is_equal_to(status_code)
+
+
+@step(u'The new board name is {board_name}')
+def step_set_board_name(context, board_name):
+    """Set new board name
+    
+    :param context: Global context from behave
+    :type context: obj
+    :param board_name: name for the new board
+    :type status_code: str
+    """
+    context.board_name = board_name

@@ -7,13 +7,10 @@ from requests_oauthlib import OAuth1
 class RequestsManager:
     """Request Manager basic Implementation"""
 
-    def __init__(self, url):
+    def __init__(self, url, key, token, oauth_token):
         self.basic_url = url
         self.headers = {"Accept": "application/json"}
-        self.auth = OAuth1('668fe425619b44578f6b5dd9a02e09a4',
-                           'c96a92fc1940b3648744f19ab5bca9a3c49213dea7c08f8a5c8bb068b9674183',
-                           'c96a92fc1940b3648744f19ab5bca9a3c49213dea7c08f8a5c8bb068b9674183',
-                           '68665b1c48cc20381d1c7f3f75f80db7298cba95a02dbc86a564bf9890aa83e8')
+        self.auth = OAuth1(key, token, token, oauth_token)
 
     def do_request(self, http_method, endpoint, body=None):
         """Sends request
@@ -28,7 +25,7 @@ class RequestsManager:
             response = requests.request(str(http_method), url, headers=self.headers, auth=self.auth)
         else:
             response = requests.request(str(http_method), url, headers=self.headers,
-                                        auth=self.auth, data=json.dumps(body))
+                                        auth=self.auth, params=json.dumps(body))
         return response.status_code, response.json()
 
     def delete_request(self, http_method, endpoint, body=None):
