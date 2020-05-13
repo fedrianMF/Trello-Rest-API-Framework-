@@ -1,14 +1,15 @@
 """Environment module for behave"""
 from behave.model_core import Status
 from main.core.request_manager import RequestsManager
-#from features.core.example import Example
 
 
 def before_all(context):
     """Before_all
     """
-    #context.example = Example()
-    context.rm = RequestsManager(context.config.userdata['url'], context.config.userdata['key'], context.config.userdata['token'], context.config.userdata['oauth_token'])
+    context.rm = RequestsManager(context.config.userdata['url'],
+                                 context.config.userdata['key'],
+                                 context.config.userdata['token'],
+                                 context.config.userdata['oauth_token'])
 
 
 def before_scenario(context, scenario):  # pylint: disable=W0613

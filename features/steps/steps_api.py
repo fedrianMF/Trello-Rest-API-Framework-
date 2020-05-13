@@ -44,10 +44,21 @@ def step_impl_status(context, status_code):
 @step(u'The new board name is {board_name}')
 def step_set_board_name(context, board_name):
     """Set new board name
-    
+
     :param context: Global context from behave
     :type context: obj
     :param board_name: name for the new board
     :type status_code: str
     """
-    context.board_name = board_name
+    context.body = {"name": board_name}
+
+
+@step(u"The request with body is sent")
+def step_impl_send_body(context):
+    """Sends request
+
+    :param context: Global context from behave
+    :type context: obj
+    """
+    context.status_code, context.json_response =\
+        context.rm.do_request(context.http_method, context.endpoint, context.body)

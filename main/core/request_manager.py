@@ -1,10 +1,9 @@
 """Module for requests"""
-import json
 import requests
 from requests_oauthlib import OAuth1
 
 
-class RequestsManager:
+class RequestsManager:  # pylint: disable=R0903
     """Request Manager basic Implementation"""
 
     def __init__(self, url, key, token, oauth_token):
@@ -23,14 +22,9 @@ class RequestsManager:
         url = f"{self.basic_url}{endpoint}"
         if http_method == "GET":
             response = requests.request(str(http_method), url, headers=self.headers, auth=self.auth)
+        elif http_method == "DELETE":
+            response = requests.request(str(http_method), url, auth=self.auth)
         else:
-            response = requests.request(str(http_method), url, headers=self.headers,
-                                        auth=self.auth, params=json.dumps(body))
+            response = requests.request(str(http_method), url,
+                                        auth=self.auth, params=body)
         return response.status_code, response.json()
-
-    def delete_request(self, http_method, endpoint, body=None):
-        """
-            Basic Method to delete resources
-        """
-        # url = f"{self.basic_url}{endpoint}"
-        # code to delete resource
