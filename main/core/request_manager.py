@@ -7,8 +7,8 @@ from requests_oauthlib import OAuth1
 class RequestsManager:
     """Request Manager basic Implementation"""
 
-    def __init__(self):
-        self.basic_url = "https://api.trello.com/1"
+    def __init__(self, url):
+        self.basic_url = url
         self.headers = {"Accept": "application/json"}
         self.auth = OAuth1('668fe425619b44578f6b5dd9a02e09a4',
                            'c96a92fc1940b3648744f19ab5bca9a3c49213dea7c08f8a5c8bb068b9674183',
