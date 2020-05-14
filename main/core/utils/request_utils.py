@@ -1,3 +1,6 @@
+from main.core.utils.boolean_utils import BooleanUtils
+
+
 class RequestUtils:
     """Class defined to request Utils"""
 
@@ -10,7 +13,7 @@ class RequestUtils:
                     data[str(row['key'])] = eval(row['value'])
                 elif row['value'].isdigit():
                     data[str(row['key'])] = int(row['value'])
-                elif is_float(row['value']):
+                elif BooleanUtils.is_float(row['value']):
                     data[str(row['key'])] = float(row['value'])
                 else:
                     data[str(row['key'])] = row['value']
@@ -20,11 +23,3 @@ class RequestUtils:
     def validate_body(body, expected_data):
         # validate body here
         pass
-
-    @staticmethod
-    def is_float(value):
-        try:
-            float(value)
-            return True
-        except ValueError:
-            return False

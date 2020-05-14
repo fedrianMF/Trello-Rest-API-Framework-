@@ -17,8 +17,6 @@ Feature: C-R-U-D for Boards
         Given Defines "POST" request to "/boards/"
             | key           | value                                        |
             | name          | test board                                   |
-            | defaultLabels | True                                         |
-            | defaultLists  | True                                         |
             | desc          | here is a little description for API testing |
 
         When The request is sent
