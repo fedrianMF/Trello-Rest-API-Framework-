@@ -51,5 +51,5 @@ class RequestUtils:
         """
         # validate body here
         assert_that(expected_data.items() <= body.items(),
-                f"Expected that {expected_data} is in {body}").is_true()
+                    f"Expected that {expected_data} is in {body}").is_true()
     # BodyValidator.validate(context.json_response, context.table)
