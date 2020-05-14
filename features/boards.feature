@@ -25,8 +25,7 @@ Feature: C-R-U-D for Boards
     @update
     Scenario: Update a board
         Given Defines "PUT" request to "/boards/4LmtdO4W"
-        When The new board name is New Name Board
-        And The request with body is sent
+        When The request is sent
         Then The status code should be 200
 
     @delete
