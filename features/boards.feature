@@ -8,22 +8,24 @@ Feature: C-R-U-D for Boards
         Then The status code should be 200
 
         Examples: Data ids
-        | id       |
-        | yfbg7MMI |
-        | 4LmtdO4W |
+            | id       |
+            | yfbg7MMI |
+            | 4LmtdO4W |
 
     @post
     Scenario: Create a board
         Given Defines "POST" request to "/boards/"
-        When The new board name is Board Gherkin
-        And The request with body is sent
+            | key           | value                                        |
+            | name          | test board                                   |
+            | desc          | here is a little description for API testing |
+
+        When The request is sent
         Then The status code should be 200
 
     @update
     Scenario: Update a board
         Given Defines "PUT" request to "/boards/4LmtdO4W"
-        When The new board name is New Name Board
-        And The request with body is sent
+        When The request is sent
         Then The status code should be 200
 
     @delete

@@ -16,6 +16,7 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     """
     context.endpoint = endpoint
     context.http_method = http_method
+    context.data_table = context.table
 
 
 @step(u"The request is sent")
@@ -26,7 +27,8 @@ def step_impl_send(context):
     :type context: obj
     """
     context.status_code, context.json_response = context.rm.do_request(context.http_method,
-                                                                       context.endpoint)
+                                                                       context.endpoint,
+                                                                       context.data_table)
 
 
 @step(u'The status code should be {status_code:d}')
@@ -39,26 +41,3 @@ def step_impl_status(context, status_code):
     :type status_code: int
     """
     assert_that(context.status_code).is_equal_to(status_code)
-
-
-@step(u'The new board name is {board_name}')
-def step_set_board_name(context, board_name):
-    """Set new board name
-
-    :param context: Global context from behave
-    :type context: obj
-    :param board_name: name for the new board
-    :type status_code: str
-    """
-    context.body = {"name": board_name}
-
-
-@step(u"The request with body is sent")
-def step_impl_send_body(context):
-    """Sends request
-
-    :param context: Global context from behave
-    :type context: obj
-    """
-    context.status_code, context.json_response =\
-        context.rm.do_request(context.http_method, context.endpoint, context.body)
