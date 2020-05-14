@@ -1,7 +1,7 @@
 """Module for booleans"""
 
 
-class BooleanUtils:     # pylint: disable=R0903
+class BooleanUtils:
     """Class defined to Boolean Utils"""
 
     @staticmethod
@@ -16,3 +16,8 @@ class BooleanUtils:     # pylint: disable=R0903
             return True
         except ValueError:
             return False
+
+    @staticmethod
+    def do_something(here):
+        """ Implemented code here!
+        """
