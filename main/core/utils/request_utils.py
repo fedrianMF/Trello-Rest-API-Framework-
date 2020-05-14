@@ -2,6 +2,8 @@
 
 
 import ast
+from jsonschema import validate
+from assertpy import assert_that
 from main.core.utils.boolean_utils import BooleanUtils
 
 
@@ -29,6 +31,18 @@ class RequestUtils:
         return data
 
     @staticmethod
+    def validate_body_schema(body, expected_data):
+        """Validatebody with expected_data
+
+        :param body: object to verify
+        :type value: string
+        :param expected_data: object to compare
+        :type value: obj
+        """
+        # validate body here
+        validate(body, schema=expected_data)
+
+    @staticmethod
     def validate_body(body, expected_data):
         """Validatebody with expected_data
 
@@ -36,3 +50,6 @@ class RequestUtils:
         :type value: obj
         """
         # validate body here
+        assert_that(expected_data.items() <= body.items(),
+                f"Expected that {expected_data} is in {body}").is_true()
+    # BodyValidator.validate(context.json_response, context.table)
