@@ -43,13 +43,31 @@ class RequestUtils:
         validate(body, schema=expected_data)
 
     @staticmethod
-    def validate_body(body, expected_data):
+    def validate_body(expected_body, response_data):
         """Validatebody with expected_data
 
         :param value: object to verify
         :type value: obj
         """
         # validate body here
-        assert_that(expected_data.items() <= body.items(),
-                    f"Expected that {expected_data} is in {body}").is_true()
-    # BodyValidator.validate(context.json_response, context.table)
+        for key, value in expected_body.items():
+            if not has_value(response_data, value):
+                return False
+        return True
+
+        # assert_that(expected_data.items() <= body.items(),
+        #             f"Expected that {expected_data} is in {body}").is_true()
+        # BodyValidator.validate(context.json_response, context.table)
+
+
+def has_value(obj, val):
+    if isinstance(obj, dict):
+        values = obj.values()
+    elif isinstance(obj, list):
+        values = obj
+    if val in values:
+        return True
+    for v in values:
+        if isinstance(v, (dict, list)) and has_value(v, val):
+            return True
+    return False

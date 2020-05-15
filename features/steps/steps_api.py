@@ -18,7 +18,8 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     :type endpoint: obj
     """
     if http_method != HttpMethods.POST.value:
-        endpoint += context.board_id
+        endpoint = endpoint.replace('board_id', context.board_id)
+    print(endpoint)
     context.endpoint = endpoint
     context.http_method = http_method
     context.data_table = context.table
@@ -60,5 +61,8 @@ def step_impl_validate_body(context):
     :type context: obj
     """
     body_response = r_utils.generate_data(context.table)
-    assert_that(body_response.items() <= context.json_response.items(),
-                f"Expected that {body_response} is in {context.json_response}").is_true()
+    assert_that(r_utils.validate_body(body_response, context.json_response),
+                f"Expected that {context.json_response} no contains {body_response} items"
+                ).is_true()
+    # assert_that(body_response.items() <= context.json_response.items(),
+    #             f"Expected that {body_response} is in {context.json_response}").is_true()
