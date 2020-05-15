@@ -20,8 +20,8 @@ class RequestsManager:  # pylint: disable=R0903
         :param endpoint: Application's endpoint method
         :type endpoint: obj
         """
-        body = utils.generate_data(body)
-        print(body)
+        if not isinstance(body, dict):
+            body = utils.generate_data(body)
         url = f"{self.basic_url}{endpoint}"
         if http_method == "GET":
             response = requests.request(str(http_method), url, headers=self.headers, auth=self.auth)

@@ -1,6 +1,7 @@
 """Environment module for behave"""
 from behave.model_core import Status
 from main.core.request_manager import RequestsManager
+from features.tools.steps_utils import CreateItems as creator
 
 
 def before_all(context):
@@ -24,6 +25,20 @@ def after_scenario(context, scenario):  # pylint: disable=W0613
     if scenario.status == Status.failed:
         print("============ Ooops Failed scenario {scenario.name}")
     print(f"=============Finished {scenario.name}")
+
+
+def before_tag(context, tag):
+    """Just a simple before_tag hook
+    """
+    if tag not in ('post.boards', 'boards'):
+        context.board_id = creator.create_board(context.rm)
+
+
+def after_tag(context, tag):
+    """Just a simple after_tag hook
+    """
+    if tag not in ('delete.boards', 'boards'):
+        creator.delete_board(context.rm, context.board_id)
 
 
 def before_feature(context, feature):  # pylint: disable=W0613
