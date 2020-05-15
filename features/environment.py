@@ -17,6 +17,9 @@ def before_scenario(context, scenario):  # pylint: disable=W0613
     """Before scenario hook
     """
     print(f"=============Started {scenario.name}")
+    if scenario.name == "Update a List" or scenario.name == "Archive a list":
+        temp_body_list_respose = context.rm.post_request_to_list()
+        context.temp_id_list = temp_body_list_respose['id']
 
 
 def after_scenario(context, scenario):  # pylint: disable=W0613

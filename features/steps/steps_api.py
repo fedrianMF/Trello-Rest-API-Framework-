@@ -33,6 +33,9 @@ def step_impl_send(context):
     :param context: Global context from behave
     :type context: obj
     """
+    if context.http_method == "PUT":
+        context.endpoint = context.endpoint.replace("{id}", context.temp_id_list)
+    print(context.endpoint)
     context.status_code, context.json_response = context.rm.do_request(context.http_method,
                                                                        context.endpoint,
                                                                        context.data_table)
