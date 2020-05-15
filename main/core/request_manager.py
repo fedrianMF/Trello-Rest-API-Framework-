@@ -2,6 +2,7 @@
 import requests
 from requests_oauthlib import OAuth1
 from main.core.utils.request_utils import RequestUtils as utils
+from main.core.utils.api_constants import HttpMethods as method
 
 
 def singleton(cls):
@@ -36,6 +37,8 @@ class RequestsManager:  # pylint: disable=R0903
         :type http_method: string
         :param endpoint: Application's endpoint method
         :type endpoint: obj
+        :param body: body of request
+        :type endpoint: String
         """
         auth = self.auth
         if token:
@@ -52,3 +55,13 @@ class RequestsManager:  # pylint: disable=R0903
                                         auth=self.auth, params=body)
         self.auth = auth
         return response.status_code, response.json()
+
+    def post_request_to_list(self, endpoint="/lists/", id_board='5ebdb48025f737334afb2d56'):
+        """
+            Basic Method to create resources
+        """
+        body = {'name': 'temporalList', 'idBoard': id_board}
+        url = f"{self.basic_url}{endpoint}"
+        response = requests.request(method.POST.value, url, headers=self.headers, auth=self.auth,
+                                    params=body)
+        return response.json()
