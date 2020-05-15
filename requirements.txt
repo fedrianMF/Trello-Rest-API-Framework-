@@ -1,8 +1,12 @@
 assertpy>=1.0
 behave>=1.2.6
-pylint==2.4.4
 requests>=2.23.0
-pycodestyle>=2.6.0
-flake8
 requests-oauthlib>=1.3.0
 jsonschema>=3.2.0
+
+pylint==2.4.4
+pycodestyle>=2.6.0
+flake8
+
+behave-html-formatter
+allure-behave
