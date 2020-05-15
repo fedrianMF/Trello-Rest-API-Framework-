@@ -72,17 +72,17 @@ Feature: For Lists
     #     #request {}
     #     #And Validates response body with
 
-    # @move.list
-    # Scenario: Move List to Board
-    #     Given Defines "PUT" request to "/lists/{id}/idBoard"
-    #         | key   | value                    |
-    #         | value | 5ebdb48025f737334afb2d56 |
-    #     When The request is sent
-    #     Then The status code should be 200
-    #     And Validates response body with
-    #         |key     | value                    |
-    #         |id      | 5ebde4d289a5bb4c62cb72c1 |
-    #         |name    | 456                      |
-    #         |closed  | false                    |
-    #         |pos     | 32768                    |
-    #         |idBoard | 5ebdb48025f737334afb2d56 |
+    @move.list
+    Scenario: Move List to Board
+        Given Defines "PUT" request to "/lists/{id}/idBoard"
+            | key   | value                    |
+            | value | 5ebddb511d1a7e4c088459ba |
+        When The request is sent
+        Then The status code should be 200
+        And Validates response body with
+            |key     | value                    |
+            #|id      | 5ebde4d289a5bb4c62cb72c1 |
+            |name    | temporalList                      |
+            #|closed  | false                    |
+            #|pos     | 32768                    |
+            |idBoard | 5ebddb511d1a7e4c088459ba |
