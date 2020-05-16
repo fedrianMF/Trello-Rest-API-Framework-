@@ -1,14 +1,18 @@
 @boards
 Feature: C-R-U-D for Boards
 
-    @get.boards
+    @fixture.create.board
+    @verify.board
+    @fixture.delete.board
     Scenario: Get boards
         Given Defines "GET" request to "/boards/board_id"
         When The request is sent
         #And The schema is validated with "schema.json"
         Then The status code should be 200
 
-    @post.boards
+    @create.board
+    @delete.board
+    @fixture.delete.board
     Scenario: Create a board
         Given Defines "POST" request to "/boards/"
             | key  | value                                        |
@@ -22,7 +26,9 @@ Feature: C-R-U-D for Boards
             | name | test board                                   |
             | desc | here is a little description for API testing |
 
-    @update.boards
+    @fixture.create.board
+    @update.board
+    @fixture.delete.board
     Scenario: Update a board
         Given Defines "PUT" request to "/boards/board_id"
             | key  | value                           |
@@ -36,21 +42,33 @@ Feature: C-R-U-D for Boards
             | name | new name test board             |
             | desc | here goes new board description |
 
-    @delete.boards
+    @fixture.create.board
+    @delete.board
     Scenario: Delete a board
         Given Defines "DELETE" request to "/boards/board_id"
         When The request is sent
         Then The status code should be 200
 
-    @put.members
+    @fixture.get.member
+    @fixture.create.board
+    @add.member
+    @fixture.delete.board
     Scenario: Add a member to board
-        Given Defines "PUT" request to "/boards/board_id/members/5c3e9a20eb00262f95cfa8ff"
+        Given Defines "PUT" request to "/boards/board_id/members/member_id"
             | key  | value |
             | type | admin |
         When The request is sent
         Then The status code should be 200
         And The body response must be contains
             | key      | value                    |
-            | id       | 5c3e9a20eb00262f95cfa8ff |
-            | username | juanrivera89             |
             | type     | admin                    |
+
+    @fixture.get.member
+    @fixture.create.board
+    @fixture.create.member
+    @delete.member
+    @fixture.delete.board
+    Scenario: Delete a member from board
+        Given Defines "DELETE" request to "/boards/board_id/members/member_id"
+        When The request is sent
+        Then The status code should be 200

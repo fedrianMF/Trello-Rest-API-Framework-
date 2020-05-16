@@ -31,3 +31,23 @@ class CreateItems(Enum):
         """
         endpoint = "/boards/" + board_id
         request_manager.do_request(HttpMethods.DELETE.value, endpoint)
+
+    @staticmethod
+    def get_member_inf(request_manager):
+
+        endpoint = "/members/me"
+        status_code, json_response = request_manager.do_request(HttpMethods.GET.value, endpoint)
+        info_user = {
+            "id": json_response['id'],
+            "username": json_response['username']
+        }
+        return json_response['id'], info_user
+
+    @staticmethod
+    def add_member(request_manager, board_id, member_id):
+
+        body = {
+            "type": "admin"
+        }
+        endpoint = f"/boards/{board_id}/members/{member_id}"
+        request_manager.do_request(HttpMethods.PUT.value, endpoint, body)
