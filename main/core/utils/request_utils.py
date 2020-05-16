@@ -2,6 +2,7 @@
 
 
 import ast
+import jsonschema
 from jsonschema import validate
 from assertpy import assert_that
 from main.core.utils.boolean_utils import BooleanUtils
@@ -31,7 +32,7 @@ class RequestUtils:
         return data
 
     @staticmethod
-    def validate_body_schema(body, expected_data):
+    def validate_body_schema(json_response, json_schema):
         """Validatebody with expected_data
 
         :param body: object to verify
@@ -39,8 +40,11 @@ class RequestUtils:
         :param expected_data: object to compare
         :type value: obj
         """
-        # validate body here
-        validate(body, schema=expected_data)
+        try:
+            validate(instance=json_response, schema=json_schema)
+        except jsonschema.exceptions.ValidationError as err:
+            return False
+        return True
 
     @staticmethod
     def validate_body(expected_body, response_data):
