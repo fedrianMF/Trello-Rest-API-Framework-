@@ -25,7 +25,7 @@ class CreateItems(Enum):
         """ Create a board
 
         :param request_manager: request manager to create a board
-        :type context: RequestManager
+        :type request_manager: RequestManager
         :param board_id: request manager to create a board
         :type board_id: String
         """
@@ -34,9 +34,14 @@ class CreateItems(Enum):
 
     @staticmethod
     def get_member_inf(request_manager):
+        """ Get member information
 
+        :param request_manager: request manager to get a member information
+        :type request_manager: RequestManager
+        """
         endpoint = "/members/me"
-        status_code, json_response = request_manager.do_request(HttpMethods.GET.value, endpoint)
+        status_code, json_response = \
+            request_manager.do_request(HttpMethods.GET.value, endpoint)    # pylint: disable=W0612
         info_user = {
             "id": json_response['id'],
             "username": json_response['username']
@@ -45,7 +50,15 @@ class CreateItems(Enum):
 
     @staticmethod
     def add_member(request_manager, board_id, member_id):
+        """ Add a member to board
 
+        :param request_manager: request manager to add a member to board
+        :type request_manager: RequestManager
+        :param board_id: Board id to add a member
+        :type board_id: String
+        :param member_id: Member id for add to board
+        :type board_id: String
+        """
         body = {
             "type": "admin"
         }

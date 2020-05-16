@@ -1,7 +1,7 @@
 """Environment module for behave"""
 from behave.model_core import Status
 from main.core.request_manager import RequestsManager
-from features.tools.steps_utils import CreateItems as creator
+# from features.tools.steps_utils import CreateItems as creator
 import features.hooks.use_fixture as use_fixture
 
 

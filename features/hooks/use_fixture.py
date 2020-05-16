@@ -27,4 +27,3 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
                                               context.config.userdata['otheruser_oauth_token'])
 
             context.newuser_id, context.info_user = creator.get_member_inf(request_manager)
-            
