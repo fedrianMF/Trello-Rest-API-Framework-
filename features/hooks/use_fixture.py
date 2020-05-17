@@ -16,6 +16,8 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
             context.board_id = creator.create_board(context.rm)
         elif 'list' in tag:
             context.list_id = creator.create_list(context.rm, context.board_id)
+        elif 'card' in tag:
+            context.card_id = creator.create_card(context.rm, context.list_id)
         elif 'member' in tag:
             Member.add_member(context.board_id, context.newuser_id, "admin")
 
@@ -23,8 +25,13 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
         if 'board' in tag:
             Boards.delete_board(context.board_id)
             creator.delete_board(context.rm, context.board_id)
+            context.board_id = ""
         elif 'list' in tag:
             creator.delete_list(context.rm, context.list_id)
+            context.list_id = ""
+        elif 'card' in tag:
+            creator.delete_card(context.rm, context.card_id)
+            context.card_id = ""
 
     elif 'get.' in tag:
         if 'member' in tag:

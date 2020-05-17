@@ -1,52 +1,45 @@
 @fixture.create.board
-@fixture.delete.board
 @fixture.create.list
-@fixture.delete.list
+#@fixture.delete.list
+@fixture.delete.board
 Feature: C-R-U-D for Cards
 
-    @fixture.create.list
-    @fixture.delete.list
-    Scenario: Get a List
-        Given Defines "GET" request to "/lists/{id}"
+    @fixture.create.card
+    @fixture.delete.card
+    Scenario: Get a Card
+        Given Defines "GET" request to "/cards/{id}"
         When The request is sent
         Then The status code should be 200
 
-    @fixture.delete.list
-    Scenario: Create a List
-        Given Defines "POST" request to "/lists/"
-            | key    | value                    |
-            | name   | MyTestListForPOST        |
+    @fixture.delete.card
+    Scenario: Create a Card
+        Given Defines "POST" request to "/cards/"
+            | key    | value             |
+            | name   | MyTestCardForPOST |
         When The request is sent
         Then The status code should be 200
         And The body response must be contains
             | key     |  value                   |
-            | name    | MyTestListForPOST        |
+            | name    | MyTestCardForPOST        |
             #| closed  | false                    |
             #| idBoard | 5ebdb48025f737334afb2d56 |
 
-    @fixture.create.list
-    @fixture.delete.list
+    @fixture.create.card
+    @fixture.delete.card
     Scenario: Update a List
-        Given Defines "PUT" request to "/lists/{id}"
+        Given Defines "PUT" request to "/cards/{id}"
             | key  |   value            |
-            | name |  MyTestListForPUT  |
+            | name |  MyTestCardForPUT  |
         When The request is sent
         Then The status code should be 200
         And The body response must be contains
             |key     | value                    |
-            |name    | MyTestListForPUT         |
+            |name    | MyTestCardForPUT         |
             #|closed  | true                     |
             #|idBoard | 5ebddb511d1a7e4c088459ba |
     
-    @fixture.create.list
+    @fixture.create.card
     Scenario: Delete a list
-        Given Defines "PUT" request to "/lists/{id}/closed"
-            | key   | value |
-            | value | true  |
+        Given Defines "DELETE" request to "/cards/{id}"
         When The request is sent
         Then The status code should be 200
-        And The body response must be contains
-            |key     | value                     |
-            |name    | List create at before tag |
-            #|closed  | true                     |
-            #|idBoard | 5ebddb511d1a7e4c088459ba |
