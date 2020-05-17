@@ -24,14 +24,17 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     context.endpoint = endpoint
     context.http_method = http_method
     context.data_table = context.table
-
-    # felix list
-    if context.board_id != "" and http_method == HttpMethods.POST.value:
-        context.data_table.add_row(['idBoard', context.board_id])
-    elif context.board_id != "" and context.http_method == HttpMethods.PUT.value:
-        context.endpoint = context.endpoint.replace("{id}", context.list_id)
-    elif context.board_id != "" and context.http_method == HttpMethods.GET.value:
-        context.endpoint = context.endpoint.replace("{id}", context.list_id)
+    # felix
+    if 'lists' in endpoint:
+        if http_method == HttpMethods.POST.value:
+            context.data_table.add_row(['idBoard', context.board_id])
+        else:
+            context.endpoint = endpoint.replace('{id}', context.list_id)
+    if 'cards' in endpoint:
+        if http_method == HttpMethods.POST.value:
+            context.data_table.add_row(['idList', context.list_id])
+        else:
+            context.endpoint = endpoint.replace('{id}', context.card_id)
 
 
 @step(u"The request is sent")
@@ -49,7 +52,10 @@ def step_impl_send(context):
                                                                        context.data_table)
     if 'id' in context.json_response:
         if 'idBoard' in context.json_response:
-            context.list_id = context.json_response['id']
+            if 'idList' in context.json_response:
+                context.card_id = context.json_response['id']
+            else:
+                context.list_id = context.json_response['id']
         else:
             context.board_id = context.json_response['id']
 

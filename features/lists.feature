@@ -3,13 +3,13 @@
 Feature: C-R-U-D for Lists
 
     @fixture.create.list
-    @fixture.delete.list
+    #@fixture.delete.list
     Scenario: Get a List
         Given Defines "GET" request to "/lists/{id}"
         When The request is sent
         Then The status code should be 200
 
-    @fixture.delete.list
+    #@fixture.delete.list
     Scenario: Create a List
         Given Defines "POST" request to "/lists/"
             | key    | value                    |
@@ -23,7 +23,7 @@ Feature: C-R-U-D for Lists
             #| idBoard | 5ebdb48025f737334afb2d56 |
 
     @fixture.create.list
-    @fixture.delete.list
+    #@fixture.delete.list
     Scenario: Update a List
         Given Defines "PUT" request to "/lists/{id}"
             | key  |   value            |
