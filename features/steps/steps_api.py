@@ -1,5 +1,4 @@
 """Module for example steps"""
-# import time
 import json
 import os
 from behave import step  # pylint: disable=E0611
@@ -35,7 +34,6 @@ def step_impl_send(context):
     :param context: Global context from behave
     :type context: obj
     """
-    # time.sleep(5)
     context.status_code, context.json_response = context.rm.do_request(context.http_method,
                                                                        context.endpoint,
                                                                        context.data_table)
@@ -52,7 +50,6 @@ def step_impl_status(context, status_code):
     :param status_code: status code retrieved
     :type status_code: int
     """
-    # time.sleep(5)
     assert_that(context.status_code).is_equal_to(status_code)
 
 
@@ -69,8 +66,6 @@ def step_impl_validate_body(context):
     assert_that(r_utils.validate_body(body_response, context.json_response),
                 f"Expected that {context.json_response} no contains {body_response} items"
                 ).is_true()
-    # assert_that(body_response.items() <= context.json_response.items(),
-    #             f"Expected that {body_response} is in {context.json_response}").is_true()
 
 
 @step(u'The schema is validated with "{schema}"')

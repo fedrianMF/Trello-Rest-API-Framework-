@@ -12,7 +12,8 @@ class RequestsManager:  # pylint: disable=R0903
         self.headers = {"Accept": "application/json"}
         self.auth = OAuth1(key, token, token, oauth_token)
 
-    def do_request(self, http_method, endpoint, body=None):
+    def do_request(self, http_method, endpoint, body=None,  # pylint: disable=R0913
+                   key=None, token=None, oauth_token=None):
         """Sends request
 
         :param http_method: HTTP method
@@ -20,6 +21,9 @@ class RequestsManager:  # pylint: disable=R0903
         :param endpoint: Application's endpoint method
         :type endpoint: obj
         """
+        auth = self.auth
+        if token:
+            self.auth = OAuth1(key, token, token, oauth_token)
         if not isinstance(body, dict):
             body = utils.generate_data(body)
         url = f"{self.basic_url}{endpoint}"
@@ -30,4 +34,5 @@ class RequestsManager:  # pylint: disable=R0903
         else:
             response = requests.request(str(http_method), url,
                                         auth=self.auth, params=body)
+        self.auth = auth
         return response.status_code, response.json()

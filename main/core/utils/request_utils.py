@@ -53,15 +53,10 @@ class RequestUtils:
         :param value: object to verify
         :type value: obj
         """
-        # validate body here
         for key, value in expected_body.items():
             if not has_value(response_data, value):
                 return False
         return True
-
-        # assert_that(expected_data.items() <= body.items(),
-        #             f"Expected that {expected_data} is in {body}").is_true()
-        # BodyValidator.validate(context.json_response, context.table)
 
 
 def has_value(obj, val):
