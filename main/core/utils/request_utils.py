@@ -4,7 +4,6 @@
 import ast
 import jsonschema
 from jsonschema import validate
-from assertpy import assert_that
 from main.core.utils.boolean_utils import BooleanUtils
 
 
@@ -42,7 +41,7 @@ class RequestUtils:
         """
         try:
             validate(instance=json_response, schema=json_schema)
-        except jsonschema.exceptions.ValidationError as err:
+        except jsonschema.exceptions.ValidationError:
             return False
         return True
 
@@ -53,20 +52,27 @@ class RequestUtils:
         :param value: object to verify
         :type value: obj
         """
-        for key, value in expected_body.items():
+        for value in expected_body.values():
             if not has_value(response_data, value):
                 return False
         return True
 
 
 def has_value(obj, val):
+    """Verify if the val is in the object
+
+    :param obj: object to verify
+    :type onj: obj
+    :param val: value to verify
+    :type val: obj
+    """
     if isinstance(obj, dict):
         values = obj.values()
     elif isinstance(obj, list):
         values = obj
     if val in values:
         return True
-    for v in values:
-        if isinstance(v, (dict, list)) and has_value(v, val):
+    for current_val in values:
+        if isinstance(current_val, (dict, list)) and has_value(current_val, val):
             return True
     return False

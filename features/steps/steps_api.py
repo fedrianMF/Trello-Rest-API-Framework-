@@ -1,10 +1,9 @@
 """Module for example steps"""
-import json
-import os
 from behave import step  # pylint: disable=E0611
 from assertpy import assert_that
 from main.core.utils.api_constants import HttpMethods
 from main.core.utils.request_utils import RequestUtils as r_utils
+from main.core.utils.file_reader import FileReader
 
 
 @step(u'Defines "{http_method}" request to "{endpoint}"')
@@ -77,7 +76,6 @@ def step_impl_validate_schema(context, schema):
     :param schema: name schema file
     :type schema: String
     """
-    with open(f'{os.getcwd()}/schemas/{schema}') as archive:
-        json_schema = json.load(archive)
+    json_schema = FileReader.read_schema(schema)
     assert_that(r_utils.validate_body_schema(context.json_response, json_schema),
                 f"The response should contains {json_schema}").is_true()
