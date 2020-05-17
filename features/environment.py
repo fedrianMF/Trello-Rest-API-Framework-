@@ -1,4 +1,5 @@
 """Environment module for behave"""
+# import time
 from behave.model_core import Status
 from main.core.request_manager import RequestsManager
 import features.hooks.use_fixture as use_fixture
@@ -17,10 +18,6 @@ def before_scenario(context, scenario):  # pylint: disable=W0613
     """Before scenario hook
     """
     print(f"=============Started {scenario.name}")
-    if scenario.name == "Update a List" or scenario.name == "Archive a list"\
-       or scenario.name == "Move List to Board":
-        temp_body_list_respose = context.rm.post_request_to_list()
-        context.temp_id_list = temp_body_list_respose['id']
 
 
 def after_scenario(context, scenario):  # pylint: disable=W0613
@@ -41,6 +38,7 @@ def before_tag(context, tag):
 def after_tag(context, tag):
     """Just a simple after_tag hook
     """
+    # time.sleep(5)
     if tag.startswith("fixture.delete"):
         use_fixture.use_fixture_by_tag(tag, context)
 

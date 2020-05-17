@@ -13,12 +13,18 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
         if 'board' in tag:
             context.board_id = Boards.create_board("test board create at before tags",
                                                    "test description board")
+            context.board_id = creator.create_board(context.rm)
+        elif 'list' in tag:
+            context.list_id = creator.create_list(context.rm, context.board_id)
         elif 'member' in tag:
             Member.add_member(context.board_id, context.newuser_id, "admin")
 
     elif 'delete.' in tag:
         if 'board' in tag:
             Boards.delete_board(context.board_id)
+            creator.delete_board(context.rm, context.board_id)
+        elif 'list' in tag:
+            creator.delete_list(context.rm, context.list_id)
 
     elif 'get.' in tag:
         if 'member' in tag:

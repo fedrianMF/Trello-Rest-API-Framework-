@@ -1,50 +1,52 @@
-@crud_for_list
-Feature: For Lists
-    @post.list
-    Scenario: Create a new List
+@fixture.create.board
+@fixture.delete.board
+Feature: C-R-U-D for Lists
+
+    @fixture.create.list
+    @fixture.delete.list
+    Scenario: Get a List
+        Given Defines "GET" request to "/lists/{id}"
+        When The request is sent
+        Then The status code should be 200
+
+    @fixture.delete.list
+    Scenario: Create a List
         Given Defines "POST" request to "/lists/"
             | key    | value                    |
             | name   | MyTestListForPOST        |
-            | idBoard| 5ebdb48025f737334afb2d56 |
         When The request is sent
         Then The status code should be 200
-        And Validates response body with
+        And The body response must be contains
             | key     |  value                   |
-            #| id      | 5ebddd1384818348082c1eea |
             | name    | MyTestListForPOST        |
             #| closed  | false                    |
-            #| pos     | 8192                     |
-            | idBoard | 5ebdb48025f737334afb2d56 |
-            #| limits  | {}                       |
+            #| idBoard | 5ebdb48025f737334afb2d56 |
 
-    @put.list
+    @fixture.create.list
+    @fixture.delete.list
     Scenario: Update a List
         Given Defines "PUT" request to "/lists/{id}"
             | key  |   value            |
             | name |  MyTestListForPUT  |
         When The request is sent
         Then The status code should be 200
-        And Validates response body with
+        And The body response must be contains
             |key     | value                    |
-            #|id      | 5ebddd1384818348082c1eea |
             |name    | MyTestListForPUT         |
             #|closed  | true                     |
-            #|pos     | 8192                     |
             #|idBoard | 5ebddb511d1a7e4c088459ba |
     
-    @delete.list
-    Scenario: Archive a list
+    @fixture.create.list
+    Scenario: Delete a list
         Given Defines "PUT" request to "/lists/{id}/closed"
-            | key  |   value |
-            | value |  true  |
+            | key   | value |
+            | value | true  |
         When The request is sent
         Then The status code should be 200
-        And Validates response body with
-            |key     | value                    |
-            #|id      | 5ebddd1384818348082c1eea |
-            |name    | temporalList            |
+        And The body response must be contains
+            |key     | value                     |
+            |name    | List create at before tag |
             #|closed  | true                     |
-            #|pos     | 8192                     |
             #|idBoard | 5ebddb511d1a7e4c088459ba |
 
     # @move.cards
@@ -72,17 +74,19 @@ Feature: For Lists
     #     #request {}
     #     #And Validates response body with
 
-    @move.list
-    Scenario: Move List to Board
-        Given Defines "PUT" request to "/lists/{id}/idBoard"
-            | key   | value                    |
-            | value | 5ebddb511d1a7e4c088459ba |
-        When The request is sent
-        Then The status code should be 200
-        And Validates response body with
-            |key     | value                    |
-            #|id      | 5ebde4d289a5bb4c62cb72c1 |
-            |name    | temporalList                      |
-            #|closed  | false                    |
-            #|pos     | 32768                    |
-            |idBoard | 5ebddb511d1a7e4c088459ba |
+    # @fixture.create.board
+    # @fixture.create.list
+    # @fixture.delete.list
+    # Scenario: Move List to Board
+    #     Given Defines "PUT" request to "/lists/{id}/idBoard"
+    #         | key   | value                    |
+    #         | value | 5ebddb511d1a7e4c088459ba |
+    #     When The request is sent
+    #     Then The status code should be 200
+    #     And The body response must be contains
+    #         |key     | value                    |
+    #         #|id      | 5ebde4d289a5bb4c62cb72c1 |
+    #         |name    | temporalList                      |
+    #         #|closed  | false                    |
+    #         #|pos     | 32768                    |
+    #         |idBoard | 5ebddb511d1a7e4c088459ba |
