@@ -4,10 +4,10 @@ from main.core.request_manager import RequestsManager
 from main.core.utils.api_constants import HttpMethods
 
 
-class Lists:
+class ListsAPI:
     '''Utils for List endpoint'''
     @staticmethod
-    def create(board_id):
+    def create_list(board_id):
         """ Create a list inside a board
 
         :param board_id: id of Board where list will create
@@ -23,7 +23,7 @@ class Lists:
         return json_response['id']
 
     @staticmethod
-    def delete(list_id):
+    def delete_list(list_id):
         """ Delete a list
 
         :param request_manager: request manager

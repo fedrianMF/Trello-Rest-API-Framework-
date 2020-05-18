@@ -19,8 +19,6 @@ Feature: C-R-U-D for Lists
         And The body response must be contains
             | key     |  value                   |
             | name    | MyTestListForPOST        |
-            #| closed  | false                    |
-            #| idBoard | 5ebdb48025f737334afb2d56 |
 
     @fixture.create.list
     #@fixture.delete.list
@@ -33,8 +31,6 @@ Feature: C-R-U-D for Lists
         And The body response must be contains
             |key     | value                    |
             |name    | MyTestListForPUT         |
-            #|closed  | true                     |
-            #|idBoard | 5ebddb511d1a7e4c088459ba |
     
     @fixture.create.list
     Scenario: Delete a list
@@ -46,8 +42,6 @@ Feature: C-R-U-D for Lists
         And The body response must be contains
             |key     | value                     |
             |name    | List create at before tag |
-            #|closed  | true                     |
-            #|idBoard | 5ebddb511d1a7e4c088459ba |
 
     # @move.cards
     # Scenario: Move all Cards in List
