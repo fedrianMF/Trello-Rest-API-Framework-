@@ -13,7 +13,7 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
     """
     if 'create.' in tag:
         if 'board' in tag:
-            context.board_id = Boards.create("test board create at before tags",
+            context.board_id = Boards.create_board("test board create at before tags",
                                              "test description board")
         elif 'list' in tag:
             context.list_id = Lists.create(context.board_id)
@@ -24,14 +24,14 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
 
     elif 'delete.' in tag:
         if 'board' in tag:
-            Boards.delete(context.board_id)
-            context.board_id = ""
+            Boards.delete_board(context.board_id)
+            # context.board_id = ""
         elif 'list' in tag:
             Lists.delete(context.list_id)
-            context.list_id = ""
+            # context.list_id = ""
         elif 'card' in tag:
             Cards.delete(context.card_id)
-            context.card_id = ""
+            # context.card_id = ""
 
     elif 'get.' in tag:
         if 'member' in tag:
