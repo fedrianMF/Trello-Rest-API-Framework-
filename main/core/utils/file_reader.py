@@ -12,5 +12,5 @@ class FileReader:   # pylint: disable=R0903
         :param file_name: name of file to read
         :type file_name: String
         """
-        with open(f'{os.getcwd()}/schemas/{file_name}') as archive:
+        with open(f'{os.getcwd()}/main/resources/schemas/{file_name}') as archive:
             return json.load(archive)
