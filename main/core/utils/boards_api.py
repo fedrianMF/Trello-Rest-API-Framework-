@@ -3,13 +3,6 @@
 from main.core.request_manager import RequestsManager
 from main.core.utils.api_constants import HttpMethods
 
-REQUEST_MANAGER = RequestsManager(
-    'https://api.trello.com/1/',
-    'b874df46c1932f121f176125ecc3c52a',
-    '01707264bda9655469300c5e744d5b7b1f0bb4aec548191bb8d524190ee380ad',
-    'a1104796d5352c73d54794a0eb3bd3daa1a95fb769b253b19b0c1833cfb33679'
-)
-
 
 class Boards:
     """Utils for Boards endpoint"""
@@ -23,11 +16,12 @@ class Boards:
         :param desc: Description for the new board
         :type desc: String
         """
+        request_manager = RequestsManager()
         body = {
             "name": name,
             "desc": desc
         }
-        status_code, json_response = REQUEST_MANAGER.do_request(HttpMethods.POST.value,   # pylint: disable=W0612
+        status_code, json_response = request_manager.do_request(HttpMethods.POST.value,   # pylint: disable=W0612
                                                                 "/boards/", body)
         return json_response['id']
 
@@ -40,5 +34,6 @@ class Boards:
         :param board_id: request manager to create a board
         :type board_id: String
         """
+        request_manager = RequestsManager()
         endpoint = "/boards/" + board_id
-        REQUEST_MANAGER.do_request(HttpMethods.DELETE.value, endpoint)
+        request_manager.do_request(HttpMethods.DELETE.value, endpoint)

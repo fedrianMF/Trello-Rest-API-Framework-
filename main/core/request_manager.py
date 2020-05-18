@@ -4,10 +4,26 @@ from requests_oauthlib import OAuth1
 from main.core.utils.request_utils import RequestUtils as utils
 
 
+def singleton(cls):
+    """ Singleton
+
+        :param cls: class to instance
+        :type cls: class
+    """
+    instance = dict()
+
+    def wrap(*args, **kwargs):
+        if cls not in instance:
+            instance[cls] = cls(*args, **kwargs)
+        return instance[cls]
+    return wrap
+
+
+@singleton
 class RequestsManager:  # pylint: disable=R0903
     """Request Manager basic Implementation"""
 
-    def __init__(self, url, key, token, oauth_token):
+    def __init__(self, url=None, key=None, token=None, oauth_token=None):
         self.basic_url = url
         self.headers = {"Accept": "application/json"}
         self.auth = OAuth1(key, token, token, oauth_token)
