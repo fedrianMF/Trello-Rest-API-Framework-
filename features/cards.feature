@@ -21,8 +21,6 @@ Feature: C-R-U-D for Cards
         And The body response must be contains
             | key     |  value                   |
             | name    | MyTestCardForPOST        |
-            #| closed  | false                    |
-            #| idBoard | 5ebdb48025f737334afb2d56 |
 
     @fixture.create.card
     @fixture.delete.card
@@ -35,8 +33,6 @@ Feature: C-R-U-D for Cards
         And The body response must be contains
             |key     | value                    |
             |name    | MyTestCardForPUT         |
-            #|closed  | true                     |
-            #|idBoard | 5ebddb511d1a7e4c088459ba |
     
     @fixture.create.card
     Scenario: Delete a list

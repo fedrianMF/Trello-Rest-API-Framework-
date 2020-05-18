@@ -4,10 +4,10 @@ from main.core.request_manager import RequestsManager
 from main.core.utils.api_constants import HttpMethods
 
 
-class Cards:
+class CardsAPI:
     '''Utils for Cards endpoint'''
     @staticmethod
-    def create(list_id):
+    def create_card(list_id):
         """ Create a card inside a list
 
         :param request_manager: request manager to create a board
@@ -23,7 +23,7 @@ class Cards:
         return json_response['id']
 
     @staticmethod
-    def delete(card_id):
+    def delete_card(card_id):
         """ Delete a list
 
         :param request_manager: request manager

@@ -24,7 +24,6 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     context.endpoint = endpoint
     context.http_method = http_method
     context.data_table = context.table
-    # felix
     if 'lists' in endpoint:
         if http_method == HttpMethods.POST.value:
             context.data_table.add_row(['idBoard', context.board_id])
