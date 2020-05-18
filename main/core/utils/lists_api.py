@@ -14,13 +14,12 @@ class Lists:
         :type board_id: String
         """
         request_manager = RequestsManager()
-        auxurl = "/lists"
         body = {
             "name": "List create at before tag",
             "idBoard": board_id
         }
         status_code, json_response = request_manager.do_request(HttpMethods.POST.value,  # pylint: disable=W0612
-                                                   auxurl, body)
+                                                                "/lists", body)
         return json_response['id']
 
     @staticmethod

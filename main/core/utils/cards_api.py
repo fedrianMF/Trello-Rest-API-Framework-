@@ -14,13 +14,12 @@ class Cards:
         :type request_manager: RequestManager
         """
         request_manager = RequestsManager()
-        auxurl = "/cards"
         body = {
             "name": "Card create at before tag",
             "idList": list_id
         }
         status_code, json_response = request_manager.do_request(HttpMethods.POST.value,  # pylint: disable=W0612
-                                                   auxurl, body)
+                                                                "/cards", body)
         return json_response['id']
 
     @staticmethod

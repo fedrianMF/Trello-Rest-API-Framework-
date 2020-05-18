@@ -28,10 +28,10 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
             context.board_id = ""
         elif 'list' in tag:
             Lists.delete(context.list_id)
-            # context.list_id = ""
+            context.list_id = ""
         elif 'card' in tag:
             Cards.delete(context.card_id)
-            # context.card_id = ""
+            context.card_id = ""
 
     elif 'get.' in tag:
         if 'member' in tag:
