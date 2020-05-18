@@ -8,6 +8,7 @@ Feature: C-R-U-D for Lists
         Given Defines "GET" request to "/lists/{id}"
         When The request is sent
         Then The status code should be 200
+        And The schema is validated with "list_get_schema.json"
 
     #@fixture.delete.list
     Scenario: Create a List
@@ -16,6 +17,7 @@ Feature: C-R-U-D for Lists
             | name   | MyTestListForPOST        |
         When The request is sent
         Then The status code should be 200
+        And The schema is validated with "list_create_schema.json"
         And The body response must be contains
             | key     |  value                   |
             | name    | MyTestListForPOST        |
@@ -28,6 +30,7 @@ Feature: C-R-U-D for Lists
             | name |  MyTestListForPUT  |
         When The request is sent
         Then The status code should be 200
+        And The schema is validated with "list_update_schema.json"
         And The body response must be contains
             |key     | value                    |
             |name    | MyTestListForPUT         |
