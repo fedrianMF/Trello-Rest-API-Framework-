@@ -4,7 +4,7 @@ from main.core.request_manager import RequestsManager
 from main.core.utils.api_constants import HttpMethods
 
 
-class Boards:
+class BoardsAPI:
     """Utils for Boards endpoint"""
 
     @staticmethod
@@ -37,3 +37,21 @@ class Boards:
         request_manager = RequestsManager()
         endpoint = "/boards/" + board_id
         request_manager.do_request(HttpMethods.DELETE.value, endpoint)
+
+    @staticmethod
+    def add_member_to_board(board_id, member_id, type_user):
+        """ Add a member to board
+
+        :param request_manager: request manager to add a member to board
+        :type request_manager: RequestManager
+        :param board_id: Board id to add a member
+        :type board_id: String
+        :param member_id: Member id for add to board
+        :type board_id: String
+        """
+        request_manager = RequestsManager()
+        body = {
+            "type": type_user
+        }
+        endpoint = f"/boards/{board_id}/members/{member_id}"
+        request_manager.do_request(HttpMethods.PUT.value, endpoint, body)

@@ -4,7 +4,7 @@ from main.core.request_manager import RequestsManager
 from main.core.utils.api_constants import HttpMethods
 
 
-class Member:
+class MemberAPI:    # pylint: disable=R0903
     """Utils for Members endpoint"""
 
     @staticmethod
@@ -29,21 +29,3 @@ class Member:
             "username": json_response['username']
         }
         return info_user
-
-    @staticmethod
-    def add_member(board_id, member_id, type_user):
-        """ Add a member to board
-
-        :param request_manager: request manager to add a member to board
-        :type request_manager: RequestManager
-        :param board_id: Board id to add a member
-        :type board_id: String
-        :param member_id: Member id for add to board
-        :type board_id: String
-        """
-        request_manager = RequestsManager()
-        body = {
-            "type": type_user
-        }
-        endpoint = f"/boards/{board_id}/members/{member_id}"
-        request_manager.do_request(HttpMethods.PUT.value, endpoint, body)
