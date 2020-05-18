@@ -1,6 +1,8 @@
 """Module for hooks"""
 from main.core.utils.boards_api import BoardsAPI
 from main.core.utils.member_api import MemberAPI
+from main.core.utils.lists_api import Lists
+from main.core.utils.cards_api import Cards
 
 
 def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
@@ -13,12 +15,23 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
         if 'board' in tag:
             context.board_id = BoardsAPI.create_board("test board create at before tags",
                                                       "test description board")
+        elif 'list' in tag:
+            context.list_id = Lists.create(context.board_id)
+        elif 'card' in tag:
+            context.card_id = Cards.create(context.list_id)
         elif 'member' in tag:
             BoardsAPI.add_member_to_board(context.board_id, context.newuser_id, "admin")
 
     elif 'delete.' in tag:
         if 'board' in tag:
             BoardsAPI.delete_board(context.board_id)
+            context.board_id = ""
+        elif 'list' in tag:
+            Lists.delete(context.list_id)
+            context.list_id = ""
+        elif 'card' in tag:
+            Cards.delete(context.card_id)
+            context.card_id = ""
 
     elif 'get.' in tag:
         if 'member' in tag:

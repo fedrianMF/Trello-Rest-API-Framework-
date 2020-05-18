@@ -36,8 +36,6 @@ class RequestsManager:  # pylint: disable=R0903
         :type http_method: string
         :param endpoint: Application's endpoint method
         :type endpoint: obj
-        :param body: body of request
-        :type endpoint: String
         """
         auth = self.auth
         if token:

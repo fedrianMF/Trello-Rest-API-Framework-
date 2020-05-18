@@ -1,5 +1,4 @@
 """Environment module for behave"""
-# import time
 from behave.model_core import Status
 from main.core.request_manager import RequestsManager
 import features.hooks.use_fixture as use_fixture
@@ -38,7 +37,6 @@ def before_tag(context, tag):
 def after_tag(context, tag):
     """Just a simple after_tag hook
     """
-    # time.sleep(5)
     if tag.startswith("fixture.delete"):
         use_fixture.use_fixture_by_tag(tag, context)
 
