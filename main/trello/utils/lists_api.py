@@ -1,7 +1,7 @@
 '''Module for lists manage'''
 
 from main.core.request_manager import RequestsManager as RM
-from main.trello.utils.api_constants import HttpMethods
+from main.core.utils.api_constants import HttpMethods
 
 
 class ListsAPI:
