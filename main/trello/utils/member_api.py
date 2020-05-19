@@ -1,7 +1,7 @@
 """Module for Members manage"""
 
 from main.core.request_manager import RequestsManager as RM
-from main.trello.utils.api_constants import HttpMethods
+from main.core.utils.api_constants import HttpMethods
 
 
 class MemberAPI:    # pylint: disable=R0903
@@ -20,7 +20,8 @@ class MemberAPI:    # pylint: disable=R0903
         """
         endpoint = "/members/me"
         status_code, json_response = RM.get_instance().do_request(  # pylint: disable=W0612
-            HttpMethods.GET.value, endpoint, auth=auth2)
+            HttpMethods.GET.value, endpoint,
+            auth=auth2)
         info_user = {
             "id": json_response['id'],
             "username": json_response['username']
