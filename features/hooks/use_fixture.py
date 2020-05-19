@@ -25,13 +25,10 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
     elif 'delete.' in tag:
         if 'board' in tag:
             BoardsAPI.delete_board(context.board_id)
-            context.board_id = ""
         elif 'list' in tag:
             ListsAPI.delete_list(context.list_id)
-            context.list_id = ""
         elif 'card' in tag:
             CardsAPI.delete_card(context.card_id)
-            context.card_id = ""
 
     elif 'get.' in tag:
         if 'member' in tag:

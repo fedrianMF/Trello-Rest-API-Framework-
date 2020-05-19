@@ -32,6 +32,6 @@ class CardsAPI:
         :type board_id: String
         """
         request_manager = RequestsManager()
-        auxurl = "/cards/{id}"
-        auxurl = auxurl.replace("{id}", card_id)
-        request_manager.do_request(HttpMethods.DELETE.value, auxurl)   # pylint: disable=W0612
+        endpoint = "/cards/{id}"
+        endpoint = endpoint.replace("{id}", card_id)
+        request_manager.do_request(HttpMethods.DELETE.value, endpoint)   # pylint: disable=W0612

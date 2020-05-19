@@ -32,10 +32,9 @@ class ListsAPI:
         :type board_id: String
         """
         request_manager = RequestsManager()
-        auxurl = "/lists/{id}/closed"
-        auxurl.replace("{id}", list_id)
+        endpoint = "/lists/{id}/closed"
+        endpoint.replace("{id}", list_id)
         body = {
-            # Error here
             "value": "true"
         }
-        request_manager.do_request(HttpMethods.PUT.value, auxurl, body)   # pylint: disable=W0612
+        request_manager.do_request(HttpMethods.PUT.value, endpoint, body)   # pylint: disable=W0612
