@@ -1,7 +1,7 @@
 """Module for requests"""
 import requests
 from requests import Session
-from main.core.utils.request_utils import RequestUtils as utils
+from main.trello.utils.request_utils import RequestUtils as utils
 
 
 class RequestsManager:  # pylint: disable=R0903
