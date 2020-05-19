@@ -1,4 +1,4 @@
-'''Module for lists'''
+'''Module for lists manage'''
 
 from main.core.request_manager import RequestsManager
 from main.core.utils.api_constants import HttpMethods
