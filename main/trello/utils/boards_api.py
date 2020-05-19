@@ -8,7 +8,7 @@ class BoardsAPI:
     """Utils for Boards endpoint"""
 
     @staticmethod
-    def create_board(name, desc):
+    def create_board():
         """ Create a board
 
         :param name: Name for the new board
@@ -17,8 +17,8 @@ class BoardsAPI:
         :type desc: String
         """
         body = {
-            "name": name,
-            "desc": desc
+            "name": "test board create at before tags",
+            "desc": "test description board"
         }
         status_code, json_response = RM.get_instance().do_request(HttpMethods.POST.value,   # pylint: disable=W0612
                                                                   "/boards/", body)
