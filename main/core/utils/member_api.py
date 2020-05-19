@@ -20,8 +20,7 @@ class MemberAPI:    # pylint: disable=R0903
         """
         endpoint = "/members/me"
         status_code, json_response = RM.get_instance().do_request(  # pylint: disable=W0612
-            HttpMethods.GET.value, endpoint,
-            auth=auth2)
+            HttpMethods.GET.value, endpoint, auth=auth2)
         info_user = {
             "id": json_response['id'],
             "username": json_response['username']
