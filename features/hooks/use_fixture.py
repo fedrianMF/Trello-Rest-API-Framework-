@@ -35,6 +35,7 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
         if 'member' in tag:
             context.auth_sec = OAuth1(context.config.userdata['secondary_user_key'],
                                       context.config.userdata['secondary_user_token'],
+                                      context.config.userdata['secondary_user_token'],
                                       context.config.userdata['secondary_user_oauth_token'])
             context.info_user = MemberAPI.get_member_inf(context.auth_sec)
             #     context.config.userdata['secondary_user_key'],

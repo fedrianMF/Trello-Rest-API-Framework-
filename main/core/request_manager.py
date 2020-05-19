@@ -34,6 +34,7 @@ class RequestsManager:  # pylint: disable=R0903
         :param endpoint: Application's endpoint method
         :type endpoint: obj
         """
+        auth = self.auth
         self.auth = kwargs.get("auth", self.auth)
         if not isinstance(body, dict):
             body = utils.generate_data(body)
@@ -45,6 +46,7 @@ class RequestsManager:  # pylint: disable=R0903
         else:
             response = requests.request(str(http_method), url,
                                         auth=self.auth, params=body)
+        self.auth = auth
         return response.status_code, response.json()
 
     def close_session(self):
