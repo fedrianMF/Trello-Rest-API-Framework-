@@ -1,6 +1,5 @@
 @fixture.create.board
 @fixture.create.list
-#@fixture.delete.list
 @fixture.delete.board
 Feature: C-R-U-D for Cards
 
