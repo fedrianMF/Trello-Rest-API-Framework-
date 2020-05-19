@@ -1,6 +1,6 @@
 """Module for Boards manage"""
 
-from main.core.request_manager import RequestsManager
+from main.core.request_manager import RequestsManager as RM
 from main.core.utils.api_constants import HttpMethods
 
 
@@ -16,13 +16,12 @@ class BoardsAPI:
         :param desc: Description for the new board
         :type desc: String
         """
-        request_manager = RequestsManager()
         body = {
             "name": name,
             "desc": desc
         }
-        status_code, json_response = request_manager.do_request(HttpMethods.POST.value,   # pylint: disable=W0612
-                                                                "/boards/", body)
+        status_code, json_response = RM.get_instance().do_request(HttpMethods.POST.value,   # pylint: disable=W0612
+                                                                  "/boards/", body)
         return json_response['id']
 
     @staticmethod
@@ -34,9 +33,8 @@ class BoardsAPI:
         :param board_id: request manager to create a board
         :type board_id: String
         """
-        request_manager = RequestsManager()
         endpoint = "/boards/" + board_id
-        request_manager.do_request(HttpMethods.DELETE.value, endpoint)
+        RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)
 
     @staticmethod
     def add_member_to_board(board_id, member_id, type_user):
@@ -49,9 +47,8 @@ class BoardsAPI:
         :param member_id: Member id for add to board
         :type board_id: String
         """
-        request_manager = RequestsManager()
         body = {
             "type": type_user
         }
         endpoint = f"/boards/{board_id}/members/{member_id}"
-        request_manager.do_request(HttpMethods.PUT.value, endpoint, body)
+        RM.get_instance().do_request(HttpMethods.PUT.value, endpoint, body)

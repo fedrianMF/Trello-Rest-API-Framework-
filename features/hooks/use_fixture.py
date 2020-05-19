@@ -1,4 +1,5 @@
 """Module for hooks"""
+from requests_oauthlib import OAuth1
 from main.core.utils.boards_api import BoardsAPI
 from main.core.utils.member_api import MemberAPI
 from main.core.utils.lists_api import ListsAPI
@@ -32,9 +33,12 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
 
     elif 'get.' in tag:
         if 'member' in tag:
-            context.info_user = MemberAPI.get_member_inf(
-                context.config.userdata['secondary_user_key'],
-                context.config.userdata['secondary_user_token'],
-                context.config.userdata['secondary_user_oauth_token']
-            )
+            context.auth_sec = OAuth1(context.config.userdata['secondary_user_key'],
+                                      context.config.userdata['secondary_user_token'],
+                                      context.config.userdata['secondary_user_oauth_token'])
+            context.info_user = MemberAPI.get_member_inf(context.auth_sec)
+            #     context.config.userdata['secondary_user_key'],
+            #     context.config.userdata['secondary_user_token'],
+            #     context.config.userdata['secondary_user_oauth_token']
+            # )
             context.newuser_id = context.info_user['id']
