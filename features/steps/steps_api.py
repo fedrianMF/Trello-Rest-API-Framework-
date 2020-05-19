@@ -46,12 +46,11 @@ def step_impl_send(context):
     context.status_code, context.json_response = context.rm.do_request(context.http_method,
                                                                        context.endpoint,
                                                                        context.data_table)
-    if 'id' in context.json_response:
-        if 'idBoard' in context.json_response:
-            if 'idList' in context.json_response:
-                context.card_id = context.json_response['id']
-            else:
-                context.list_id = context.json_response['id']
+    if context.http_method == HttpMethods.POST.value:
+        if 'idBoard' in context.json_response and 'idList' in context.json_response:
+            context.card_id = context.json_response['id']
+        elif 'idBoard' in context.json_response:
+            context.list_id = context.json_response['id']
         else:
             context.board_id = context.json_response['id']
 

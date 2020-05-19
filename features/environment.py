@@ -10,6 +10,21 @@ def before_all(context):
     context.rm = RequestsManager.get_instance()
 
 
+def after_all(context):  # pylint: disable=W0613
+    """After all
+    """
+
+
+def before_feature(context, feature):  # pylint: disable=W0613
+    """Before feature hook
+    """
+
+
+def after_feature(context, feature):  # pylint: disable=W0613
+    """after feature hook
+    """
+
+
 def before_scenario(context, scenario):  # pylint: disable=W0613
     """Before scenario hook
     """
@@ -36,13 +51,3 @@ def after_tag(context, tag):
     """
     if tag.startswith("fixture.delete"):
         use_fixture.use_fixture_by_tag(tag, context)
-
-
-def before_feature(context, feature):  # pylint: disable=W0613
-    """Before feature hook
-    """
-
-
-def after_feature(context, feature):  # pylint: disable=W0613
-    """after feature hook
-    """

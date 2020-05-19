@@ -4,6 +4,7 @@ from main.trello.utils.boards_api import BoardsAPI
 from main.trello.utils.member_api import MemberAPI
 from main.trello.utils.lists_api import ListsAPI
 from main.trello.utils.cards_api import CardsAPI
+from main.core.request_manager import RequestsManager as RM
 
 
 def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
@@ -39,3 +40,13 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
                                       context.config.userdata['secondary_user_oauth_token'])
             context.info_user = MemberAPI.get_member_inf(context.auth_sec)
             context.newuser_id = context.info_user['id']
+
+
+    def post_resource(context, endpoint, tag, **kwargs):
+        """Basic hook to create board, list or card
+
+        :param context: Global context from behave
+        :type context: obj
+        :param tag: tag to be retrieved
+        """
+        RM.get_instance().do_request()
