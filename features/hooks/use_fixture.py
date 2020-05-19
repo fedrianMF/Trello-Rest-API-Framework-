@@ -87,13 +87,15 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
         :type context: obj
         :param tag: tag to be retrieved
         """
-        type_data = tag.split('.')[-1]
-        if type_data == 'board':
-            endpoint = "/" + type_data + "/" + context.id_dictionary[type_data]
-            RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)
-        elif type_data == 'list':
-            endpoint = "/" + type_data + "/" + context.id_dictionary[type_data]
-            RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)
-        else:
-            endpoint = "/" + type_data + "/" + context.id_dictionary[type_data]
-            RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)
+        endpoint = "/members/me"
+        context.auth_sec = OAuth1(context.config.userdata['secondary_user_key'],
+                                      context.config.userdata['secondary_user_token'],
+                                      context.config.userdata['secondary_user_token'],
+                                      context.config.userdata['secondary_user_oauth_token'])
+        status_code, json_response = RM.get_instance().do_request(  # pylint: disable=W0612
+            HttpMethods.GET.value, endpoint, auth=context.auth_sec)
+        context.info_user = {
+            "id": json_response['id'],
+            "username": json_response['username']
+        }
+        context.newuser_id = context.info_user['id']
