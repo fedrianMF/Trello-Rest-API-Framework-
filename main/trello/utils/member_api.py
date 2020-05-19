@@ -1,7 +1,7 @@
 """Module for Members manage"""
 
 from main.core.request_manager import RequestsManager as RM
-from main.core.utils.api_constants import HttpMethods
+from main.trello.utils.api_constants import HttpMethods
 
 
 class MemberAPI:    # pylint: disable=R0903

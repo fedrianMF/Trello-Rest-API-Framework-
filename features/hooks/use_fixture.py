@@ -1,9 +1,9 @@
 """Module for hooks"""
 from requests_oauthlib import OAuth1
-from main.core.utils.boards_api import BoardsAPI
-from main.core.utils.member_api import MemberAPI
-from main.core.utils.lists_api import ListsAPI
-from main.core.utils.cards_api import CardsAPI
+from main.trello.utils.boards_api import BoardsAPI
+from main.trello.utils.member_api import MemberAPI
+from main.trello.utils.lists_api import ListsAPI
+from main.trello.utils.cards_api import CardsAPI
 
 
 def use_fixture_by_tag(tag, context):  # pylint: disable=W0613

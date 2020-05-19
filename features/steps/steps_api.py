@@ -1,9 +1,9 @@
 """Module for example steps"""
 from behave import step  # pylint: disable=E0611
 from assertpy import assert_that
-from main.core.utils.api_constants import HttpMethods
-from main.core.utils.request_utils import RequestUtils as r_utils
-from main.core.utils.file_reader import FileReader
+from main.trello.utils.api_constants import HttpMethods
+from main.trello.utils.request_utils import RequestUtils as r_utils
+from main.trello.utils.file_reader import FileReader
 
 
 @step(u'Defines "{http_method}" request to "{endpoint}"')
