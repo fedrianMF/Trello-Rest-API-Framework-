@@ -1,7 +1,7 @@
 '''Module for cards manage'''
 
 from main.core.request_manager import RequestsManager as RM
-from main.core.utils.api_constants import HttpMethods
+from main.trello.utils.api_constants import HttpMethods
 
 
 class CardsAPI:
