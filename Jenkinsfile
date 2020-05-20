@@ -15,13 +15,25 @@ pipeline {
         }
         stage('Run test'){
             steps{
-                bat 'make test'
+                script{
+                    try{
+                       bat 'behave @rerun_failing.features -f allure -o reports/allure_reports ./features'  
+                    } catch(err){
+                        first_test_failed = true
+                    }
+                } 
+
             }
         }
         stage('Generate reports'){
+          when {
+                expression {
+                    first_test_failed
+                }
+            }
+
             steps{
                 bat 'behave -f html -o reports/html_reports/html_reports.html'
-                bat 'behave -f allure -o reports/allure_reports ./features'
             }
         }
         stage('reports') {
@@ -35,7 +47,16 @@ pipeline {
                                 results: [[path: 'reports/allure_reports']]
                         ])
                 }
-                publishHTML (target: [
+            }
+        }
+        stage('html'){
+          when {
+                expression {
+                    first_test_failed
+                }
+            }
+            steps{
+              publishHTML (target: [
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
@@ -43,7 +64,6 @@ pipeline {
                         reportFiles: 'html_reports.html',
                         reportName: "Reruned Tests"
                     ])
-
             }
         }
     }
