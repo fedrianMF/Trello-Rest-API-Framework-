@@ -11,7 +11,17 @@ pipeline {
                         credentialsId: 'gitlab-credential'
                     ]]
                 ])
-                bat 'allure --version'
+            }
+        }
+        stage('Run test'){
+            steps{
+                bat 'make test'
+            }
+        }
+        stage('Generate reports'){
+            steps{
+                bat 'behave -f html -o D:/reports.html'
+                bat 'behave -f allure -o ./reports ./features'
             }
         }
     }
