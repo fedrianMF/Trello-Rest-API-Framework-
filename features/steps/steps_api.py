@@ -24,6 +24,16 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     context.endpoint = endpoint
     context.http_method = http_method
     context.data_table = context.table
+    if 'lists' in endpoint:
+        if http_method == HttpMethods.POST.value:
+            context.data_table.add_row(['idBoard', context.board_id])
+        else:
+            context.endpoint = endpoint.replace('{id}', context.list_id)
+    if 'cards' in endpoint:
+        if http_method == HttpMethods.POST.value:
+            context.data_table.add_row(['idList', context.list_id])
+        else:
+            context.endpoint = endpoint.replace('{id}', context.card_id)
 
 
 @step(u"The request is sent")
@@ -37,7 +47,13 @@ def step_impl_send(context):
                                                                        context.endpoint,
                                                                        context.data_table)
     if 'id' in context.json_response:
-        context.board_id = context.json_response['id']
+        if 'idBoard' in context.json_response:
+            if 'idList' in context.json_response:
+                context.card_id = context.json_response['id']
+            else:
+                context.list_id = context.json_response['id']
+        else:
+            context.board_id = context.json_response['id']
 
 
 @step(u'The status code should be {status_code:d}')
