@@ -21,7 +21,7 @@ pipeline {
         stage('Generate reports'){
             steps{
                 bat 'behave -f html -o D:/reports.html'
-                bat 'behave -f allure -o ./reports ./features'
+                bat 'behave -f allure -o reports/allure_reports ./features'
             }
         }
         stage('reports') {
@@ -32,7 +32,7 @@ pipeline {
                                 jdk: '',
                                 properties: [],
                                 reportBuildPolicy: 'ALWAYS',
-                                results: [[path: './reports']]
+                                results: [[path: 'reports/allure_reports']]
                         ])
                 }
             }
