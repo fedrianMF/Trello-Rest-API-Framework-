@@ -17,7 +17,7 @@ pipeline {
       steps{
         script{
           try{
-            bat 'behave @rerun_failing.features -f allure -o reports/allure_reports ./features'  
+            bat 'behave -f allure -o reports/allure_reports ./features'  
           } catch(err){
             first_test_failed = true
           }
@@ -30,10 +30,9 @@ pipeline {
           first_test_failed
         }
       }
-
       steps{
         catchError(buildResult:'SUCCESS', stageResult:'FAILURE'){
-          bat 'behave -f html -o reports/html_reports/html_reports.html'
+          bat 'behave @rerun_failing.features -f html -o reports/html_reports/html_reports.html'
         }
       }
     }
@@ -48,23 +47,16 @@ pipeline {
             results: [[path: 'reports/allure_reports']]
           ])
         }
-      }
-    }
-    stage('html'){
-      when {
-        expression {
-          first_test_failed
+        catchError(buildResult:'SUCCESS', stageResult:'SUCCESS'){
+          publishHTML (target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'reports/html_reports',
+            reportFiles: 'html_reports.html',
+            reportName: "Reruned Tests"
+          ])
         }
-      }
-      steps{
-        publishHTML (target: [
-          allowMissing: false,
-          alwaysLinkToLastBuild: false,
-          keepAll: true,
-          reportDir: 'reports/html_reports',
-          reportFiles: 'html_reports.html',
-          reportName: "Reruned Tests"
-        ])
       }
     }
   }
