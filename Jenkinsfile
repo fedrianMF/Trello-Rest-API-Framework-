@@ -33,7 +33,11 @@ pipeline {
             }
 
             steps{
-                bat 'behave -f html -o reports/html_reports/html_reports.html'
+                catchError(buildResult:'SUCCESS', stageResult:'SUCCESS'){
+                    bat 'behave -f html -o reports/html_reports/html_reports.html'
+                }
+
+                
             }
         }
         stage('reports') {
