@@ -4,7 +4,7 @@
 import ast
 import jsonschema
 from jsonschema import validate
-from main.trello.utils.boolean_utils import BooleanUtils
+from main.core.utils.boolean_utils import BooleanUtils
 
 
 class RequestUtils:
