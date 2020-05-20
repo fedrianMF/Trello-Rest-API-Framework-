@@ -1,4 +1,4 @@
-'''Module for lists manage'''
+'''Module for lists'''
 
 from main.core.request_manager import RequestsManager as RM
 from main.core.utils.api_constants import HttpMethods
@@ -30,9 +30,8 @@ class ListsAPI:
         :param list_id: id of list
         :type board_id: String
         """
-        endpoint = "/lists/{id}/closed"
-        endpoint.replace("{id}", list_id)
+        endpoint = f"/lists/{list_id}/closed"
         body = {
-            "value": "true"
+            "value": value
         }
         RM.get_instance().do_request(HttpMethods.PUT.value, endpoint, body)   # pylint: disable=W0612
