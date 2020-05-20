@@ -1,6 +1,6 @@
 @fixture.create.board
 @fixture.delete.board
-Feature: C-R-U-D for Lists
+Feature: Lists
 
     @fixture.create.list
     Scenario: Get a List

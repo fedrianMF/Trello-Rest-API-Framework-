@@ -1,5 +1,5 @@
 @boards
-Feature: C-R-U-D for Boards
+Feature: Boards
 
     @fixture.create.board
     @fixture.delete.board
