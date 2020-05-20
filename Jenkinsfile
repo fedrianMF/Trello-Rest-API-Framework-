@@ -24,9 +24,17 @@ pipeline {
                 bat 'behave -f allure -o ./reports ./features'
             }
         }
-        stage('Show allure reports'){
-            steps{
-                bat 'allure serve ./reports'
+        stage('reports') {
+            steps {
+                  script {
+                        allure([
+                                includeProperties: false,
+                                jdk: '',
+                                properties: [],
+                                reportBuildPolicy: 'ALWAYS',
+                                results: [[path: './reports']]
+                        ])
+                }
             }
         }
     }
