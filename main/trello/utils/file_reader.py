@@ -1,6 +1,7 @@
 """Module for file manage"""
 import os
 import json
+from configparser import ConfigParser
 
 
 class FileReader:   # pylint: disable=R0903
@@ -12,21 +13,19 @@ class FileReader:   # pylint: disable=R0903
         :param file_name: name of file to read
         :type file_name: String
         """
-        return get_json(f'/main/trello/resources/schemas/{file_name}')
+        with open(f'{os.getcwd()}/main/trello/resources/schemas/{file_name}') as archive:
+            return json.load(archive)
 
     @staticmethod
     def read_basic_data():
         """ Read a basic data for request
 
         """
-        return get_json('/main/trello/resources/basic_data.json')
-
-
-def get_json(path):
-    """ Read a archive and convert to json data
-
-    :param path: Path of file to read
-    :type path: String
-    """
-    with open(f'{os.getcwd()}{path}') as archive:
-        return json.load(archive)
+        data = {}
+        config = ConfigParser()
+        config.read(f"{os.getcwd()}/behave.ini")
+        data['url'] = config.get("behave.userdata", "url")
+        data['primary_user_key'] = config.get("behave.userdata", "primary_user_key")
+        data['primary_user_token'] = config.get("behave.userdata", "primary_user_token")
+        data['primary_user_oauth_token'] = config.get("behave.userdata", "primary_user_oauth_token")
+        return data
