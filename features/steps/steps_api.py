@@ -21,7 +21,7 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     context.data_table = context.table
     if http_method != HttpMethods.POST.value:
         if 'board' in endpoint:
-            endpoint = endpoint.replace('<board_id>', context.id_dictionary['board'])
+            endpoint = endpoint.replace('{id}', context.id_dictionary['board'])
         elif 'list' in endpoint:
             endpoint = endpoint.replace('{id}', context.id_dictionary['list'])
         else:
@@ -35,8 +35,8 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
         elif 'cards' in endpoint:
             context.data_table.add_row(['idList', context.id_dictionary['list']])
 
-    if 'member_id' in endpoint:
-        endpoint = endpoint.replace('<member_id>', context.id_dictionary['member'])
+    if 'idMember' in endpoint:
+        endpoint = endpoint.replace('{idMember}', context.id_dictionary['member'])
     context.endpoint = endpoint
 
 
