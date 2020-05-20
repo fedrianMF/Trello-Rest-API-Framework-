@@ -42,3 +42,47 @@ Feature: Lists
         And The body response must be contains
             |key     | value                     |
             |name    | List create at before tag |
+
+    @fixture.create.list
+    @fixture.create.card    
+    Scenario: Move all Cards in List
+        Given Defines "POST" request to "/lists/{id}/moveAllCards"
+            | key     | value                    |
+            | idBoard | 5ebddb511d1a7e4c088459ba |
+            | idList  | 5ebde4d289a5bb4c62cb72c1 |
+        When The request is sent
+        Then The status code should be 200
+        #request all moved lists [{id,idBoard,idList,pos},{},{}] 
+        And Validates response body with
+            |key     | value                    |
+            |id      | 5ebddd1384818348082c1eea |
+            |name    | TESTlistFELIX            |
+            |closed  | true                     |
+            |pos     | 8192                     |
+            |idBoard | 5ebddb511d1a7e4c088459ba |
+
+    @fixture.create.list
+    @fixture.create.card    
+    Scenario: Archive all cards in List
+        Given Defines "POST" request to "/lists/{id}/archiveAllCards"
+        When The request is sent
+        Then The status code should be 200
+        #request {}
+        #And Validates response body with
+
+    @fixture.create.board
+    @fixture.create.list
+    @fixture.delete.list
+    Scenario: Move List to Board
+        Given Defines "PUT" request to "/lists/{id}/idBoard"
+            | key   | value                    |
+            | value | 5ebddb511d1a7e4c088459ba |
+        When The request is sent
+        Then The status code should be 200
+        And The body response must be contains
+            |key     | value                    |
+            #|id      | 5ebde4d289a5bb4c62cb72c1 |
+            |name    | temporalList                      |
+            #|closed  | false                    |
+            #|pos     | 32768                    |
+            |idBoard | 5ebddb511d1a7e4c088459ba |
