@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Generate reports'){
             steps{
-                bat 'behave -f html -o D:/reports.html'
+                bat 'behave -f html -o reports/html_reports/html_reports.html'
                 bat 'behave -f allure -o reports/allure_reports ./features'
             }
         }
@@ -35,6 +35,15 @@ pipeline {
                                 results: [[path: 'reports/allure_reports']]
                         ])
                 }
+                publishHTML (target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll: true,
+                        reportDir: 'reports/html_reports',
+                        reportFiles: 'html_reports.html',
+                        reportName: "Reruned Tests"
+                    ])
+
             }
         }
     }
