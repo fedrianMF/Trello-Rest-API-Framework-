@@ -1,4 +1,4 @@
-'''Module for cards manage'''
+'''Module for cards'''
 
 from main.core.request_manager import RequestsManager as RM
 from main.core.utils.api_constants import HttpMethods
@@ -28,6 +28,5 @@ class CardsAPI:
         :param list_id: id of list
         :type board_id: String
         """
-        endpoint = "/cards/{id}"
-        endpoint = endpoint.replace("{id}", card_id)
+        endpoint = f"/cards/{card_id}"
         RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)   # pylint: disable=W0612

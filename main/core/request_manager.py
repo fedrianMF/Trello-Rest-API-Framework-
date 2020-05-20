@@ -52,6 +52,7 @@ class RequestsManager:  # pylint: disable=R0903
         else:
             response = requests.request(str(http_method), url,
                                         auth=self.auth, params=body)
+        self.auth = auth
         return response.status_code, response.json()
 
     def close_session(self):
