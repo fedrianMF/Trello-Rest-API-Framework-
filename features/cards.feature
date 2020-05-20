@@ -52,7 +52,6 @@ Feature: Cards
             |key     | value                    |
         When The request is sent
         Then The status code should be 200
-        #And The schema is validated with "card_delete_schema.json"
 
     @fixture.create.card
     @fixture.get.member
@@ -63,4 +62,3 @@ Feature: Cards
             |key     | value                    |
         When The request is sent
         Then The status code should be 200
-        #And The schema is validated with "card_delete_schema.json"
