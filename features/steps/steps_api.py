@@ -1,8 +1,8 @@
 """Module for example steps"""
 from behave import step  # pylint: disable=E0611
 from assertpy import assert_that
-from main.trello.utils.api_constants import HttpMethods
-from main.trello.utils.request_utils import RequestUtils as r_utils
+from main.core.utils.api_constants import HttpMethods
+from main.core.utils.request_utils import RequestUtils as r_utils
 from main.trello.utils.file_reader import FileReader
 
 
@@ -18,7 +18,7 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     :type endpoint: obj
     """
     if http_method != HttpMethods.POST.value:
-        endpoint = endpoint.replace('<board_id>', context.board_id)
+        endpoint = endpoint.replace('<board_id>', context.id_dictionary['board'])
     if 'member_id' in endpoint:
         endpoint = endpoint.replace('<member_id>', context.newuser_id)
     context.endpoint = endpoint
@@ -26,14 +26,14 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     context.data_table = context.table
     if 'lists' in endpoint:
         if http_method == HttpMethods.POST.value:
-            context.data_table.add_row(['idBoard', context.board_id])
+            context.data_table.add_row(['idBoard', context.id_dictionary['board']])
         else:
-            context.endpoint = endpoint.replace('{id}', context.list_id)
+            context.endpoint = endpoint.replace('{id}', context.id_dictionary['list'])
     if 'cards' in endpoint:
         if http_method == HttpMethods.POST.value:
-            context.data_table.add_row(['idList', context.list_id])
+            context.data_table.add_row(['idList', context.id_dictionary['list']])
         else:
-            context.endpoint = endpoint.replace('{id}', context.card_id)
+            context.endpoint = endpoint.replace('{id}', context.id_dictionary['card'])
 
 
 @step(u"The request is sent")
@@ -48,11 +48,11 @@ def step_impl_send(context):
                                                                        context.data_table)
     if context.http_method == HttpMethods.POST.value:
         if 'idBoard' in context.json_response and 'idList' in context.json_response:
-            context.card_id = context.json_response['id']
+            context.id_dictionary['card'] = context.json_response['id']
         elif 'idBoard' in context.json_response:
-            context.list_id = context.json_response['id']
+            context.id_dictionary['list'] = context.json_response['id']
         else:
-            context.board_id = context.json_response['id']
+            context.id_dictionary['board'] = context.json_response['id']
 
 
 @step(u'The status code should be {status_code:d}')
