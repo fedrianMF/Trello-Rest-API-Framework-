@@ -14,7 +14,7 @@ Feature: Boards
         Given Defines "POST" request to "/boards/"
             | key  | value                                        |
             | name | test board                                   |
-            | desc | here is a little description API for testing |
+            | desc | here is a little description for API testing |
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_schema.json"

@@ -24,7 +24,7 @@ pipeline {
         } 
       }
     }
-    stage('Generate reports'){
+    stage('Re-Run test'){
       when {
         expression {
           first_test_failed
