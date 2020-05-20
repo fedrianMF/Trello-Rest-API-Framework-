@@ -10,18 +10,20 @@ from main.core.request_manager import RequestsManager as RM
 
 
 @fixture
-def get_resource_member(context):
+def get_resource_member(context, tag):
     """Basic hook to create board
 
     :param context: Global context from behave
     :type context: obj
+    :param tag: tag to be retrieved
     """
+    type_data = tag.split('.')[-1]
     context.auth_sec = OAuth1(context.config.userdata['secondary_user_key'],
                               context.config.userdata['secondary_user_token'],
                               context.config.userdata['secondary_user_token'],
                               context.config.userdata['secondary_user_oauth_token'])
     context.info_user = MemberAPI.get_member_inf(context.auth_sec)
-    context.newuser_id = context.info_user['id']
+    context.id_dictionary[type_data] = context.info_user['id']
 
 
 @fixture
@@ -77,7 +79,8 @@ def put_resource_board(context, type_user):
     :param type_user: type of user
     :type type_user: String
     """
-    BoardsAPI.add_member_to_board(context.id_dictionary['board'], context.newuser_id, type_user)
+    BoardsAPI.add_member_to_board(context.id_dictionary['board'], context.id_dictionary['member'],
+                                  type_user)
 
 
 @fixture

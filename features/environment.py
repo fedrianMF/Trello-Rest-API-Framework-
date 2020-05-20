@@ -57,7 +57,8 @@ def after_tag(context, tag):  # pylint: disable=W0613, R1710
 
 
 FIXTURE_REGISTRY = {
-    "fixture.get.member": fixture_call_params(get_resource_member),
+    "fixture.get.member": fixture_call_params(get_resource_member,
+                                              tag="fixture.get.member"),
     "fixture.create.board": fixture_call_params(post_resource_board,
                                                 tag="fixture.create.board",
                                                 name="NEW Board",
