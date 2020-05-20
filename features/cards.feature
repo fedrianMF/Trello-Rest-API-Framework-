@@ -42,3 +42,25 @@ Feature: Cards
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "card_delete_schema.json"
+
+    @fixture.create.card
+    @fixture.get.member
+    @fixture.create.member
+    @fixture.delete.card
+    Scenario: Add a Member to a Card
+        Given Defines "POST" request to "/cards/{id}/idMembers"
+            |key     | value                    |
+        When The request is sent
+        Then The status code should be 200
+        #And The schema is validated with "card_delete_schema.json"
+
+    @fixture.create.card
+    @fixture.get.member
+    @fixture.create.member
+    @fixture.delete.card
+    Scenario: Remove a Member from a Card
+        Given Defines "POST" request to "/cards/{id}/idMembers"
+            |key     | value                    |
+        When The request is sent
+        Then The status code should be 200
+        #And The schema is validated with "card_delete_schema.json"

@@ -17,23 +17,27 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     :param endpoint: Application's endpoint method
     :type endpoint: obj
     """
-    if http_method != HttpMethods.POST.value:
-        endpoint = endpoint.replace('<board_id>', context.id_dictionary['board'])
-    if 'member_id' in endpoint:
-        endpoint = endpoint.replace('<member_id>', context.newuser_id)
-    context.endpoint = endpoint
     context.http_method = http_method
     context.data_table = context.table
-    if 'lists' in endpoint:
-        if http_method == HttpMethods.POST.value:
+    if http_method != HttpMethods.POST.value:
+        if 'board' in endpoint:
+            endpoint = endpoint.replace('<board_id>', context.id_dictionary['board'])
+        elif 'list' in endpoint:
+            endpoint = endpoint.replace('{id}', context.id_dictionary['list'])
+        else:
+            endpoint = endpoint.replace('{id}', context.id_dictionary['card'])
+    elif 'idMembers' in endpoint:
+        endpoint = endpoint.replace('{id}', context.id_dictionary['card'])
+        context.data_table.add_row(['value', context.id_dictionary['member']])
+    else:
+        if 'lists' in endpoint:
             context.data_table.add_row(['idBoard', context.id_dictionary['board']])
-        else:
-            context.endpoint = endpoint.replace('{id}', context.id_dictionary['list'])
-    if 'cards' in endpoint:
-        if http_method == HttpMethods.POST.value:
+        elif 'cards' in endpoint:
             context.data_table.add_row(['idList', context.id_dictionary['list']])
-        else:
-            context.endpoint = endpoint.replace('{id}', context.id_dictionary['card'])
+
+    if 'member_id' in endpoint:
+        endpoint = endpoint.replace('<member_id>', context.id_dictionary['member'])
+    context.endpoint = endpoint
 
 
 @step(u"The request is sent")
@@ -51,7 +55,7 @@ def step_impl_send(context):
             context.id_dictionary['card'] = context.json_response['id']
         elif 'idBoard' in context.json_response:
             context.id_dictionary['list'] = context.json_response['id']
-        else:
+        elif 'idOrganization' in context.json_response:
             context.id_dictionary['board'] = context.json_response['id']
 
 
