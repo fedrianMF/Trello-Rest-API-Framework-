@@ -30,10 +30,9 @@ class ListsAPI:
         :param list_id: id of list
         :type board_id: String
         """
-        request_manager = RequestsManager()
         endpoint = "/lists/{id}/closed"
         endpoint.replace("{id}", list_id)
         body = {
             "value": "true"
         }
-        request_manager.do_request(HttpMethods.PUT.value, endpoint, body)   # pylint: disable=W0612
+        RM.get_instance().do_request(HttpMethods.PUT.value, endpoint, body)   # pylint: disable=W0612

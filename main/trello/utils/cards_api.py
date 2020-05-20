@@ -30,7 +30,6 @@ class CardsAPI:
         :param list_id: id of list
         :type board_id: String
         """
-        request_manager = RequestsManager()
         endpoint = "/cards/{id}"
         endpoint = endpoint.replace("{id}", card_id)
-        request_manager.do_request(HttpMethods.DELETE.value, endpoint)   # pylint: disable=W0612
+        RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)   # pylint: disable=W0612

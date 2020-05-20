@@ -4,6 +4,7 @@ from main.trello.utils.boards_api import BoardsAPI
 from main.trello.utils.member_api import MemberAPI
 from main.trello.utils.lists_api import ListsAPI
 from main.trello.utils.cards_api import CardsAPI
+from main.trello.utils.file_reader import FileReader
 
 
 def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
@@ -33,13 +34,10 @@ def use_fixture_by_tag(tag, context):  # pylint: disable=W0613
 
     elif 'get.' in tag:
         if 'member' in tag:
-            context.auth_sec = OAuth1(context.config.userdata['secondary_user_key'],
-                                      context.config.userdata['secondary_user_token'],
-                                      context.config.userdata['secondary_user_token'],
-                                      context.config.userdata['secondary_user_oauth_token'])
+            data = FileReader.read_basic_data()
+            context.auth_sec = OAuth1(data['secondary_user_key'],
+                                      data['secondary_user_token'],
+                                      data['secondary_user_token'],
+                                      data['secondary_user_oauth_token'])
             context.info_user = MemberAPI.get_member_inf(context.auth_sec)
-            #     context.config.userdata['secondary_user_key'],
-            #     context.config.userdata['secondary_user_token'],
-            #     context.config.userdata['secondary_user_oauth_token']
-            # )
             context.newuser_id = context.info_user['id']

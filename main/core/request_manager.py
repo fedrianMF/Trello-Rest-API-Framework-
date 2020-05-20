@@ -1,7 +1,9 @@
 """Module for requests"""
 import requests
 from requests import Session
+from requests_oauthlib import OAuth1
 from main.trello.utils.request_utils import RequestUtils as utils
+from main.trello.utils.file_reader import FileReader as reader
 
 
 class RequestsManager:  # pylint: disable=R0903
@@ -9,21 +11,25 @@ class RequestsManager:  # pylint: disable=R0903
 
     __instance = None
 
-    def __init__(self, url, OAuth1):
-        self.basic_url = url
+    def __init__(self):
+        data = reader.read_basic_data()
+        self.basic_url = data['url']
         self.headers = {"Accept": "application/json"}
-        self.auth = OAuth1
+        self.auth = OAuth1(data['primary_user_key'],
+                           data['primary_user_token'],
+                           data['primary_user_token'],
+                           data['primary_user_oauth_token'])
         self.session = Session()
 
     @staticmethod
-    def get_instance(url=None, auth=None):
+    def get_instance():
         """This method get a instance of the RequestsManager class.
 
         Returns:
             RequestManager -- return a instance of RequestsManager class.
         """
         if RequestsManager.__instance is None:
-            RequestsManager.__instance = RequestsManager(url, auth)
+            RequestsManager.__instance = RequestsManager()
         return RequestsManager.__instance
 
     def do_request(self, http_method, endpoint, body=None, **kwargs):  # pylint: disable=R0913
