@@ -32,7 +32,7 @@ pipeline {
       }
 
       steps{
-        catchError(buildResult:'SUCCESS', stageResult:'FAILED'){
+        catchError(buildResult:'SUCCESS', stageResult:'FAILURE'){
           bat 'behave -f html -o reports/html_reports/html_reports.html'
         }
       }
