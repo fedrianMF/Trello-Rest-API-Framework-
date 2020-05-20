@@ -13,8 +13,6 @@ class FileReader:   # pylint: disable=R0903
         :type file_name: String
         """
         return get_json(f'/main/trello/resources/schemas/{file_name}')
-        # with open(f'{os.getcwd()}/main/trello/resources/schemas/{file_name}') as archive:
-        #     return json.load(archive)
 
     @staticmethod
     def read_basic_data():
