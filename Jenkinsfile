@@ -24,7 +24,7 @@ pipeline {
         } 
       }
     }
-    stage('Re-Run test'){
+    stage('Re-execute test'){
       when {
         expression {
           first_test_failed
@@ -54,7 +54,7 @@ pipeline {
             keepAll: true,
             reportDir: 'reports/html_reports',
             reportFiles: 'html_reports.html',
-            reportName: "Reruned Tests"
+            reportName: "Re-executed Tests"
           ])
         }
       }
