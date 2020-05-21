@@ -21,6 +21,7 @@ def after_all(context):  # pylint: disable=W0613
 def before_feature(context, feature):  # pylint: disable=W0613
     """Before feature hook
     """
+    print(f"=============Started {feature.name}")
 
 
 def after_feature(context, feature):  # pylint: disable=W0613
