@@ -6,7 +6,7 @@ Feature: Lists
     @fixture.create.list
     @fixture.delete.list
     Scenario: Get a List
-        Given Defines "GET" request to "/lists/{list}"
+        Given Defines "GET" request to "/lists/{list_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "list_get_schema.json"
@@ -28,7 +28,7 @@ Feature: Lists
     @fixture.create.list
     @fixture.delete.list
     Scenario: Update a List
-        Given Defines "PUT" request to "/lists/{list}"
+        Given Defines "PUT" request to "/lists/{list_id}"
             | key  |   value            |
             | name |  MyTestListForPUT  |
         When The request is sent
@@ -41,7 +41,7 @@ Feature: Lists
     @acceptance
     @fixture.create.list
     Scenario: Delete a list
-        Given Defines "PUT" request to "/lists/{list}/closed"
+        Given Defines "PUT" request to "/lists/{list_id}/closed"
             | key   | value |
             | value | true  |
         When The request is sent
@@ -56,22 +56,25 @@ Feature: Lists
             | key    | value                    |
             | name   |                          |
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400
 
     @negativ
     @fixture.create.list
     Scenario: Update a List with invalid values
-        Given Defines "PUT" request to "/lists/{list}"
+        Given Defines "PUT" request to "/lists/{list_id}"
             | key  |   value            |
             | name |                    |
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400
 
     @negative
     @fixture.create.list
     Scenario: Delete a List with invalid values
-        Given Defines "PUT" request to "/lists/{list}/closed"
+        Given Defines "PUT" request to "/lists/{list_id}/closed"
             | key   | value       |
             | value | no_boolean  |
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400

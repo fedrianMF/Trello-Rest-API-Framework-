@@ -21,7 +21,7 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     context.data_table = context.table
     for key in context.id_dictionary:
         if key in endpoint:
-            endpoint = endpoint.replace("{"+key+"}", context.id_dictionary[key])
+            endpoint = endpoint.replace("{"+key+"_id}", context.id_dictionary[key])
     context.endpoint = endpoint
     if http_method == HttpMethods.POST.value:
         if 'lists' in endpoint:
