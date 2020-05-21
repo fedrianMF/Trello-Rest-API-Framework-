@@ -1,6 +1,7 @@
 @boards
 Feature: Boards
 
+    @smoke
     @fixture.create.board
     @fixture.delete.board
     Scenario: Get a specific board
@@ -9,6 +10,7 @@ Feature: Boards
         And The schema is validated with "board_get_schema.json"
         Then The status code should be 200
 
+    @acceptance
     @fixture.delete.board
     Scenario: Create a board
         Given Defines "POST" request to "/boards/"
@@ -23,6 +25,7 @@ Feature: Boards
             | name | test board                                   |
             | desc | here is a little description for API testing |
 
+    @acceptance
     @fixture.create.board
     @fixture.delete.board
     Scenario: Update a board
@@ -38,6 +41,7 @@ Feature: Boards
             | name | new name test board             |
             | desc | here goes new board description |
 
+    @acceptance
     @fixture.create.board
     Scenario: Delete a board
         Given Defines "DELETE" request to "/boards/{board}"
@@ -45,6 +49,7 @@ Feature: Boards
         And The schema is validated with "board_delete_schema.json"
         Then The status code should be 200
 
+    @smoke
     @fixture.get.member
     @fixture.create.board
     @fixture.delete.board
@@ -59,6 +64,7 @@ Feature: Boards
             | key  | value |
             | type | admin |
 
+    @smoke
     @fixture.get.member
     @fixture.create.board
     @fixture.create.member
@@ -69,3 +75,41 @@ Feature: Boards
         And The schema is validated with "board_delete_member_schema.json"
         Then The status code should be 200
 
+    @negative
+    Scenario: Create a board with invalid values
+        Given Defines "POST" request to "/boards/"
+            | key  | value                                        |
+            | name |                                              |
+            | desc | here is a little description for API testing |
+        When The request is sent
+        Then The status code should be 400
+
+    @negative
+    @fixture.create.board
+    @fixture.delete.board
+    Scenario: Update a board with invalid values
+        Given Defines "PUT" request to "/boards/{boards}"
+            | key  | value                                        |
+            | name |                                              |
+            | desc | here is a little description for API testing |
+        When The request is sent
+        Then The status code should be 400
+
+    @negative
+    @fixture.create.board
+    @fixture.delete.board
+    Scenario: Add member with invalid type
+        Given Defines "PUT" request to "/boards/{board}/members/{member}"
+            | key  | value   |
+            | type | invalid |
+        When The request is sent
+        Then The status code should be 400
+
+    @negative
+    @fixture.create.board
+    @fixture.get.member
+    @fixture.delete.board
+    Scenario: Delete unadd member from board
+        Given Defines "DELETE" request to "/boards/{board}/members/{member}"
+        When The request is sent
+        Then The status code should be 401
