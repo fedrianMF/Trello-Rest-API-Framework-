@@ -27,7 +27,10 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
         if 'lists' in endpoint:
             context.data_table.add_row(['idBoard', context.id_dictionary['board']])
         elif 'cards' in endpoint:
-            context.data_table.add_row(['idList', context.id_dictionary['list']])
+            if 'idMember' in endpoint:
+                context.data_table.add_row(['value', context.id_dictionary['member']])
+            else:
+                context.data_table.add_row(['idList', context.id_dictionary['list']])
 
 
 @step(u"The request is sent")

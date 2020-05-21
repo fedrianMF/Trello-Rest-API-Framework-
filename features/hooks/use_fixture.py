@@ -84,6 +84,18 @@ def put_resource_board(context, type_user):
 
 
 @fixture
+def put_resource_card(context):
+    """Basic hook to edit a member
+
+    :param context: Global context from behave
+    :type context: obj
+    :param type_user: type of user
+    :type type_user: String
+    """
+    CardsAPI.add_member_to_card(context.id_dictionary['card'], context.id_dictionary['member'])
+
+
+@fixture
 def put_resource_list(context, value):
     """Basic hook to delete board, list or card
 

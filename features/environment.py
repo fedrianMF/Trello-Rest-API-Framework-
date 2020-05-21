@@ -2,9 +2,9 @@
 from behave.fixture import use_fixture_by_tag, fixture_call_params
 from behave.model_core import Status
 from main.core.request_manager import RequestsManager
-from features.hooks.use_fixture import delete_resource, post_resource_board, post_resource_list,\
-                                       get_resource_member, post_resource_card, put_resource_board,\
-                                       put_resource_list
+from features.hooks.use_fixture import delete_resource, get_resource_member,\
+                                       post_resource_board, post_resource_card, post_resource_list,\
+                                       put_resource_board, put_resource_card, put_resource_list
 
 
 def before_all(context):
@@ -71,8 +71,9 @@ FIXTURE_REGISTRY = {
     "fixture.create.card": fixture_call_params(post_resource_card,
                                                tag="fixture.create.card",
                                                name="NEW Board"),
-    "fixture.create.member": fixture_call_params(put_resource_board,
-                                                 type_user="admin"),
+    "fixture.create.board.member": fixture_call_params(put_resource_board,
+                                                       type_user="admin"),
+    "fixture.create.card.member": fixture_call_params(put_resource_card),
     "fixture.delete.list": fixture_call_params(put_resource_list,
                                                value=True),
     "fixture.delete.board": fixture_call_params(delete_resource,

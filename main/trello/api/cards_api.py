@@ -30,3 +30,18 @@ class CardsAPI:
         """
         endpoint = f"/cards/{card_id}"
         RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)   # pylint: disable=W0612
+
+    @staticmethod
+    def add_member_to_card(card_id, member_id):
+        """ Delete a list
+
+        :param card_id: card id to add a member
+        :type card_id: String
+        :param member_id: Member id for add to card
+        :type board_id: String
+        """
+        endpoint = f"/cards/{card_id}/idMembers"
+        body = {
+            "value": member_id
+        }
+        RM.get_instance().do_request(HttpMethods.POST.value, endpoint, body)   # pylint: disable=W0612
