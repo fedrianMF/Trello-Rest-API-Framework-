@@ -1,0 +1,743 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "descData": {
+      "type": "null"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "idOrganization": {
+      "type": "null"
+    },
+    "shortLink": {
+      "type": "string"
+    },
+    "powerUps": {
+      "type": "array",
+      "items": {}
+    },
+    "dateLastActivity": {
+      "type": "null"
+    },
+    "idTags": {
+      "type": "array",
+      "items": {}
+    },
+    "datePluginDisable": {
+      "type": "null"
+    },
+    "creationMethod": {
+      "type": "string"
+    },
+    "idBoardSource": {
+      "type": "null"
+    },
+    "idEnterprise": {
+      "type": "null"
+    },
+    "pinned": {
+      "type": "boolean"
+    },
+    "starred": {
+      "type": "boolean"
+    },
+    "url": {
+      "type": "string"
+    },
+    "prefs": {
+      "type": "object",
+      "properties": {
+        "permissionLevel": {
+          "type": "string"
+        },
+        "hideVotes": {
+          "type": "boolean"
+        },
+        "voting": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "invitations": {
+          "type": "string"
+        },
+        "selfJoin": {
+          "type": "boolean"
+        },
+        "cardCovers": {
+          "type": "boolean"
+        },
+        "isTemplate": {
+          "type": "boolean"
+        },
+        "cardAging": {
+          "type": "string"
+        },
+        "calendarFeedEnabled": {
+          "type": "boolean"
+        },
+        "background": {
+          "type": "string"
+        },
+        "backgroundImage": {
+          "type": "null"
+        },
+        "backgroundImageScaled": {
+          "type": "null"
+        },
+        "backgroundTile": {
+          "type": "boolean"
+        },
+        "backgroundBrightness": {
+          "type": "string"
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "backgroundBottomColor": {
+          "type": "string"
+        },
+        "backgroundTopColor": {
+          "type": "string"
+        },
+        "canBePublic": {
+          "type": "boolean"
+        },
+        "canBeEnterprise": {
+          "type": "boolean"
+        },
+        "canBeOrg": {
+          "type": "boolean"
+        },
+        "canBePrivate": {
+          "type": "boolean"
+        },
+        "canInvite": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "permissionLevel",
+        "hideVotes",
+        "voting",
+        "comments",
+        "invitations",
+        "selfJoin",
+        "cardCovers",
+        "isTemplate",
+        "cardAging",
+        "calendarFeedEnabled",
+        "background",
+        "backgroundImage",
+        "backgroundImageScaled",
+        "backgroundTile",
+        "backgroundBrightness",
+        "backgroundColor",
+        "backgroundBottomColor",
+        "backgroundTopColor",
+        "canBePublic",
+        "canBeEnterprise",
+        "canBeOrg",
+        "canBePrivate",
+        "canInvite"
+      ]
+    },
+    "shortUrl": {
+      "type": "string"
+    },
+    "premiumFeatures": {
+      "type": "array",
+      "items": {}
+    },
+    "ixUpdate": {
+      "type": "string"
+    },
+    "enterpriseOwned": {
+      "type": "boolean"
+    },
+    "limits": {
+      "type": "object",
+      "properties": {
+        "attachments": {
+          "type": "object",
+          "properties": {
+            "perBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            },
+            "perCard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "perBoard",
+            "perCard"
+          ]
+        },
+        "boards": {
+          "type": "object",
+          "properties": {
+            "totalMembersPerBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "totalMembersPerBoard"
+          ]
+        },
+        "cards": {
+          "type": "object",
+          "properties": {
+            "openPerBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            },
+            "openPerList": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            },
+            "totalPerBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            },
+            "totalPerList": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "openPerBoard",
+            "openPerList",
+            "totalPerBoard",
+            "totalPerList"
+          ]
+        },
+        "checklists": {
+          "type": "object",
+          "properties": {
+            "perBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            },
+            "perCard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "perBoard",
+            "perCard"
+          ]
+        },
+        "checkItems": {
+          "type": "object",
+          "properties": {
+            "perChecklist": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "perChecklist"
+          ]
+        },
+        "customFields": {
+          "type": "object",
+          "properties": {
+            "perBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "perBoard"
+          ]
+        },
+        "customFieldOptions": {
+          "type": "object",
+          "properties": {
+            "perField": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "perField"
+          ]
+        },
+        "labels": {
+          "type": "object",
+          "properties": {
+            "perBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "perBoard"
+          ]
+        },
+        "lists": {
+          "type": "object",
+          "properties": {
+            "openPerBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            },
+            "totalPerBoard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "openPerBoard",
+            "totalPerBoard"
+          ]
+        },
+        "stickers": {
+          "type": "object",
+          "properties": {
+            "perCard": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "perCard"
+          ]
+        },
+        "reactions": {
+          "type": "object",
+          "properties": {
+            "perAction": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            },
+            "uniquePerAction": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "disableAt": {
+                  "type": "integer"
+                },
+                "warnAt": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "disableAt",
+                "warnAt"
+              ]
+            }
+          },
+          "required": [
+            "perAction",
+            "uniquePerAction"
+          ]
+        }
+      },
+      "required": [
+        "attachments",
+        "boards",
+        "cards",
+        "checklists",
+        "checkItems",
+        "customFields",
+        "customFieldOptions",
+        "labels",
+        "lists",
+        "stickers",
+        "reactions"
+      ]
+    },
+    "subscribed": {
+      "type": "boolean"
+    },
+    "labelNames": {
+      "type": "object",
+      "properties": {
+        "green": {
+          "type": "string"
+        },
+        "yellow": {
+          "type": "string"
+        },
+        "orange": {
+          "type": "string"
+        },
+        "red": {
+          "type": "string"
+        },
+        "purple": {
+          "type": "string"
+        },
+        "blue": {
+          "type": "string"
+        },
+        "sky": {
+          "type": "string"
+        },
+        "lime": {
+          "type": "string"
+        },
+        "pink": {
+          "type": "string"
+        },
+        "black": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "green",
+        "yellow",
+        "orange",
+        "red",
+        "purple",
+        "blue",
+        "sky",
+        "lime",
+        "pink",
+        "black"
+      ]
+    },
+    "dateLastView": {
+      "type": "string"
+    },
+    "templateGallery": {
+      "type": "null"
+    },
+    "memberships": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "idMember": {
+              "type": "string"
+            },
+            "memberType": {
+              "type": "string"
+            },
+            "unconfirmed": {
+              "type": "boolean"
+            },
+            "deactivated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "idMember",
+            "memberType",
+            "unconfirmed",
+            "deactivated"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "desc",
+    "descData",
+    "closed",
+    "idOrganization",
+    "shortLink",
+    "powerUps",
+    "dateLastActivity",
+    "idTags",
+    "datePluginDisable",
+    "creationMethod",
+    "idBoardSource",
+    "idEnterprise",
+    "pinned",
+    "starred",
+    "url",
+    "prefs",
+    "shortUrl",
+    "premiumFeatures",
+    "ixUpdate",
+    "enterpriseOwned",
+    "limits",
+    "subscribed",
+    "labelNames",
+    "dateLastView",
+    "templateGallery",
+    "memberships"
+  ]
+}
