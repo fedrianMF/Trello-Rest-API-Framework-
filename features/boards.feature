@@ -4,7 +4,7 @@ Feature: Boards
     @fixture.create.board
     @fixture.delete.board
     Scenario: Get a specific board
-        Given Defines "GET" request to "/boards/{id}"
+        Given Defines "GET" request to "/boards/{board}"
         When The request is sent
         And The schema is validated with "board_get_schema.json"
         Then The status code should be 200
@@ -26,7 +26,7 @@ Feature: Boards
     @fixture.create.board
     @fixture.delete.board
     Scenario: Update a board
-        Given Defines "PUT" request to "/boards/{id}"
+        Given Defines "PUT" request to "/boards/{board}"
             | key  | value                           |
             | name | new name test board             |
             | desc | here goes new board description |
@@ -40,7 +40,7 @@ Feature: Boards
 
     @fixture.create.board
     Scenario: Delete a board
-        Given Defines "DELETE" request to "/boards/{id}"
+        Given Defines "DELETE" request to "/boards/{board}"
         When The request is sent
         And The schema is validated with "board_delete_schema.json"
         Then The status code should be 200
@@ -49,7 +49,7 @@ Feature: Boards
     @fixture.create.board
     @fixture.delete.board
     Scenario: Add a member to board
-        Given Defines "PUT" request to "/boards/{id}/members/{idMember}"
+        Given Defines "PUT" request to "/boards/{board}/members/{member}"
             | key  | value |
             | type | admin |
         When The request is sent
@@ -64,7 +64,7 @@ Feature: Boards
     @fixture.create.member
     @fixture.delete.board
     Scenario: Delete a member from board
-        Given Defines "DELETE" request to "/boards/{id}/members/{idMember}"
+        Given Defines "DELETE" request to "/boards/{board}/members/{member}"
         When The request is sent
         And The schema is validated with "board_delete_member_schema.json"
         Then The status code should be 200

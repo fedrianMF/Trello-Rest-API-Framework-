@@ -6,7 +6,7 @@ Feature: Cards
     @fixture.create.card
     @fixture.delete.card
     Scenario: Get a Card
-        Given Defines "GET" request to "/cards/{id}"
+        Given Defines "GET" request to "/cards/{card}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "card_get_schema.json"
@@ -26,7 +26,7 @@ Feature: Cards
     @fixture.create.card
     @fixture.delete.card
     Scenario: Update a Card
-        Given Defines "PUT" request to "/cards/{id}"
+        Given Defines "PUT" request to "/cards/{card}"
             | key  |   value            |
             | name |  MyTestCardForPUT  |
         When The request is sent
@@ -38,27 +38,8 @@ Feature: Cards
     
     @fixture.create.card
     Scenario: Delete a Card
-        Given Defines "DELETE" request to "/cards/{id}"
+        Given Defines "DELETE" request to "/cards/{card}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "card_delete_schema.json"
 
-    @fixture.create.card
-    @fixture.get.member
-    @fixture.create.member
-    @fixture.delete.card
-    Scenario: Add a Member to a Card
-        Given Defines "POST" request to "/cards/{id}/idMembers"
-            |key     | value                    |
-        When The request is sent
-        Then The status code should be 200
-
-    @fixture.create.card
-    @fixture.get.member
-    @fixture.create.member
-    @fixture.delete.card
-    Scenario: Remove a Member from a Card
-        Given Defines "POST" request to "/cards/{id}/idMembers"
-            |key     | value                    |
-        When The request is sent
-        Then The status code should be 200
