@@ -82,6 +82,7 @@ Feature: Boards
             | name |                                              |
             | desc | here is a little description for API testing |
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400
 
     @negative
@@ -93,6 +94,7 @@ Feature: Boards
             | name |                                              |
             | desc | here is a little description for API testing |
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400
 
     @negative
@@ -103,6 +105,7 @@ Feature: Boards
             | key  | value   |
             | type | invalid |
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400
 
     @negative
@@ -112,4 +115,5 @@ Feature: Boards
     Scenario: Delete unadd member from board
         Given Defines "DELETE" request to "/boards/{board}/members/{member}"
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 401
