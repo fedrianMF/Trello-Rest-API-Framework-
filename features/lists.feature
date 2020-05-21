@@ -49,6 +49,30 @@ Feature: Lists
         And The body response must be contains
             |key     | value                     |
             |name    | List create at before tag |
+    
+    @acceptance
+    @fixture.create.list
+    Scenario: Get Actions for a List
+        Given Defines "GET" request to "/lists/{list_id}/actions"
+        When The request is sent
+        Then The status code should be 200
+        And The schema is validated with "list_get_actions.json"
+
+    @acceptance
+    @fixture.create.list
+    Scenario: Get the Board a List is on
+        Given Defines "GET" request to "/lists/{list_id}/board"
+        When The request is sent
+        Then The status code should be 200
+        And The schema is validated with "list_get_board.json"
+
+    @acceptance
+    @fixture.create.list
+    Scenario: Get Cards in a List
+        Given Defines "GET" request to "/lists/{list_id}/cards"
+        When The request is sent
+        Then The status code should be 200
+        And The schema is validated with "list_get_cards.json"
 
     @negative
     Scenario: Create a List with invalid values
@@ -59,7 +83,7 @@ Feature: Lists
         And The schema is validated with "error_schema.json"
         Then The status code should be 400
 
-    @negativ
+    @negative
     @fixture.create.list
     Scenario: Update a List with invalid values
         Given Defines "PUT" request to "/lists/{list_id}"
