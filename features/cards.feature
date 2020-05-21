@@ -8,7 +8,7 @@ Feature: Cards
     @fixture.create.card
     @fixture.delete.card
     Scenario: Get a Card
-        Given Defines "GET" request to "/cards/{card}"
+        Given Defines "GET" request to "/cards/{card_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "card_get_schema.json"
@@ -30,7 +30,7 @@ Feature: Cards
     @fixture.create.card
     @fixture.delete.card
     Scenario: Update a Card
-        Given Defines "PUT" request to "/cards/{card}"
+        Given Defines "PUT" request to "/cards/{card_id}"
             | key  |   value            |
             | name |  MyTestCardForPUT  |
         When The request is sent
@@ -43,7 +43,7 @@ Feature: Cards
     @acceptance
     @fixture.create.card
     Scenario: Delete a Card
-        Given Defines "DELETE" request to "/cards/{card}"
+        Given Defines "DELETE" request to "/cards/{card_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "card_delete_schema.json"
@@ -55,21 +55,24 @@ Feature: Cards
             | name   | MyTestCardForNegativePOST |
             | due    | no_boolean                |
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400
 
     @negative
     @fixture.create.card
     Scenario: Update a Card with invalid values
-        Given Defines "PUT" request to "/cards/{card}"
+        Given Defines "PUT" request to "/cards/{card_id}"
             | key    | value                    |
             | name   | MyTestCardForNegativePUT |
             | closed | no_boolean               |
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400
 
     @negative
     @fixture.create.card
     Scenario: Delete a Card with invalid values
-        Given Defines "DELETE" request to "/cards/invalid{card}"
+        Given Defines "DELETE" request to "/cards/invalid{card_id}"
         When The request is sent
+        And The schema is validated with "error_schema.json"
         Then The status code should be 400
