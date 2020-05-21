@@ -56,8 +56,8 @@ Feature: Boards
         And The schema is validated with "board_members_schema.json"
         Then The status code should be 200
         And The body response must be contains
-            | key      | value                    |
-            | type     | admin                    |
+            | key  | value |
+            | type | admin |
 
     @fixture.get.member
     @fixture.create.board
@@ -68,3 +68,4 @@ Feature: Boards
         When The request is sent
         And The schema is validated with "board_delete_member_schema.json"
         Then The status code should be 200
+
