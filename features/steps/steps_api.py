@@ -1,6 +1,7 @@
 """Module for example steps"""
 from behave import step  # pylint: disable=E0611
 from assertpy import assert_that
+from requests_oauthlib import OAuth1
 from main.core.utils.api_constants import HttpMethods
 from main.core.utils.request_utils import RequestUtils as r_utils
 from main.trello.utils.file_reader import FileReader
@@ -91,3 +92,29 @@ def step_impl_validate_schema(context, schema):
     json_schema = FileReader.read_schema(schema)
     assert_that(r_utils.validate_body_schema(context.json_response, json_schema),
                 f"The response should contains {json_schema}").is_true()
+
+
+@step(u'Set wrong user token')
+def step_impl_set_wrong_token(context):
+    """Set wrong user token
+
+    :param context: Global context from behave
+    :type context: obj
+    """
+    context.wrong_auth = OAuth1(context.config.userdata['primary_user_key'],
+                                context.config.userdata['bad_token'],
+                                context.config.userdata['bad_token'],
+                                context.config.userdata['primary_user_oauth_token'])
+
+
+@step(u"The request with wrong token is sent")
+def step_impl_wrong_token_send(context):
+    """Sends request with wrong token
+
+    :param context: Global context from behave
+    :type context: obj
+    """
+    context.status_code, context.json_response = context.rm.do_request(context.http_method,
+                                                                       context.endpoint,
+                                                                       context.data_table,
+                                                                       auth=context.wrong_auth)
