@@ -86,6 +86,24 @@ Feature: Boards
         Then The status code should be 200
         And The schema is validated with "board_get_members_schema.json"
 
+    @acceptance
+    @fixture.create.board
+    @fixture.delete.board
+    Scenario: Get Labels on a Board
+        Given Defines "GET" request to "/boards/{board_id}/labels"
+        When The request is sent
+        Then The status code should be 200
+        And The schema is validated with "board_get_labels_schema.json"
+    
+    @acceptance
+    @fixture.create.board
+    @fixture.delete.board
+    Scenario: Get Lists on a Board
+        Given Defines "GET" request to "/boards/{board_id}/lists"
+        When The request is sent
+        Then The status code should be 200
+        And The schema is validated with "board_get_lists_schema.json"
+
     @negative
     Scenario: Create a board with invalid values
         Given Defines "POST" request to "/boards/"
