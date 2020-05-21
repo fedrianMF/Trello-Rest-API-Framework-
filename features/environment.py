@@ -11,6 +11,7 @@ def before_all(context):
     """Before_all
     """
     context.rm = RequestsManager.get_instance()
+    context.id_dictionary = {}
 
 
 def after_all(context):  # pylint: disable=W0613

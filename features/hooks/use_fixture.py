@@ -40,7 +40,7 @@ def post_resource_board(context, tag, name, description):
     """
     type_data = tag.split('.')[-1]
     context.id_dictionary[type_data] = BoardsAPI.create_board(name, description)
-    
+
 
 @fixture
 def post_resource_list(context, tag, name):
