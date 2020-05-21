@@ -1,8 +1,10 @@
 @fixture.create.board
 @fixture.create.list
+@fixture.delete.list
 @fixture.delete.board
 Feature: Cards
 
+    @smoke
     @fixture.create.card
     @fixture.delete.card
     Scenario: Get a Card
@@ -11,6 +13,7 @@ Feature: Cards
         Then The status code should be 200
         And The schema is validated with "card_get_schema.json"
 
+    @acceptance
     @fixture.delete.card
     Scenario: Create a Card
         Given Defines "POST" request to "/cards/"
@@ -23,6 +26,7 @@ Feature: Cards
             | key     |  value                   |
             | name    | MyTestCardForPOST        |
 
+    @acceptance
     @fixture.create.card
     @fixture.delete.card
     Scenario: Update a Card
@@ -35,7 +39,8 @@ Feature: Cards
         And The body response must be contains
             |key     | value                    |
             |name    | MyTestCardForPUT         |
-    
+
+    @acceptance
     @fixture.create.card
     Scenario: Delete a Card
         Given Defines "DELETE" request to "/cards/{card}"
