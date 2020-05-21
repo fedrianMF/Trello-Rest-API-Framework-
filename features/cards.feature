@@ -48,3 +48,28 @@ Feature: Cards
         Then The status code should be 200
         And The schema is validated with "card_delete_schema.json"
 
+    @negative
+    Scenario: Create a Card with invalid values
+        Given Defines "POST" request to "/cards/"
+            | key    | value                     |
+            | name   | MyTestCardForNegativePOST |
+            | due    | no_boolean                |
+        When The request is sent
+        Then The status code should be 400
+
+    @negative
+    @fixture.create.card
+    Scenario: Update a Card with invalid values
+        Given Defines "PUT" request to "/cards/{card}"
+            | key    | value                    |
+            | name   | MyTestCardForNegativePUT |
+            | closed | no_boolean               |
+        When The request is sent
+        Then The status code should be 400
+
+    @negative
+    @fixture.create.card
+    Scenario: Delete a Card with invalid values
+        Given Defines "DELETE" request to "/cards/invalid{card}"
+        When The request is sent
+        Then The status code should be 400
