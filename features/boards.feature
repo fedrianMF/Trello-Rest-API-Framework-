@@ -75,6 +75,17 @@ Feature: Boards
         And The schema is validated with "board_delete_member_schema.json"
         Then The status code should be 200
 
+    @acceptance
+    @fixture.get.member
+    @fixture.create.board
+    @fixture.create.member
+    @fixture.delete.board
+    Scenario: Get memberships of a specific board
+        Given Defines "GET" request to "/boards/{board_id}/memberships"
+        When The request is sent
+        Then The status code should be 200
+        And The schema is validated with "board_get_members_schema.json"
+
     @negative
     Scenario: Create a board with invalid values
         Given Defines "POST" request to "/boards/"
