@@ -104,5 +104,5 @@ def delete_resource(context, tag):
     :param tag: tag to be retrieved
     """
     type_data = tag.split('.')[-1]
-    endpoint = "/" + type_data + "/" + context.id_dictionary[type_data]
+    endpoint = "/" + type_data + "s/" + context.id_dictionary[type_data]
     RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)
