@@ -67,7 +67,7 @@ Feature: Boards
     @smoke
     @fixture.get.member
     @fixture.create.board
-    @fixture.create.member
+    @fixture.create.board.member
     @fixture.delete.board
     Scenario: Delete a member from board
         Given Defines "DELETE" request to "/boards/{board_id}/members/{member_id}"
@@ -78,7 +78,7 @@ Feature: Boards
     @acceptance
     @fixture.get.member
     @fixture.create.board
-    @fixture.create.member
+    @fixture.create.board.member
     @fixture.delete.board
     Scenario: Get memberships of a specific board
         Given Defines "GET" request to "/boards/{board_id}/memberships"
