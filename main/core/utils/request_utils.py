@@ -2,8 +2,8 @@
 
 
 import ast
+import jsonschema
 from jsonschema import validate
-from assertpy import assert_that
 from main.core.utils.boolean_utils import BooleanUtils
 
 
@@ -31,7 +31,7 @@ class RequestUtils:
         return data
 
     @staticmethod
-    def validate_body_schema(body, expected_data):
+    def validate_body_schema(json_response, json_schema):
         """Validatebody with expected_data
 
         :param body: object to verify
@@ -39,17 +39,40 @@ class RequestUtils:
         :param expected_data: object to compare
         :type value: obj
         """
-        # validate body here
-        validate(body, schema=expected_data)
+        try:
+            validate(instance=json_response, schema=json_schema)
+        except jsonschema.exceptions.ValidationError:
+            return False
+        return True
 
     @staticmethod
-    def validate_body(body, expected_data):
+    def validate_body(expected_body, response_data):
         """Validatebody with expected_data
 
         :param value: object to verify
         :type value: obj
         """
-        # validate body here
-        assert_that(expected_data.items() <= body.items(),
-                    f"Expected that {expected_data} is in {body}").is_true()
-    # BodyValidator.validate(context.json_response, context.table)
+        for value in expected_body.values():
+            if not has_value(response_data, value):
+                return False
+        return True
+
+
+def has_value(obj, val):
+    """Verify if the val is in the object
+
+    :param obj: object to verify
+    :type onj: obj
+    :param val: value to verify
+    :type val: obj
+    """
+    if isinstance(obj, dict):
+        values = obj.values()
+    elif isinstance(obj, list):
+        values = obj
+    if val in values:
+        return True
+    for current_val in values:
+        if isinstance(current_val, (dict, list)) and has_value(current_val, val):
+            return True
+    return False

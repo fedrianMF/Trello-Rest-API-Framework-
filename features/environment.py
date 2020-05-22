@@ -1,15 +1,16 @@
 """Environment module for behave"""
 from behave.model_core import Status
 from main.core.request_manager import RequestsManager
+import features.hooks.use_fixture as use_fixture
 
 
 def before_all(context):
     """Before_all
     """
     context.rm = RequestsManager(context.config.userdata['url'],
-                                 context.config.userdata['key'],
-                                 context.config.userdata['token'],
-                                 context.config.userdata['oauth_token'])
+                                 context.config.userdata['primary_user_key'],
+                                 context.config.userdata['primary_user_token'],
+                                 context.config.userdata['primary_user_oauth_token'])
 
 
 def before_scenario(context, scenario):  # pylint: disable=W0613
@@ -23,7 +24,21 @@ def after_scenario(context, scenario):  # pylint: disable=W0613
     """
     if scenario.status == Status.failed:
         print("============ Ooops Failed scenario {scenario.name}")
-    print(f"=============Finished {scenario.name}")
+    print(f"\n=============Finished {scenario.name}\n\n\n")
+
+
+def before_tag(context, tag):
+    """Just a simple before_tag hook
+    """
+    if tag.startswith('fixture.create') or tag.startswith('fixture.get'):
+        use_fixture.use_fixture_by_tag(tag, context)
+
+
+def after_tag(context, tag):
+    """Just a simple after_tag hook
+    """
+    if tag.startswith("fixture.delete"):
+        use_fixture.use_fixture_by_tag(tag, context)
 
 
 def before_feature(context, feature):  # pylint: disable=W0613
