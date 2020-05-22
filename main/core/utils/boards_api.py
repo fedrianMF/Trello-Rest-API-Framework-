@@ -29,8 +29,6 @@ class BoardsAPI:
     def delete_board(board_id):
         """ Create a board
 
-        :param request_manager: request manager to create a board
-        :type request_manager: RequestManager
         :param board_id: request manager to create a board
         :type board_id: String
         """
@@ -42,8 +40,6 @@ class BoardsAPI:
     def add_member_to_board(board_id, member_id, type_user):
         """ Add a member to board
 
-        :param request_manager: request manager to add a member to board
-        :type request_manager: RequestManager
         :param board_id: Board id to add a member
         :type board_id: String
         :param member_id: Member id for add to board

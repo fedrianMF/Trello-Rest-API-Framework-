@@ -18,16 +18,14 @@ class ListsAPI:
             "name": "List create at before tag",
             "idBoard": board_id
         }
-        json_response = request_manager.do_request(HttpMethods.POST.value,
-                                                   "/lists", body)[1]
+        status_code, json_response = request_manager.do_request(HttpMethods.POST.value,  # pylint: disable=W0612
+                                                                "/lists", body)
         return json_response['id']
 
     @staticmethod
     def delete_list(list_id):
         """ Delete a list
 
-        :param request_manager: request manager
-        :type request_manager: RequestManager
         :param list_id: id of list
         :type board_id: String
         """

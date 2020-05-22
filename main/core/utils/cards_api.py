@@ -10,8 +10,8 @@ class CardsAPI:
     def create_card(list_id):
         """ Create a card inside a list
 
-        :param request_manager: request manager to create a board
-        :type request_manager: RequestManager
+        :param list_id: list id to create new cards
+        :type list_id: String
         """
         request_manager = RequestsManager()
         body = {
@@ -26,8 +26,6 @@ class CardsAPI:
     def delete_card(card_id):
         """ Delete a list
 
-        :param request_manager: request manager
-        :type request_manager: RequestManager
         :param list_id: id of list
         :type board_id: String
         """
