@@ -5,6 +5,7 @@ from requests_oauthlib import OAuth1
 from main.core.utils.api_constants import HttpMethods
 from main.core.utils.request_utils import RequestUtils as r_utils
 from main.trello.utils.file_reader import FileReader
+from main.trello.api.member_api import MemberAPI
 
 
 @step(u'Defines "{http_method}" request to "{endpoint}"')
@@ -102,8 +103,8 @@ def step_impl_set_wrong_token(context):
     :type context: obj
     """
     context.wrong_auth = OAuth1(context.config.userdata['primary_user_key'],
-                                context.config.userdata['bad_token'],
-                                context.config.userdata['bad_token'],
+                                context.config.userdata['primary_user_token'] + 'invalid',
+                                context.config.userdata['primary_user_token'] + 'invalid',
                                 context.config.userdata['primary_user_oauth_token'])
 
 
@@ -118,3 +119,18 @@ def step_impl_wrong_token_send(context):
                                                                        context.endpoint,
                                                                        context.data_table,
                                                                        auth=context.wrong_auth)
+
+
+@step(u'Get second member information')
+def step_impl_get_second_mem_inf(context):
+    """Sends request with wrong token
+
+    :param context: Global context from behave
+    :type context: obj
+    """
+    auth_sec = OAuth1(context.config.userdata['secondary_user_key'],
+                      context.config.userdata['secondary_user_token'],
+                      context.config.userdata['secondary_user_token'],
+                      context.config.userdata['secondary_user_oauth_token'])
+    context.info_user = MemberAPI.get_member_inf(auth_sec)
+    context.id_dictionary['member'] = context.info_user['id']
