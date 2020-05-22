@@ -146,3 +146,58 @@ Feature: Boards
         When The request is sent
         And The schema is validated with "error_schema.json"
         Then The status code should be 401
+
+    # NEGATIVE OUTLINE
+    @negative @fixture.create.board @fixture.delete.board
+    Scenario Outline: Negative Get a specific Board
+        Given Defines "Verb" request to "<Endpoint>"
+        When The request is sent
+        Then The status code should be <Response>
+        And The schema is validated with "error_schema.json"
+        Examples:
+        | Verb | Endpoint                   | Response |
+        | GET  | /boards/invalid_{board_id} | 400      |
+        | GET  | /boards/{board_id}_invalid | 400      |
+        | GET  | /boards/inv_{board_id}_lid | 400      |
+
+    @negative
+    Scenario Outline: Negative Create a Board
+        Given Defines "<Verb>" request to "/boards/"
+            | key   | value          |
+            | <Key> | <Value>        |
+        When The request is sent
+        Then The status code should be <Response>
+        And The schema is validated with "error_schema.json"
+        Examples:
+        | Verb | Key           | Value      | Response |
+        | POST | name          |            | 400      |
+        | POST | defaultLists  | no_boolean | 400      |
+        | POST | defaultLabels | no_boolean | 400      |
+
+    @negative @fixture.create.board @fixture.delete.board
+    Scenario Outline: Negative Update a Board
+        Given Defines "<Verb>" request to "/boards/{board_id}"
+            | key   | value          |
+            | <Key> | <Value>        |
+        When The request is sent
+        Then The status code should be <Response>
+        And The schema is validated with "error_schema.json"
+        Examples:
+        | Verb | Key              | Value      | Response |
+        | PUT  | name             |            | 400      |
+        | PUT  | closed           | no_boolean | 400      |
+        | PUT  | prefs/selfJoin   | no_boolean | 400      |
+        | PUT  | prefs/cardCovers |            | 400      |
+
+    @negative @fixture.create.board @fixture.delete.board
+    Scenario Outline: Negative Delete a Board
+        Given Defines "<Verb>" request to "<Endpoint>"
+        When The request is sent
+        Then The status code should be <Response>
+        And The schema is validated with "error_schema.json"
+        Examples:
+        | Verb    | Endpoint                   | Response |
+        | DELETE  | /boards/invalid_{board_id} | 400      |
+        | DELETE  | /boards/{board_id}_invalid | 400      |
+        | DELETE  | /boards/inva_{board_id}lid | 400      |
+        | DELETE  | /boards/inva{board_id}_lid | 400      |

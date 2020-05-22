@@ -54,29 +54,53 @@ Feature: Cards
         Then The status code should be 200
         And The schema is validated with "card_add_member_schema.json"
 
+    @negative @fixture.create.card @fixture.delete.card
+    Scenario Outline: Negative Get a Card
+        Given Defines "Verb" request to "<Endpoint>"
+        When The request is sent
+        Then The status code should be <Response>
+        And The schema is validated with "error_schema.json"
+        Examples:
+        | Verb | Endpoint                 | Response |
+        | GET  | /cards/invalid_{card_id} | 400      |
+        | GET  | /cards/{card_id}_invalid | 400      |
+        | GET  | /cards/inv_{card_id}_lid | 400      |
+
     @negative
-    Scenario: Create a Card with invalid values
-        Given Defines "POST" request to "/cards/"
-            | key    | value                     |
-            | name   | MyTestCardForNegativePOST |
-            | due    | no_boolean                |
+    Scenario Outline: Negative Create a Card
+        Given Defines "<Verb>" request to "/cards/"
+            | key   | value          |
+            | <Key> | <Value>        |
         When The request is sent
+        Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
-        Then The status code should be 400
+        Examples:
+        | Verb | Key         | Value      | Response |
+        | POST | dueComplete | no_boolean | 400      |
+        | POST | pos         | -1         | 400      |
 
-    @negative @fixture.create.card
-    Scenario: Update a Card with invalid values
-        Given Defines "PUT" request to "/cards/{card_id}"
-            | key    | value                    |
-            | name   | MyTestCardForNegativePUT |
-            | closed | no_boolean               |
+    @negative @fixture.create.card @fixture.delete.card
+    Scenario Outline: Negative Update a Card
+        Given Defines "<Verb>" request to "/cards/{card_id}"
+            | key   | value          |
+            | <Key> | <Value>        |
         When The request is sent
+        Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
-        Then The status code should be 400
+        Examples:
+        | Verb | Key    | Value      | Response |
+        | PUT  | closed | no_boolean | 400      |
+        | PUT  | pos    | -1         | 400      |
 
-    @negative @fixture.create.card
-    Scenario: Delete a Card with invalid values
-        Given Defines "DELETE" request to "/cards/invalid{card_id}"
+    @negative @fixture.create.card @fixture.delete.card
+    Scenario Outline: Negative Delete a Card
+        Given Defines "<Verb>" request to "<Endpoint>"
         When The request is sent
+        Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
-        Then The status code should be 400
+        Examples:
+        | Verb    | Endpoint                 | Response |
+        | DELETE  | /cards/invalid_{card_id} | 400      |
+        | DELETE  | /cards/{card_id}_invalid | 400      |
+        | DELETE  | /cards/inva_{card_id}lid | 400      |
+        | DELETE  | /cards/inva{card_id}_lid | 400      |
