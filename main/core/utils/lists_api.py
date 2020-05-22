@@ -18,8 +18,8 @@ class ListsAPI:
             "name": "List create at before tag",
             "idBoard": board_id
         }
-        status_code, json_response = request_manager.do_request(HttpMethods.POST.value,  # pylint: disable=W0612
-                                                                "/lists", body)
+        json_response = request_manager.do_request(HttpMethods.POST.value,
+                                                   "/lists", body)[1]
         return json_response['id']
 
     @staticmethod
