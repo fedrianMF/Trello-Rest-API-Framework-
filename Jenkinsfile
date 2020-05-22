@@ -19,10 +19,10 @@ pipeline {
       }
     }
     stage('Run test'){
-      first_test_failed = false
       steps{
         script{
           try{
+            first_test_failed = false
             bat 'behave -f allure -o reports/allure_reports ./features'  
           } catch(err){
             first_test_failed = true
