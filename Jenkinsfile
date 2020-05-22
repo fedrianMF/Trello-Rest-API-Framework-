@@ -13,6 +13,11 @@ pipeline {
         ])
       }
     }
+    stage('Install requirements'){
+      steps{
+        bat 'make init'
+      }
+    }
     stage('Run test'){
       steps{
         script{
