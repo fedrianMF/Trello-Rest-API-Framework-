@@ -6,10 +6,10 @@ Feature: Authorization
     @fixture.create.board
     @fixture.create.list
     @fixture.create.card
-    @fixture.create.card.member
+    @fixture.add.member.card
     @fixture.delete.card
     @fixture.delete.list
-    @fixture.create.board.member
+    @fixture.add.member.board
     @fixture.delete.board
     Scenario Outline: <action> with wrong user token
         Given Defines "<verb>" request to "<endpoint>"

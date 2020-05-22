@@ -1,4 +1,4 @@
-@fixture.create.board @fixture.delete.board
+@lists @fixture.create.board @fixture.delete.board
 Feature: Lists
 
     @smoke @fixture.create.list @fixture.delete.list
@@ -91,7 +91,7 @@ Feature: Lists
         | POST | idListSource  |            | 400      |
         | POST | pos           | -1         | 400      |
 
-    @negative @fixture.create.board @fixture.delete.board
+    @negative @fixture.create.list @fixture.delete.list
     Scenario Outline: Negative Update a List
         Given Defines "<Verb>" request to "/lists/{list_id}"
             | key   | value          |
@@ -111,10 +111,25 @@ Feature: Lists
             | key   | value          |
             | <Key> | <Value>        |
         When The request is sent
-        And The schema is validated with "error_schema.json"
         Then The status code should be 400
+        And The schema is validated with "error_schema.json"
         Examples:
             | Key   | Value       |
             | value | no_boolean  |
             | value | -1          |
             | value | 2.25        |
+
+    @smoke @authorization @fixture.create.list @fixture.delete.list
+    Scenario Outline: "<action>" with wrong user token
+        Given Defines "<verb>" request to "<endpoint>"
+        And Set wrong user token
+        When The request with wrong token is sent
+        Then The status code should be 401
+        Examples:
+            | verb | endpoint                 | action                     |
+            | GET  | /lists/{list_id}         | Get a List                 |
+            | PUT  | /lists/{list_id}         | Update a List              |
+            | PUT  | /lists/{list_id}/closed  | Delete a list              |
+            | GET  | /lists/{list_id}/actions | Get Actions for a List     |
+            | GET  | /lists/{list_id}/board   | Get the Board a List is on |
+            | GET  | /lists/{list_id}/cards   | Get Cards in a List        |

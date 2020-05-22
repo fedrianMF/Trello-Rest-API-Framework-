@@ -1,3 +1,4 @@
+@cards
 @fixture.create.board @fixture.create.list @fixture.delete.list @fixture.delete.board
 Feature: Cards
 
@@ -39,15 +40,16 @@ Feature: Cards
         Then The status code should be 200
         And The schema is validated with "card_delete_schema.json"
 
-    @fixture.create.card @fixture.get.member @fixture.delete.card
+    @fixture.create.card @fixture.delete.card
     Scenario: Add a Member to a Card
-        Given Defines "POST" request to "/cards/{card_id}/idMembers"
+        Given Get second member information
+        And Defines "POST" request to "/cards/{card_id}/idMembers"
             |key     | value                    |
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "card_remove_member_schema.json"
 
-    @fixture.create.card @fixture.get.member @fixture.create.card.member @fixture.delete.card
+    @fixture.create.card @fixture.get.member @fixture.add.member.card @fixture.delete.card
     Scenario: Remove a Member from a Card
         Given Defines "DELETE" request to "/cards/{card_id}/idMembers/{member_id}"
         When The request is sent
@@ -104,3 +106,17 @@ Feature: Cards
         | DELETE  | /cards/{card_id}_invalid | 400      |
         | DELETE  | /cards/inva_{card_id}lid | 400      |
         | DELETE  | /cards/inva{card_id}_lid | 400      |
+
+    @smoke @authorization
+    @fixture.create.card @fixture.get.member @fixture.add.member.card @fixture.delete.card
+    Scenario Outline: "<action>" with wrong user token
+        Given Defines "<verb>" request to "<endpoint>"
+        And Set wrong user token
+        When The request with wrong token is sent
+        Then The status code should be 401
+        Examples:
+            | verb   | endpoint                               | action                      |
+            | GET    | /cards/{card_id}                       | Get a Card                  |
+            | PUT    | /cards/{card_id}                       | Update a Card               |
+            | DELETE | /cards/{card_id}                       | Delete a Card               |
+            | DELETE | /cards/{card_id}/idMembers/{member_id} | Remove a Member from a Card |
