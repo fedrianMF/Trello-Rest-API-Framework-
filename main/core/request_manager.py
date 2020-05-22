@@ -1,8 +1,9 @@
 """Module for requests"""
+from http import HTTPStatus
 import requests
 from requests import Session
 from requests_oauthlib import OAuth1
-from main.trello.utils.request_utils import RequestUtils as utils
+from main.core.utils.request_utils import RequestUtils as utils
 from main.trello.utils.file_reader import FileReader as reader
 
 
@@ -53,6 +54,8 @@ class RequestsManager:  # pylint: disable=R0903
             response = requests.request(str(http_method), url,
                                         auth=self.auth, params=body)
         self.auth = auth
+        if response.status_code is not HTTPStatus.OK.value:
+            return response.status_code, {"message": response.text}
         return response.status_code, response.json()
 
     def close_session(self):

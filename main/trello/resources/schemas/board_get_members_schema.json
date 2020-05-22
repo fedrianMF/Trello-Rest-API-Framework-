@@ -1,0 +1,30 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "idMember": {
+        "type": "string"
+      },
+      "memberType": {
+        "type": "string"
+      },
+      "unconfirmed": {
+        "type": "boolean"
+      },
+      "deactivated": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "id",
+      "idMember",
+      "memberType",
+      "unconfirmed",
+      "deactivated"
+    ]
+  }
+}

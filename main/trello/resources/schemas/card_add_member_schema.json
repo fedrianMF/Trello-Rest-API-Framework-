@@ -1,0 +1,50 @@
+{
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "activityBlocked": {
+          "type": "boolean"
+        },
+        "avatarHash": {
+          "type": "string"
+        },
+        "avatarUrl": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "idMemberReferrer": {
+          "type": "null"
+        },
+        "initials": {
+          "type": "string"
+        },
+        "nonPublic": {
+          "type": "object"
+        },
+        "nonPublicAvailable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "username",
+        "activityBlocked",
+        "avatarHash",
+        "avatarUrl",
+        "fullName",
+        "idMemberReferrer",
+        "initials",
+        "nonPublic",
+        "nonPublicAvailable"
+      ]
+    }
+  }

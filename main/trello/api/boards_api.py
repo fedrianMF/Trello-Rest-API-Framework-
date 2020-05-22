@@ -1,14 +1,14 @@
 """Module for Boards manage"""
 
 from main.core.request_manager import RequestsManager as RM
-from main.trello.utils.api_constants import HttpMethods
+from main.core.utils.api_constants import HttpMethods
 
 
 class BoardsAPI:
     """Utils for Boards endpoint"""
 
     @staticmethod
-    def create_board(name, desc):
+    def create_board(name, description):
         """ Create a board
 
         :param name: Name for the new board
@@ -18,7 +18,7 @@ class BoardsAPI:
         """
         body = {
             "name": name,
-            "desc": desc
+            "desc": description
         }
         status_code, json_response = RM.get_instance().do_request(HttpMethods.POST.value,   # pylint: disable=W0612
                                                                   "/boards/", body)

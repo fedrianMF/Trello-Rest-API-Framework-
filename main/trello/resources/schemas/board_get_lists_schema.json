@@ -1,0 +1,38 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "closed": {
+        "type": "boolean"
+      },
+      "pos": {
+        "type": "integer"
+      },
+      "softLimit": {
+        "type": "null"
+      },
+      "idBoard": {
+        "type": "string"
+      },
+      "subscribed": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "closed",
+      "pos",
+      "softLimit",
+      "idBoard",
+      "subscribed"
+    ]
+  }
+}

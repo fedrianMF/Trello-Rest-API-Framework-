@@ -1,10 +1,7 @@
 """Module for RequestUtils"""
-
-
-import ast
 import jsonschema
 from jsonschema import validate
-from main.trello.utils.boolean_utils import BooleanUtils
+from main.core.utils.boolean_utils import BooleanUtils
 
 
 class RequestUtils:
@@ -20,8 +17,8 @@ class RequestUtils:
         data = {}
         if body is not None:
             for row in body:
-                if row['value'] == 'True' or row['value'] == 'False':
-                    data[str(row['key'])] = ast.literal_eval(row['value'])
+                if row['value'] == 'True' or row['value'] == 'False' or row['value'] == 'None':
+                    data[str(row['key'])] = parse_data(row['value'])
                 elif row['value'].isdigit():
                     data[str(row['key'])] = int(row['value'])
                 elif BooleanUtils.is_float(row['value']):
@@ -76,3 +73,13 @@ def has_value(obj, val):
         if isinstance(current_val, (dict, list)) and has_value(current_val, val):
             return True
     return False
+
+
+def parse_data(value):
+    """Boolean and Null parser
+
+    param value: Value to parse
+    type value: string
+    """
+    parsed_params = {"True": "true", "False": "false", "None": None}
+    return parsed_params.get(value) if value.lower() in parsed_params else value
