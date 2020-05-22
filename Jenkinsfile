@@ -37,7 +37,7 @@ pipeline {
         }
       }
       steps{
-        catchError(buildResult:'SUCCESS', stageResult:'FAILURE'){
+        catchError(buildResult:'SUCCESS', stageResult:'SUCCESS'){
           bat 'behave @rerun_failing.features -f html -o reports/html_reports/html_reports.html'
         }
       }
