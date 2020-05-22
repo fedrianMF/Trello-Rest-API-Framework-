@@ -18,6 +18,7 @@ pipeline {
         bat 'make init'
       }
     }
+    first_test_failed = false
     stage('Run test'){
       steps{
         script{
@@ -32,11 +33,11 @@ pipeline {
     stage('Re-execute test'){
       when {
         expression {
-          first_test_failed
+          first_test_failed == true
         }
       }
       steps{
-        catchError(buildResult:'FAILURE', stageResult:'SUCCESS'){
+        catchError(buildResult:'SUCCESS', stageResult:'FAILURE'){
           bat 'behave @rerun_failing.features -f html -o reports/html_reports/html_reports.html'
         }
       }
