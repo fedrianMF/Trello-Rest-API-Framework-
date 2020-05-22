@@ -18,8 +18,8 @@ pipeline {
         bat 'make init'
       }
     }
-    first_test_failed = false
     stage('Run test'){
+      first_test_failed = false
       steps{
         script{
           try{
