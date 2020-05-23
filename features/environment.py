@@ -2,6 +2,7 @@
 from behave.fixture import use_fixture_by_tag, fixture_call_params
 from behave.model_core import Status
 from main.core.request_manager import RequestsManager
+from main.core.utils.logger_utils import LoggerUtils
 from features.hooks.use_fixture import delete_resource, get_resource_member,\
     post_resource_board, post_resource_card, post_resource_list,\
     put_resource_board, put_resource_card, put_resource_list
@@ -10,6 +11,8 @@ from features.hooks.use_fixture import delete_resource, get_resource_member,\
 def before_all(context):
     """Before_all
     """
+    context.logger = LoggerUtils.config_logger('basic_logger')
+    context.logger.info('Set primary user credentials')
     context.rm = RequestsManager.get_instance()
     context.id_dictionary = {}
 
@@ -22,7 +25,7 @@ def after_all(context):  # pylint: disable=W0613
 def before_feature(context, feature):  # pylint: disable=W0613
     """Before feature hook
     """
-    print(f"=============Started {feature.name}")
+    context.logger.info(f"=============Started {feature.name}")
 
 
 def after_feature(context, feature):  # pylint: disable=W0613
@@ -33,15 +36,21 @@ def after_feature(context, feature):  # pylint: disable=W0613
 def before_scenario(context, scenario):  # pylint: disable=W0613
     """Before scenario hook
     """
-    print(f"=============Started {scenario.name}")
+    context.logger.info(f"=============Started {scenario.name}")
 
 
 def after_scenario(context, scenario):  # pylint: disable=W0613
     """After scenario hook if the scenario is failed take a screenshot
     """
+    context.logger.info(scenario.name)
+    
+    context.logger.info(' '.join(scenario.tags))
+    for x in context.scenario.steps:
+        context.logger.info(x)
+    
     if scenario.status == Status.failed:
-        print("============ Ooops Failed scenario {scenario.name}")
-    print(f"\n=============Finished {scenario.name}\n\n\n")
+        context.logger.info(f"============ Ooops Failed scenario {scenario.name}")
+    context.logger.info(f"============Finished {scenario.name}\n\n\n")
 
 
 def before_tag(context, tag):  # pylint: disable=W0613, R1710
