@@ -45,11 +45,11 @@ def after_scenario(context, scenario):  # pylint: disable=W0613
     context.logger.info(scenario.name)
     
     context.logger.info(' '.join(scenario.tags))
-    for x in context.scenario.steps:
-        context.logger.info(x)
     
     if scenario.status == Status.failed:
-        context.logger.info(f"============ Ooops Failed scenario {scenario.name}")
+        context.logger.error(f"============ Failed scenario {scenario.name}")
+    else:
+        context.logger.info(f"============ Scenario passed {scenario.name}")
     context.logger.info(f"============Finished {scenario.name}\n\n\n")
 
 
