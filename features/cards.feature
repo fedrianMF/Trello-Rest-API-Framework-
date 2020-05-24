@@ -56,8 +56,7 @@ Feature: Cards
         Then The status code should be 200
         And The schema is validated with "card_add_member_schema.json"
     
-    @smoke @authorization
-    @fixture.create.card @fixture.get.member @fixture.add.member.card @fixture.delete.card
+    @smoke @authorization @fixture.create.card @fixture.delete.card
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
         And Set wrong user token
@@ -68,7 +67,14 @@ Feature: Cards
             | GET    | /cards/{card_id}                       | Get a Card                  |
             | PUT    | /cards/{card_id}                       | Update a Card               |
             | DELETE | /cards/{card_id}                       | Delete a Card               |
-            | DELETE | /cards/{card_id}/idMembers/{member_id} | Remove a Member from a Card |
+
+    @smoke @authorization
+    @fixture.create.card @fixture.get.member @fixture.add.member.card @fixture.delete.card
+    Scenario: Remove a Member from a Card with wrong user token
+        Given A "DELETE" request to "/cards/{card_id}/idMembers/{member_id}"
+        And Set wrong user token
+        When The request with wrong token is sent
+        Then The status code should be 401
 
     @negative @fixture.create.card @fixture.delete.card
     Scenario Outline: Is not possible Get a Card with invalid parameters
