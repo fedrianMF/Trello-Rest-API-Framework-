@@ -2,7 +2,7 @@
 Feature: Boards
 
     @smoke @fixture.create.board @fixture.delete.board
-    Scenario: Get a specific board
+    Scenario: Get a Board
         Given Defines "GET" request to "/boards/{board_id}"
         When The request is sent
         Then The status code should be 200
@@ -10,42 +10,42 @@ Feature: Boards
 
     @acceptance
     @fixture.delete.board
-    Scenario: Create a board
+    Scenario: Create a Board
         Given Defines "POST" request to "/boards/"
             | key  | value                                        |
-            | name | test board                                   |
-            | desc | here is a little description for API testing |
+            | name | My Test Board For POST Scenario              |
+            | desc | Here is a little description for API testing |
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_schema.json"
         And The body response must be contains
             | key  | value                                        |
-            | name | test board                                   |
-            | desc | here is a little description for API testing |
+            | name | My Test Board For POST Scenario              |
+            | desc | Here is a little description for API testing |
 
     @acceptance @fixture.create.board @fixture.delete.board
-    Scenario: Update a board
+    Scenario: Update a Board
         Given Defines "PUT" request to "/boards/{board_id}"
             | key  | value                           |
-            | name | new name test board             |
-            | desc | here goes new board description |
+            | name | My Test Board For PUT Scenario  |
+            | desc | Here goes new board description |
         When The request is sent
         And The schema is validated with "board_update_schema.json"
         And The status code should be 200
         And The body response must be contains
             | key  | value                           |
-            | name | new name test board             |
-            | desc | here goes new board description |
+            | name | My Test Board For PUT Scenario  |
+            | desc | Here goes new board description |
 
     @acceptance @fixture.create.board
-    Scenario: Delete a board
+    Scenario: Delete a Board
         Given Defines "DELETE" request to "/boards/{board_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_delete_schema.json"
 
     @smoke @fixture.create.board @fixture.delete.board
-    Scenario: Add a member to board
+    Scenario: Add a Member to Board
         Given Get second member information
         And Defines "PUT" request to "/boards/{board_id}/members/{member_id}"
             | key  | value |
@@ -59,7 +59,7 @@ Feature: Boards
 
     @smoke
     @fixture.get.member @fixture.create.board @fixture.add.member.board @fixture.delete.board
-    Scenario: Delete a member from board
+    Scenario: Delete a Member from Board
         Given Get second member information
         And Defines "DELETE" request to "/boards/{board_id}/members/{member_id}"
         When The request is sent
@@ -68,7 +68,7 @@ Feature: Boards
 
     @acceptance
     @fixture.get.member @fixture.create.board @fixture.add.member.board @fixture.delete.board
-    Scenario: Get memberships of a specific board
+    Scenario: Get memberships of a specific Board
         Given Defines "GET" request to "/boards/{board_id}/memberships"
         When The request is sent
         Then The status code should be 200
@@ -97,18 +97,18 @@ Feature: Boards
         Then The status code should be 401
         Examples:
             | verb   | endpoint                               | action                              |
-            | POST   | /boards/                               | Create a board                      |
-            | GET    | /boards/{board_id}                     | Get a specific board                |
-            | PUT    | /boards/{board_id}                     | Update a board                      |
-            | DELETE | /boards/{board_id}                     | Delete a board                      |
-            | PUT    | /boards/{board_id}/members/{member_id} | Add a member to board               |
-            | DELETE | /boards/{board_id}/members/{member_id} | Delete a member from board          |
-            | GET    | /boards/{board_id}/memberships         | Get memberships of a specific board |
-            | GET    | /boards/{board_id}/labels              | Get Labels on a board               |
-            | GET    | /boards/{board_id}/lists               | Get Lists on a board                |
+            | POST   | /boards/                               | Create a Board                      |
+            | GET    | /boards/{board_id}                     | Get a Board                         |
+            | PUT    | /boards/{board_id}                     | Update a Board                      |
+            | DELETE | /boards/{board_id}                     | Delete a Board                      |
+            | PUT    | /boards/{board_id}/members/{member_id} | Add a Member to Board               |
+            | DELETE | /boards/{board_id}/members/{member_id} | Delete a Member from Board          |
+            | GET    | /boards/{board_id}/memberships         | Get memberships of a specific Board |
+            | GET    | /boards/{board_id}/labels              | Get Labels on a Board               |
+            | GET    | /boards/{board_id}/lists               | Get Lists on a Board                |
 
     @negative @fixture.create.board @fixture.delete.board
-    Scenario Outline: Negative Get a specific Board
+    Scenario Outline: Is not possible Get a Board with invalid parameters
         Given Defines "Verb" request to "<Endpoint>"
         When The request is sent
         Then The status code should be <Response>
@@ -120,7 +120,7 @@ Feature: Boards
             | GET  | /boards/inv_{board_id}_lid | 400      |
 
     @negative
-    Scenario Outline: Negative Create a Board
+    Scenario Outline: Is not possible Create a Board with invalid parameters
         Given Defines "<Verb>" request to "/boards/"
             | key   | value   |
             | <Key> | <Value> |
@@ -134,7 +134,7 @@ Feature: Boards
             | POST | defaultLabels | no_boolean | 400      |
 
     @negative @fixture.create.board @fixture.delete.board
-    Scenario Outline: Negative Update a Board
+    Scenario Outline: Is not possible Update a Board with invalid parameters
         Given Defines "<Verb>" request to "/boards/{board_id}"
             | key   | value   |
             | <Key> | <Value> |
@@ -149,7 +149,7 @@ Feature: Boards
             | PUT  | prefs/cardCovers |            | 400      |
 
     @negative @fixture.create.board @fixture.delete.board
-    Scenario Outline: Negative Delete a Board
+    Scenario Outline: Is not possible Delete a Board with invalid parameters
         Given Defines "<Verb>" request to "<Endpoint>"
         When The request is sent
         Then The status code should be <Response>

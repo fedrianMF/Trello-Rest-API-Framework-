@@ -31,9 +31,9 @@ class RequestUtils:
     def validate_body_schema(json_response, json_schema):
         """Validatebody with expected_data
 
-        :param body: object to verify
+        :param json_response: object to verify
         :type value: string
-        :param expected_data: object to compare
+        :param json_schema: object to compare
         :type value: obj
         """
         try:
@@ -46,7 +46,9 @@ class RequestUtils:
     def validate_body(expected_body, response_data):
         """Validatebody with expected_data
 
-        :param value: object to verify
+        :param json_response: object to verify
+        :type value: string
+        :param json_schema: object to compare
         :type value: obj
         """
         for value in expected_body.values():

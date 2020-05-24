@@ -10,8 +10,10 @@ class CardsAPI:
     def create_card(name, list_id):
         """ Create a card inside a list
 
-        :param list_id: list id to create new cards
-        :type list_id: String
+        :param name: name of Card
+        :type name: String
+        :param list_id: List id where Member will be added
+        :type list_id: RequestManager
         """
         body = {
             "name": name,
@@ -25,8 +27,8 @@ class CardsAPI:
     def delete_card(card_id):
         """ Delete a list
 
-        :param list_id: id of list
-        :type board_id: String
+        :param card_id: List id to delete
+        :type card_id: String
         """
         endpoint = f"/cards/{card_id}"
         RM.get_instance().do_request(HttpMethods.DELETE.value, endpoint)   # pylint: disable=W0612
@@ -38,7 +40,7 @@ class CardsAPI:
         :param card_id: card id to add a member
         :type card_id: String
         :param member_id: Member id for add to card
-        :type board_id: String
+        :type member_id: String
         """
         endpoint = f"/cards/{card_id}/idMembers"
         body = {

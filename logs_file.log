@@ -695,9 +695,9 @@ Reference&#32;&#35;7&#46;dda762be&#46;1590427788&#46;0
 2020-05-25 13:29:50,750 - basic_logger - INFO - json response: {'id': '5ecc008d771f8856f43c02a4', 'name': 'Before Tag List', 'closed': False, 'pos': 0.5, 'idBoard': '5ecc00764eff4b0f90e39531', 'limits': {}}
 2020-05-25 13:29:50,774 - basic_logger - INFO - =============Started Is not possible Get a List with invalid parameters -- @1.2 
 2020-05-25 13:29:50,811 - basic_logger - INFO - http method: Verb
-2020-05-25 13:29:50,812 - basic_logger - INFO - endpoint: /lists/5ecc008d771f8856f43c02a4123·
+2020-05-25 13:29:50,812 - basic_logger - INFO - endpoint: /lists/5ecc008d771f8856f43c02a4123ï¿½
 2020-05-25 13:29:50,812 - basic_logger - INFO - body: {}
-2020-05-25 13:29:50,812 - basic_logger - INFO - complete URL: https://api.trello.com/1//lists/5ecc008d771f8856f43c02a4123·
+2020-05-25 13:29:50,812 - basic_logger - INFO - complete URL: https://api.trello.com/1//lists/5ecc008d771f8856f43c02a4123ï¿½
 2020-05-25 13:29:50,812 - basic_logger - INFO - send request...
 2020-05-25 13:29:51,194 - basic_logger - INFO - response status code: 400
 2020-05-25 13:29:51,194 - basic_logger - ERROR - response: <HTML><HEAD>
@@ -1383,9 +1383,9 @@ Reference&#32;&#35;7&#46;dda762be&#46;1590427864&#46;0
 2020-05-25 13:31:06,315 - basic_logger - INFO - json response: {'id': '5ecc00d9cbae185ae1ebbcc1', 'name': 'Before Tag List', 'closed': False, 'pos': 0.5, 'idBoard': '5ecc00c2e55a10572b9fdd6b', 'limits': {}}
 2020-05-25 13:31:06,340 - basic_logger - INFO - =============Started Is not possible Get a List with invalid parameters -- @1.2 
 2020-05-25 13:31:06,370 - basic_logger - INFO - http method: Verb
-2020-05-25 13:31:06,370 - basic_logger - INFO - endpoint: /lists/5ecc00d9cbae185ae1ebbcc1123·
+2020-05-25 13:31:06,370 - basic_logger - INFO - endpoint: /lists/5ecc00d9cbae185ae1ebbcc1123ï¿½
 2020-05-25 13:31:06,370 - basic_logger - INFO - body: {}
-2020-05-25 13:31:06,370 - basic_logger - INFO - complete URL: https://api.trello.com/1//lists/5ecc00d9cbae185ae1ebbcc1123·
+2020-05-25 13:31:06,370 - basic_logger - INFO - complete URL: https://api.trello.com/1//lists/5ecc00d9cbae185ae1ebbcc1123ï¿½
 2020-05-25 13:31:06,371 - basic_logger - INFO - send request...
 2020-05-25 13:31:06,744 - basic_logger - INFO - response status code: 400
 2020-05-25 13:31:06,745 - basic_logger - ERROR - response: <HTML><HEAD>
@@ -2471,7 +2471,7 @@ Reference&#32;&#35;7&#46;dda762be&#46;1590427985&#46;0
 2020-05-25 13:33:13,953 - basic_logger - INFO - =============Started Is not possible Update a Board with invalid parameters -- @1.3 
 2020-05-25 13:33:13,990 - basic_logger - INFO - http method: PUT
 2020-05-25 13:33:13,990 - basic_logger - INFO - endpoint: /boards/5ecc0159559a8880b1779ee0
-2020-05-25 13:33:13,990 - basic_logger - INFO - body: {'prefs/selfJoin': '!"·!"'}
+2020-05-25 13:33:13,990 - basic_logger - INFO - body: {'prefs/selfJoin': '!"ï¿½!"'}
 2020-05-25 13:33:13,990 - basic_logger - INFO - complete URL: https://api.trello.com/1//boards/5ecc0159559a8880b1779ee0
 2020-05-25 13:33:13,990 - basic_logger - INFO - send request...
 2020-05-25 13:33:14,520 - basic_logger - INFO - response status code: 400
@@ -3170,9 +3170,9 @@ Reference&#32;&#35;7&#46;6bc5ebe&#46;1590428138&#46;0
 2020-05-25 13:35:45,256 - basic_logger - INFO - json response: {'id': '5ecc01f05b5faf88e65088ab', 'checkItemStates': [], 'closed': False, 'dateLastActivity': '2020-05-25T17:35:44.341Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '5ecc01cfac9b731c4ac283b8', 'idList': '5ecc01d09895258062312137', 'idMembersVoted': [], 'idShort': 16, 'idAttachmentCover': None, 'idLabels': [], 'manualCoverAttachment': False, 'name': 'Before Tag Card', 'pos': 16384, 'shortLink': 'lJHSqism', 'isTemplate': False, 'dueComplete': False, 'due': None, 'email': None, 'labels': [], 'shortUrl': 'https://trello.com/c/lJHSqism', 'url': 'https://trello.com/c/lJHSqism/16-before-tag-card', 'cover': {'idAttachment': None, 'color': None, 'idUploadedBackground': None, 'size': 'normal', 'brightness': 'light'}, 'idMembers': [], 'attachments': [], 'badges': {'attachmentsByType': {'trello': {'board': 0, 'card': 0}}, 'location': False, 'votes': 0, 'viewingMemberVoted': False, 'subscribed': False, 'fogbugz': '', 'checkItems': 0, 'checkItemsChecked': 0, 'checkItemsEarliestDue': None, 'comments': 0, 'attachments': 0, 'description': False, 'due': None, 'dueComplete': False}, 'subscribed': False, 'idChecklists': [], 'stickers': [], 'limits': {}}
 2020-05-25 13:35:45,280 - basic_logger - INFO - =============Started Is not possible Delete a Card with invalid parameters -- @1.1 
 2020-05-25 13:35:45,304 - basic_logger - INFO - http method: DELETE
-2020-05-25 13:35:45,305 - basic_logger - INFO - endpoint: /cards/i5ecc01f05b5faf88e65088ab!"·"
+2020-05-25 13:35:45,305 - basic_logger - INFO - endpoint: /cards/i5ecc01f05b5faf88e65088ab!"ï¿½"
 2020-05-25 13:35:45,305 - basic_logger - INFO - body: {}
-2020-05-25 13:35:45,305 - basic_logger - INFO - complete URL: https://api.trello.com/1//cards/i5ecc01f05b5faf88e65088ab!"·"
+2020-05-25 13:35:45,305 - basic_logger - INFO - complete URL: https://api.trello.com/1//cards/i5ecc01f05b5faf88e65088ab!"ï¿½"
 2020-05-25 13:35:45,305 - basic_logger - INFO - send request...
 2020-05-25 13:35:45,796 - basic_logger - INFO - response status code: 400
 2020-05-25 13:35:45,796 - basic_logger - ERROR - response: invalid id
@@ -3291,3 +3291,875 @@ Reference&#32;&#35;7&#46;6bc5ebe&#46;1590428138&#46;0
 2020-05-25 13:35:51,866 - basic_logger - INFO - send request...
 2020-05-25 13:35:52,893 - basic_logger - INFO - response status code: 200
 2020-05-25 13:35:52,893 - basic_logger - INFO - json response: {'_value': None}
+2020-05-23 09:06:07,516 - basic_logger - INFO - Set primary user credentials
+2020-05-23 09:06:07,518 - basic_logger - INFO - =============Started Boards
+2020-05-23 09:06:08,342 - basic_logger - INFO - =============Started Get a specific board
+2020-05-23 09:06:08,767 - basic_logger - INFO - Get a specific board
+2020-05-23 09:06:08,767 - basic_logger - INFO - smoke fixture.create.board fixture.delete.board
+2020-05-23 09:06:08,767 - basic_logger - INFO - <given "Defines "GET" request to "/boards/{board_id}"">
+2020-05-23 09:06:08,767 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:08,767 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:06:08,767 - basic_logger - INFO - <then "The schema is validated with "board_get_schema.json"">
+2020-05-23 09:06:08,768 - basic_logger - INFO - ============Finished Get a specific board
+
+
+
+2020-05-23 09:06:09,490 - basic_logger - INFO - =============Started Create a board
+2020-05-23 09:06:10,006 - basic_logger - INFO - Create a board
+2020-05-23 09:06:10,006 - basic_logger - INFO - acceptance fixture.delete.board
+2020-05-23 09:06:10,007 - basic_logger - INFO - <given "Defines "POST" request to "/boards/"">
+2020-05-23 09:06:10,007 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:10,007 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:06:10,007 - basic_logger - INFO - <then "The schema is validated with "board_get_schema.json"">
+2020-05-23 09:06:10,007 - basic_logger - INFO - <then "The body response must be contains">
+2020-05-23 09:06:10,007 - basic_logger - INFO - ============Finished Create a board
+
+
+
+2020-05-23 09:06:11,201 - basic_logger - INFO - =============Started Update a board
+2020-05-23 09:06:11,719 - basic_logger - INFO - Update a board
+2020-05-23 09:06:11,720 - basic_logger - INFO - acceptance fixture.create.board fixture.delete.board
+2020-05-23 09:06:11,720 - basic_logger - INFO - <given "Defines "PUT" request to "/boards/{board_id}"">
+2020-05-23 09:06:11,720 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:11,720 - basic_logger - INFO - <when "The schema is validated with "board_update_schema.json"">
+2020-05-23 09:06:11,720 - basic_logger - INFO - <when "The status code should be 200">
+2020-05-23 09:06:11,720 - basic_logger - INFO - <when "The body response must be contains">
+2020-05-23 09:06:11,720 - basic_logger - INFO - ============Finished Update a board
+
+
+
+2020-05-23 09:06:13,066 - basic_logger - INFO - =============Started Delete a board
+2020-05-23 09:06:13,740 - basic_logger - INFO - Delete a board
+2020-05-23 09:06:13,741 - basic_logger - INFO - acceptance fixture.create.board
+2020-05-23 09:06:13,741 - basic_logger - INFO - <given "Defines "DELETE" request to "/boards/{board_id}"">
+2020-05-23 09:06:13,741 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:13,741 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:06:13,741 - basic_logger - INFO - <then "The schema is validated with "board_delete_schema.json"">
+2020-05-23 09:06:13,742 - basic_logger - INFO - ============Finished Delete a board
+
+
+
+2020-05-23 09:06:14,230 - basic_logger - INFO - =============Started Add a member to board
+2020-05-23 09:06:15,157 - basic_logger - INFO - Add a member to board
+2020-05-23 09:06:15,157 - basic_logger - INFO - smoke fixture.create.board fixture.delete.board
+2020-05-23 09:06:15,157 - basic_logger - INFO - <given "Get second member information">
+2020-05-23 09:06:15,157 - basic_logger - INFO - <given "Defines "PUT" request to "/boards/{board_id}/members/{member_id}"">
+2020-05-23 09:06:15,157 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:15,157 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:06:15,158 - basic_logger - INFO - <then "The schema is validated with "board_members_schema.json"">
+2020-05-23 09:06:15,158 - basic_logger - INFO - <then "The body response must be contains">
+2020-05-23 09:06:15,158 - basic_logger - INFO - ============Finished Add a member to board
+
+
+
+2020-05-23 09:06:18,857 - basic_logger - INFO - =============Started Delete a member from board
+2020-05-23 09:06:19,807 - basic_logger - INFO - Delete a member from board
+2020-05-23 09:06:19,807 - basic_logger - INFO - smoke fixture.get.member fixture.create.board fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:19,807 - basic_logger - INFO - <given "Get second member information">
+2020-05-23 09:06:19,808 - basic_logger - INFO - <given "Defines "DELETE" request to "/boards/{board_id}/members/{member_id}"">
+2020-05-23 09:06:19,808 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:19,808 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:06:19,808 - basic_logger - INFO - <then "The schema is validated with "board_delete_member_schema.json"">
+2020-05-23 09:06:19,808 - basic_logger - INFO - ============Finished Delete a member from board
+
+
+
+2020-05-23 09:06:21,940 - basic_logger - INFO - =============Started Get memberships of a specific board
+2020-05-23 09:06:22,374 - basic_logger - INFO - Get memberships of a specific board
+2020-05-23 09:06:22,375 - basic_logger - INFO - acceptance fixture.get.member fixture.create.board fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:22,375 - basic_logger - INFO - <given "Defines "GET" request to "/boards/{board_id}/memberships"">
+2020-05-23 09:06:22,375 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:22,375 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:06:22,376 - basic_logger - INFO - <then "The schema is validated with "board_get_members_schema.json"">
+2020-05-23 09:06:22,376 - basic_logger - INFO - ============Finished Get memberships of a specific board
+
+
+
+2020-05-23 09:06:23,765 - basic_logger - INFO - =============Started Get Labels on a Board
+2020-05-23 09:06:24,233 - basic_logger - INFO - Get Labels on a Board
+2020-05-23 09:06:24,234 - basic_logger - INFO - acceptance fixture.create.board fixture.delete.board
+2020-05-23 09:06:24,234 - basic_logger - INFO - <given "Defines "GET" request to "/boards/{board_id}/labels"">
+2020-05-23 09:06:24,234 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:24,235 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:06:24,235 - basic_logger - INFO - <then "The schema is validated with "board_get_labels_schema.json"">
+2020-05-23 09:06:24,235 - basic_logger - INFO - ============Finished Get Labels on a Board
+
+
+
+2020-05-23 09:06:25,430 - basic_logger - INFO - =============Started Get Lists on a Board
+2020-05-23 09:06:25,888 - basic_logger - INFO - Get Lists on a Board
+2020-05-23 09:06:25,888 - basic_logger - INFO - acceptance fixture.create.board fixture.delete.board
+2020-05-23 09:06:25,889 - basic_logger - INFO - <given "Defines "GET" request to "/boards/{board_id}/lists"">
+2020-05-23 09:06:25,889 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:25,889 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:06:25,889 - basic_logger - INFO - <then "The schema is validated with "board_get_lists_schema.json"">
+2020-05-23 09:06:25,890 - basic_logger - INFO - ============Finished Get Lists on a Board
+
+
+
+2020-05-23 09:06:28,256 - basic_logger - INFO - =============Started "Create a board" with wrong user token -- @1.1 
+2020-05-23 09:06:28,762 - basic_logger - INFO - "Create a board" with wrong user token -- @1.1 
+2020-05-23 09:06:28,762 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:28,763 - basic_logger - INFO - <given "Defines "POST" request to "/boards/"">
+2020-05-23 09:06:28,763 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:28,763 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:28,763 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:28,764 - basic_logger - INFO - ============Finished "Create a board" with wrong user token -- @1.1 
+
+
+
+2020-05-23 09:06:31,069 - basic_logger - INFO - =============Started "Get a specific board" with wrong user token -- @1.2 
+2020-05-23 09:06:31,478 - basic_logger - INFO - "Get a specific board" with wrong user token -- @1.2 
+2020-05-23 09:06:31,478 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:31,478 - basic_logger - INFO - <given "Defines "GET" request to "/boards/{board_id}"">
+2020-05-23 09:06:31,479 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:31,479 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:31,479 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:31,480 - basic_logger - INFO - ============Finished "Get a specific board" with wrong user token -- @1.2 
+
+
+
+2020-05-23 09:06:34,038 - basic_logger - INFO - =============Started "Update a board" with wrong user token -- @1.3 
+2020-05-23 09:06:34,418 - basic_logger - INFO - "Update a board" with wrong user token -- @1.3 
+2020-05-23 09:06:34,419 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:34,419 - basic_logger - INFO - <given "Defines "PUT" request to "/boards/{board_id}"">
+2020-05-23 09:06:34,419 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:34,419 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:34,420 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:34,420 - basic_logger - INFO - ============Finished "Update a board" with wrong user token -- @1.3 
+
+
+
+2020-05-23 09:06:37,120 - basic_logger - INFO - =============Started "Delete a board" with wrong user token -- @1.4 
+2020-05-23 09:06:37,498 - basic_logger - INFO - "Delete a board" with wrong user token -- @1.4 
+2020-05-23 09:06:37,498 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:37,499 - basic_logger - INFO - <given "Defines "DELETE" request to "/boards/{board_id}"">
+2020-05-23 09:06:37,499 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:37,499 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:37,499 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:37,500 - basic_logger - INFO - ============Finished "Delete a board" with wrong user token -- @1.4 
+
+
+
+2020-05-23 09:06:40,239 - basic_logger - INFO - =============Started "Add a member to board" with wrong user token -- @1.5 
+2020-05-23 09:06:40,611 - basic_logger - INFO - "Add a member to board" with wrong user token -- @1.5 
+2020-05-23 09:06:40,611 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:40,612 - basic_logger - INFO - <given "Defines "PUT" request to "/boards/{board_id}/members/{member_id}"">
+2020-05-23 09:06:40,612 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:40,612 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:40,612 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:40,612 - basic_logger - INFO - ============Finished "Add a member to board" with wrong user token -- @1.5 
+
+
+
+2020-05-23 09:06:42,964 - basic_logger - INFO - =============Started "Delete a member from board" with wrong user token -- @1.6 
+2020-05-23 09:06:43,356 - basic_logger - INFO - "Delete a member from board" with wrong user token -- @1.6 
+2020-05-23 09:06:43,356 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:43,356 - basic_logger - INFO - <given "Defines "DELETE" request to "/boards/{board_id}/members/{member_id}"">
+2020-05-23 09:06:43,356 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:43,357 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:43,357 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:43,357 - basic_logger - INFO - ============Finished "Delete a member from board" with wrong user token -- @1.6 
+
+
+
+2020-05-23 09:06:45,582 - basic_logger - INFO - =============Started "Get memberships of a specific board" with wrong user token -- @1.7 
+2020-05-23 09:06:45,919 - basic_logger - INFO - "Get memberships of a specific board" with wrong user token -- @1.7 
+2020-05-23 09:06:45,919 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:45,919 - basic_logger - INFO - <given "Defines "GET" request to "/boards/{board_id}/memberships"">
+2020-05-23 09:06:45,920 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:45,920 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:45,920 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:45,920 - basic_logger - INFO - ============Finished "Get memberships of a specific board" with wrong user token -- @1.7 
+
+
+
+2020-05-23 09:06:47,948 - basic_logger - INFO - =============Started "Get Labels on a board" with wrong user token -- @1.8 
+2020-05-23 09:06:48,286 - basic_logger - INFO - "Get Labels on a board" with wrong user token -- @1.8 
+2020-05-23 09:06:48,286 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:48,286 - basic_logger - INFO - <given "Defines "GET" request to "/boards/{board_id}/labels"">
+2020-05-23 09:06:48,286 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:48,287 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:48,287 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:48,287 - basic_logger - INFO - ============Finished "Get Labels on a board" with wrong user token -- @1.8 
+
+
+
+2020-05-23 09:06:50,521 - basic_logger - INFO - =============Started "Get Lists on a board" with wrong user token -- @1.9 
+2020-05-23 09:06:50,854 - basic_logger - INFO - "Get Lists on a board" with wrong user token -- @1.9 
+2020-05-23 09:06:50,855 - basic_logger - INFO - smoke authorization fixture.create.board fixture.get.member fixture.add.member.board fixture.delete.board
+2020-05-23 09:06:50,855 - basic_logger - INFO - <given "Defines "GET" request to "/boards/{board_id}/lists"">
+2020-05-23 09:06:50,855 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:06:50,856 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:06:50,856 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:06:50,856 - basic_logger - INFO - ============Finished "Get Lists on a board" with wrong user token -- @1.9 
+
+
+
+2020-05-23 09:06:52,082 - basic_logger - INFO - =============Started Negative Get a specific Board -- @1.1 
+2020-05-23 09:06:52,277 - basic_logger - INFO - Negative Get a specific Board -- @1.1 
+2020-05-23 09:06:52,278 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:06:52,278 - basic_logger - INFO - <given "Defines "Verb" request to "/boards/invalid_{board_id}"">
+2020-05-23 09:06:52,278 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:52,279 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:06:52,279 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:06:52,279 - basic_logger - INFO - ============Finished Negative Get a specific Board -- @1.1 
+
+
+
+2020-05-23 09:06:53,442 - basic_logger - INFO - =============Started Negative Get a specific Board -- @1.2 
+2020-05-23 09:06:53,632 - basic_logger - INFO - Negative Get a specific Board -- @1.2 
+2020-05-23 09:06:53,633 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:06:53,633 - basic_logger - INFO - <given "Defines "Verb" request to "/boards/{board_id}_invalid"">
+2020-05-23 09:06:53,633 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:53,633 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:06:53,634 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:06:53,634 - basic_logger - INFO - ============Finished Negative Get a specific Board -- @1.2 
+
+
+
+2020-05-23 09:06:54,709 - basic_logger - INFO - =============Started Negative Get a specific Board -- @1.3 
+2020-05-23 09:06:54,897 - basic_logger - INFO - Negative Get a specific Board -- @1.3 
+2020-05-23 09:06:54,897 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:06:54,897 - basic_logger - INFO - <given "Defines "Verb" request to "/boards/inv_{board_id}_lid"">
+2020-05-23 09:06:54,898 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:54,898 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:06:54,898 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:06:54,898 - basic_logger - INFO - ============Finished Negative Get a specific Board -- @1.3 
+
+
+
+2020-05-23 09:06:55,658 - basic_logger - INFO - =============Started Negative Create a Board -- @1.1 
+2020-05-23 09:06:56,003 - basic_logger - INFO - Negative Create a Board -- @1.1 
+2020-05-23 09:06:56,003 - basic_logger - INFO - negative
+2020-05-23 09:06:56,004 - basic_logger - INFO - <given "Defines "POST" request to "/boards/"">
+2020-05-23 09:06:56,004 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:56,004 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:06:56,004 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:06:56,005 - basic_logger - INFO - ============Finished Negative Create a Board -- @1.1 
+
+
+
+2020-05-23 09:06:56,005 - basic_logger - INFO - =============Started Negative Create a Board -- @1.2 
+2020-05-23 09:06:56,337 - basic_logger - INFO - Negative Create a Board -- @1.2 
+2020-05-23 09:06:56,337 - basic_logger - INFO - negative
+2020-05-23 09:06:56,337 - basic_logger - INFO - <given "Defines "POST" request to "/boards/"">
+2020-05-23 09:06:56,338 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:56,338 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:06:56,338 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:06:56,338 - basic_logger - INFO - ============Finished Negative Create a Board -- @1.2 
+
+
+
+2020-05-23 09:06:56,339 - basic_logger - INFO - =============Started Negative Create a Board -- @1.3 
+2020-05-23 09:06:56,681 - basic_logger - INFO - Negative Create a Board -- @1.3 
+2020-05-23 09:06:56,681 - basic_logger - INFO - negative
+2020-05-23 09:06:56,681 - basic_logger - INFO - <given "Defines "POST" request to "/boards/"">
+2020-05-23 09:06:56,682 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:56,682 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:06:56,682 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:06:56,682 - basic_logger - INFO - ============Finished Negative Create a Board -- @1.3 
+
+
+
+2020-05-23 09:06:57,142 - basic_logger - INFO - =============Started Negative Update a Board -- @1.1 
+2020-05-23 09:06:57,475 - basic_logger - INFO - Negative Update a Board -- @1.1 
+2020-05-23 09:06:57,475 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:06:57,475 - basic_logger - INFO - <given "Defines "PUT" request to "/boards/{board_id}"">
+2020-05-23 09:06:57,475 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:57,475 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:06:57,476 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:06:57,476 - basic_logger - INFO - ============Finished Negative Update a Board -- @1.1 
+
+
+
+2020-05-23 09:06:58,727 - basic_logger - INFO - =============Started Negative Update a Board -- @1.2 
+2020-05-23 09:06:59,055 - basic_logger - INFO - Negative Update a Board -- @1.2 
+2020-05-23 09:06:59,055 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:06:59,055 - basic_logger - INFO - <given "Defines "PUT" request to "/boards/{board_id}"">
+2020-05-23 09:06:59,055 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:06:59,056 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:06:59,056 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:06:59,056 - basic_logger - INFO - ============Finished Negative Update a Board -- @1.2 
+
+
+
+2020-05-23 09:07:00,446 - basic_logger - INFO - =============Started Negative Update a Board -- @1.3 
+2020-05-23 09:07:00,797 - basic_logger - INFO - Negative Update a Board -- @1.3 
+2020-05-23 09:07:00,797 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:07:00,797 - basic_logger - INFO - <given "Defines "PUT" request to "/boards/{board_id}"">
+2020-05-23 09:07:00,797 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:00,798 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:00,798 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:00,798 - basic_logger - INFO - ============Finished Negative Update a Board -- @1.3 
+
+
+
+2020-05-23 09:07:01,934 - basic_logger - INFO - =============Started Negative Update a Board -- @1.4 
+2020-05-23 09:07:02,272 - basic_logger - INFO - Negative Update a Board -- @1.4 
+2020-05-23 09:07:02,272 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:07:02,273 - basic_logger - INFO - <given "Defines "PUT" request to "/boards/{board_id}"">
+2020-05-23 09:07:02,273 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:02,273 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:02,273 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:02,274 - basic_logger - INFO - ============Finished Negative Update a Board -- @1.4 
+
+
+
+2020-05-23 09:07:03,484 - basic_logger - INFO - =============Started Negative Delete a Board -- @1.1 
+2020-05-23 09:07:03,807 - basic_logger - INFO - Negative Delete a Board -- @1.1 
+2020-05-23 09:07:03,808 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:07:03,808 - basic_logger - INFO - <given "Defines "DELETE" request to "/boards/invalid_{board_id}"">
+2020-05-23 09:07:03,808 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:03,808 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:03,808 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:03,808 - basic_logger - INFO - ============Finished Negative Delete a Board -- @1.1 
+
+
+
+2020-05-23 09:07:05,017 - basic_logger - INFO - =============Started Negative Delete a Board -- @1.2 
+2020-05-23 09:07:05,346 - basic_logger - INFO - Negative Delete a Board -- @1.2 
+2020-05-23 09:07:05,346 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:07:05,347 - basic_logger - INFO - <given "Defines "DELETE" request to "/boards/{board_id}_invalid"">
+2020-05-23 09:07:05,347 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:05,347 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:05,347 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:05,348 - basic_logger - INFO - ============Finished Negative Delete a Board -- @1.2 
+
+
+
+2020-05-23 09:07:06,592 - basic_logger - INFO - =============Started Negative Delete a Board -- @1.3 
+2020-05-23 09:07:06,921 - basic_logger - INFO - Negative Delete a Board -- @1.3 
+2020-05-23 09:07:06,921 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:07:06,922 - basic_logger - INFO - <given "Defines "DELETE" request to "/boards/inva_{board_id}lid"">
+2020-05-23 09:07:06,922 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:06,922 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:06,922 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:06,923 - basic_logger - INFO - ============Finished Negative Delete a Board -- @1.3 
+
+
+
+2020-05-23 09:07:07,975 - basic_logger - INFO - =============Started Negative Delete a Board -- @1.4 
+2020-05-23 09:07:08,319 - basic_logger - INFO - Negative Delete a Board -- @1.4 
+2020-05-23 09:07:08,319 - basic_logger - INFO - negative fixture.create.board fixture.delete.board
+2020-05-23 09:07:08,320 - basic_logger - INFO - <given "Defines "DELETE" request to "/boards/inva{board_id}_lid"">
+2020-05-23 09:07:08,320 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:08,320 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:08,321 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:08,321 - basic_logger - INFO - ============Finished Negative Delete a Board -- @1.4 
+
+
+
+2020-05-23 09:07:10,085 - basic_logger - INFO - =============Started Cards
+2020-05-23 09:07:10,561 - basic_logger - INFO - =============Started Get a Card
+2020-05-23 09:07:10,928 - basic_logger - INFO - Get a Card
+2020-05-23 09:07:10,928 - basic_logger - INFO - smoke fixture.create.card fixture.delete.card
+2020-05-23 09:07:10,928 - basic_logger - INFO - <given "Defines "GET" request to "/cards/{card_id}"">
+2020-05-23 09:07:10,928 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:10,928 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:10,928 - basic_logger - INFO - <then "The schema is validated with "card_get_schema.json"">
+2020-05-23 09:07:10,928 - basic_logger - INFO - ============Finished Get a Card
+
+
+
+2020-05-23 09:07:11,367 - basic_logger - INFO - =============Started Create a Card
+2020-05-23 09:07:11,859 - basic_logger - INFO - Create a Card
+2020-05-23 09:07:11,860 - basic_logger - INFO - acceptance fixture.delete.card
+2020-05-23 09:07:11,860 - basic_logger - INFO - <given "Defines "POST" request to "/cards/"">
+2020-05-23 09:07:11,860 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:11,860 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:11,860 - basic_logger - INFO - <then "The schema is validated with "card_create_schema.json"">
+2020-05-23 09:07:11,860 - basic_logger - INFO - <then "The body response must be contains">
+2020-05-23 09:07:11,860 - basic_logger - INFO - ============Finished Create a Card
+
+
+
+2020-05-23 09:07:12,795 - basic_logger - INFO - =============Started Update a Card
+2020-05-23 09:07:13,228 - basic_logger - INFO - Update a Card
+2020-05-23 09:07:13,228 - basic_logger - INFO - acceptance fixture.create.card fixture.delete.card
+2020-05-23 09:07:13,228 - basic_logger - INFO - <given "Defines "PUT" request to "/cards/{card_id}"">
+2020-05-23 09:07:13,228 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:13,228 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:13,228 - basic_logger - INFO - <then "The schema is validated with "card_update_schema.json"">
+2020-05-23 09:07:13,228 - basic_logger - INFO - <then "The body response must be contains">
+2020-05-23 09:07:13,228 - basic_logger - INFO - ============Finished Update a Card
+
+
+
+2020-05-23 09:07:14,164 - basic_logger - INFO - =============Started Delete a Card
+2020-05-23 09:07:14,607 - basic_logger - INFO - Delete a Card
+2020-05-23 09:07:14,607 - basic_logger - INFO - acceptance fixture.create.card
+2020-05-23 09:07:14,607 - basic_logger - INFO - <given "Defines "DELETE" request to "/cards/{card_id}"">
+2020-05-23 09:07:14,608 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:14,608 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:14,608 - basic_logger - INFO - <then "The schema is validated with "card_delete_schema.json"">
+2020-05-23 09:07:14,609 - basic_logger - INFO - ============Finished Delete a Card
+
+
+
+2020-05-23 09:07:15,110 - basic_logger - INFO - =============Started Add a Member to a Card
+2020-05-23 09:07:16,009 - basic_logger - INFO - Add a Member to a Card
+2020-05-23 09:07:16,009 - basic_logger - INFO - fixture.create.card fixture.delete.card
+2020-05-23 09:07:16,009 - basic_logger - INFO - <given "Get second member information">
+2020-05-23 09:07:16,010 - basic_logger - INFO - <given "Defines "POST" request to "/cards/{card_id}/idMembers"">
+2020-05-23 09:07:16,010 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:16,010 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:16,010 - basic_logger - INFO - <then "The schema is validated with "card_remove_member_schema.json"">
+2020-05-23 09:07:16,010 - basic_logger - INFO - ============Finished Add a Member to a Card
+
+
+
+2020-05-23 09:07:17,740 - basic_logger - INFO - =============Started Remove a Member from a Card
+2020-05-23 09:07:18,181 - basic_logger - INFO - Remove a Member from a Card
+2020-05-23 09:07:18,181 - basic_logger - INFO - fixture.create.card fixture.get.member fixture.add.member.card fixture.delete.card
+2020-05-23 09:07:18,181 - basic_logger - INFO - <given "Defines "DELETE" request to "/cards/{card_id}/idMembers/{member_id}"">
+2020-05-23 09:07:18,181 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:18,182 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:18,182 - basic_logger - INFO - <then "The schema is validated with "card_add_member_schema.json"">
+2020-05-23 09:07:18,182 - basic_logger - INFO - ============Finished Remove a Member from a Card
+
+
+
+2020-05-23 09:07:19,093 - basic_logger - INFO - =============Started Negative Get a Card -- @1.1 
+2020-05-23 09:07:19,284 - basic_logger - INFO - Negative Get a Card -- @1.1 
+2020-05-23 09:07:19,284 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:19,284 - basic_logger - INFO - <given "Defines "Verb" request to "/cards/invalid_{card_id}"">
+2020-05-23 09:07:19,285 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:19,285 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:19,285 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:19,285 - basic_logger - INFO - ============Finished Negative Get a Card -- @1.1 
+
+
+
+2020-05-23 09:07:20,215 - basic_logger - INFO - =============Started Negative Get a Card -- @1.2 
+2020-05-23 09:07:20,403 - basic_logger - INFO - Negative Get a Card -- @1.2 
+2020-05-23 09:07:20,403 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:20,404 - basic_logger - INFO - <given "Defines "Verb" request to "/cards/{card_id}_invalid"">
+2020-05-23 09:07:20,404 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:20,404 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:20,404 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:20,405 - basic_logger - INFO - ============Finished Negative Get a Card -- @1.2 
+
+
+
+2020-05-23 09:07:21,370 - basic_logger - INFO - =============Started Negative Get a Card -- @1.3 
+2020-05-23 09:07:21,567 - basic_logger - INFO - Negative Get a Card -- @1.3 
+2020-05-23 09:07:21,567 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:21,567 - basic_logger - INFO - <given "Defines "Verb" request to "/cards/inv_{card_id}_lid"">
+2020-05-23 09:07:21,567 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:21,568 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:21,568 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:21,568 - basic_logger - INFO - ============Finished Negative Get a Card -- @1.3 
+
+
+
+2020-05-23 09:07:22,009 - basic_logger - INFO - =============Started Negative Create a Card -- @1.1 
+2020-05-23 09:07:22,343 - basic_logger - INFO - Negative Create a Card -- @1.1 
+2020-05-23 09:07:22,343 - basic_logger - INFO - negative
+2020-05-23 09:07:22,344 - basic_logger - INFO - <given "Defines "POST" request to "/cards/"">
+2020-05-23 09:07:22,344 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:22,344 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:22,344 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:22,345 - basic_logger - INFO - ============Finished Negative Create a Card -- @1.1 
+
+
+
+2020-05-23 09:07:22,345 - basic_logger - INFO - =============Started Negative Create a Card -- @1.2 
+2020-05-23 09:07:22,692 - basic_logger - INFO - Negative Create a Card -- @1.2 
+2020-05-23 09:07:22,692 - basic_logger - INFO - negative
+2020-05-23 09:07:22,692 - basic_logger - INFO - <given "Defines "POST" request to "/cards/"">
+2020-05-23 09:07:22,693 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:22,693 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:22,693 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:22,694 - basic_logger - INFO - ============Finished Negative Create a Card -- @1.2 
+
+
+
+2020-05-23 09:07:23,177 - basic_logger - INFO - =============Started Negative Update a Card -- @1.1 
+2020-05-23 09:07:23,521 - basic_logger - INFO - Negative Update a Card -- @1.1 
+2020-05-23 09:07:23,521 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:23,522 - basic_logger - INFO - <given "Defines "PUT" request to "/cards/{card_id}"">
+2020-05-23 09:07:23,522 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:23,522 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:23,522 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:23,523 - basic_logger - INFO - ============Finished Negative Update a Card -- @1.1 
+
+
+
+2020-05-23 09:07:24,449 - basic_logger - INFO - =============Started Negative Update a Card -- @1.2 
+2020-05-23 09:07:24,779 - basic_logger - INFO - Negative Update a Card -- @1.2 
+2020-05-23 09:07:24,779 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:24,780 - basic_logger - INFO - <given "Defines "PUT" request to "/cards/{card_id}"">
+2020-05-23 09:07:24,780 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:24,780 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:24,781 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:24,781 - basic_logger - INFO - ============Finished Negative Update a Card -- @1.2 
+
+
+
+2020-05-23 09:07:25,744 - basic_logger - INFO - =============Started Negative Delete a Card -- @1.1 
+2020-05-23 09:07:26,073 - basic_logger - INFO - Negative Delete a Card -- @1.1 
+2020-05-23 09:07:26,073 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:26,073 - basic_logger - INFO - <given "Defines "DELETE" request to "/cards/invalid_{card_id}"">
+2020-05-23 09:07:26,074 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:26,074 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:26,074 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:26,074 - basic_logger - INFO - ============Finished Negative Delete a Card -- @1.1 
+
+
+
+2020-05-23 09:07:26,983 - basic_logger - INFO - =============Started Negative Delete a Card -- @1.2 
+2020-05-23 09:07:27,313 - basic_logger - INFO - Negative Delete a Card -- @1.2 
+2020-05-23 09:07:27,313 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:27,313 - basic_logger - INFO - <given "Defines "DELETE" request to "/cards/{card_id}_invalid"">
+2020-05-23 09:07:27,314 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:27,314 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:27,314 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:27,314 - basic_logger - INFO - ============Finished Negative Delete a Card -- @1.2 
+
+
+
+2020-05-23 09:07:28,263 - basic_logger - INFO - =============Started Negative Delete a Card -- @1.3 
+2020-05-23 09:07:28,619 - basic_logger - INFO - Negative Delete a Card -- @1.3 
+2020-05-23 09:07:28,620 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:28,620 - basic_logger - INFO - <given "Defines "DELETE" request to "/cards/inva_{card_id}lid"">
+2020-05-23 09:07:28,620 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:28,621 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:28,621 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:28,621 - basic_logger - INFO - ============Finished Negative Delete a Card -- @1.3 
+
+
+
+2020-05-23 09:07:29,523 - basic_logger - INFO - =============Started Negative Delete a Card -- @1.4 
+2020-05-23 09:07:29,896 - basic_logger - INFO - Negative Delete a Card -- @1.4 
+2020-05-23 09:07:29,896 - basic_logger - INFO - negative fixture.create.card fixture.delete.card
+2020-05-23 09:07:29,896 - basic_logger - INFO - <given "Defines "DELETE" request to "/cards/inva{card_id}_lid"">
+2020-05-23 09:07:29,897 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:29,897 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:29,897 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:29,897 - basic_logger - INFO - ============Finished Negative Delete a Card -- @1.4 
+
+
+
+2020-05-23 09:07:31,718 - basic_logger - INFO - =============Started "Get a Card" with wrong user token -- @1.1 
+2020-05-23 09:07:32,064 - basic_logger - INFO - "Get a Card" with wrong user token -- @1.1 
+2020-05-23 09:07:32,065 - basic_logger - INFO - smoke authorization fixture.create.card fixture.get.member fixture.add.member.card fixture.delete.card
+2020-05-23 09:07:32,065 - basic_logger - INFO - <given "Defines "GET" request to "/cards/{card_id}"">
+2020-05-23 09:07:32,065 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:07:32,066 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:07:32,066 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:07:32,066 - basic_logger - INFO - ============Finished "Get a Card" with wrong user token -- @1.1 
+
+
+
+2020-05-23 09:07:33,844 - basic_logger - INFO - =============Started "Update a Card" with wrong user token -- @1.2 
+2020-05-23 09:07:34,163 - basic_logger - INFO - "Update a Card" with wrong user token -- @1.2 
+2020-05-23 09:07:34,164 - basic_logger - INFO - smoke authorization fixture.create.card fixture.get.member fixture.add.member.card fixture.delete.card
+2020-05-23 09:07:34,164 - basic_logger - INFO - <given "Defines "PUT" request to "/cards/{card_id}"">
+2020-05-23 09:07:34,164 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:07:34,165 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:07:34,165 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:07:34,165 - basic_logger - INFO - ============Finished "Update a Card" with wrong user token -- @1.2 
+
+
+
+2020-05-23 09:07:35,855 - basic_logger - INFO - =============Started "Delete a Card" with wrong user token -- @1.3 
+2020-05-23 09:07:36,185 - basic_logger - INFO - "Delete a Card" with wrong user token -- @1.3 
+2020-05-23 09:07:36,185 - basic_logger - INFO - smoke authorization fixture.create.card fixture.get.member fixture.add.member.card fixture.delete.card
+2020-05-23 09:07:36,185 - basic_logger - INFO - <given "Defines "DELETE" request to "/cards/{card_id}"">
+2020-05-23 09:07:36,186 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:07:36,186 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:07:36,186 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:07:36,187 - basic_logger - INFO - ============Finished "Delete a Card" with wrong user token -- @1.3 
+
+
+
+2020-05-23 09:07:37,889 - basic_logger - INFO - =============Started "Remove a Member from a Card" with wrong user token -- @1.4 
+2020-05-23 09:07:38,221 - basic_logger - INFO - "Remove a Member from a Card" with wrong user token -- @1.4 
+2020-05-23 09:07:38,221 - basic_logger - INFO - smoke authorization fixture.create.card fixture.get.member fixture.add.member.card fixture.delete.card
+2020-05-23 09:07:38,221 - basic_logger - INFO - <given "Defines "DELETE" request to "/cards/{card_id}/idMembers/{member_id}"">
+2020-05-23 09:07:38,222 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:07:38,222 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:07:38,222 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:07:38,223 - basic_logger - INFO - ============Finished "Remove a Member from a Card" with wrong user token -- @1.4 
+
+
+
+2020-05-23 09:07:40,738 - basic_logger - INFO - =============Started Lists
+2020-05-23 09:07:41,181 - basic_logger - INFO - =============Started Get a List
+2020-05-23 09:07:41,567 - basic_logger - INFO - Get a List
+2020-05-23 09:07:41,568 - basic_logger - INFO - smoke fixture.create.list fixture.delete.list
+2020-05-23 09:07:41,568 - basic_logger - INFO - <given "Defines "GET" request to "/lists/{list_id}"">
+2020-05-23 09:07:41,568 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:41,568 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:41,568 - basic_logger - INFO - <then "The schema is validated with "list_get_schema.json"">
+2020-05-23 09:07:41,568 - basic_logger - INFO - ============Finished Get a List
+
+
+
+2020-05-23 09:07:41,928 - basic_logger - INFO - =============Started Create a List
+2020-05-23 09:07:42,364 - basic_logger - INFO - Create a List
+2020-05-23 09:07:42,364 - basic_logger - INFO - acceptance fixture.delete.list
+2020-05-23 09:07:42,364 - basic_logger - INFO - <given "Defines "POST" request to "/lists/"">
+2020-05-23 09:07:42,364 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:42,365 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:42,365 - basic_logger - INFO - <then "The schema is validated with "list_create_schema.json"">
+2020-05-23 09:07:42,365 - basic_logger - INFO - <then "The body response must be contains">
+2020-05-23 09:07:42,365 - basic_logger - INFO - ============Finished Create a List
+
+
+
+2020-05-23 09:07:43,122 - basic_logger - INFO - =============Started Update a List
+2020-05-23 09:07:43,533 - basic_logger - INFO - Update a List
+2020-05-23 09:07:43,533 - basic_logger - INFO - acceptance fixture.create.list fixture.delete.list
+2020-05-23 09:07:43,533 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}"">
+2020-05-23 09:07:43,534 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:43,534 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:43,534 - basic_logger - INFO - <then "The schema is validated with "list_update_schema.json"">
+2020-05-23 09:07:43,535 - basic_logger - INFO - <then "The body response must be contains">
+2020-05-23 09:07:43,535 - basic_logger - INFO - ============Finished Update a List
+
+
+
+2020-05-23 09:07:44,285 - basic_logger - INFO - =============Started Delete a list
+2020-05-23 09:07:44,697 - basic_logger - INFO - Delete a list
+2020-05-23 09:07:44,698 - basic_logger - INFO - acceptance fixture.create.list
+2020-05-23 09:07:44,698 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}/closed"">
+2020-05-23 09:07:44,698 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:44,699 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:44,699 - basic_logger - INFO - <then "The body response must be contains">
+2020-05-23 09:07:44,699 - basic_logger - INFO - ============Finished Delete a list
+
+
+
+2020-05-23 09:07:45,136 - basic_logger - INFO - =============Started Get Actions for a List
+2020-05-23 09:07:45,506 - basic_logger - INFO - Get Actions for a List
+2020-05-23 09:07:45,506 - basic_logger - INFO - acceptance fixture.create.list
+2020-05-23 09:07:45,506 - basic_logger - INFO - <given "Defines "GET" request to "/lists/{list_id}/actions"">
+2020-05-23 09:07:45,506 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:45,507 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:45,507 - basic_logger - INFO - <then "The schema is validated with "list_get_actions.json"">
+2020-05-23 09:07:45,507 - basic_logger - INFO - ============Finished Get Actions for a List
+
+
+
+2020-05-23 09:07:45,927 - basic_logger - INFO - =============Started Get the Board a List is on
+2020-05-23 09:07:46,306 - basic_logger - INFO - Get the Board a List is on
+2020-05-23 09:07:46,306 - basic_logger - INFO - acceptance fixture.create.list
+2020-05-23 09:07:46,306 - basic_logger - INFO - <given "Defines "GET" request to "/lists/{list_id}/board"">
+2020-05-23 09:07:46,306 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:46,307 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:46,307 - basic_logger - INFO - <then "The schema is validated with "list_get_board.json"">
+2020-05-23 09:07:46,307 - basic_logger - INFO - ============Finished Get the Board a List is on
+
+
+
+2020-05-23 09:07:47,016 - basic_logger - INFO - =============Started Get Cards in a List
+2020-05-23 09:07:47,394 - basic_logger - INFO - Get Cards in a List
+2020-05-23 09:07:47,394 - basic_logger - INFO - acceptance fixture.create.list
+2020-05-23 09:07:47,394 - basic_logger - INFO - <given "Defines "GET" request to "/lists/{list_id}/cards"">
+2020-05-23 09:07:47,395 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:47,395 - basic_logger - INFO - <then "The status code should be 200">
+2020-05-23 09:07:47,395 - basic_logger - INFO - <then "The schema is validated with "list_get_cards.json"">
+2020-05-23 09:07:47,396 - basic_logger - INFO - ============Finished Get Cards in a List
+
+
+
+2020-05-23 09:07:47,819 - basic_logger - INFO - =============Started Negative Get a List -- @1.1 
+2020-05-23 09:07:48,014 - basic_logger - INFO - Negative Get a List -- @1.1 
+2020-05-23 09:07:48,014 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:48,014 - basic_logger - INFO - <given "Defines "Verb" request to "/lists/invalid_{list_id}"">
+2020-05-23 09:07:48,015 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:48,015 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:48,015 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:48,016 - basic_logger - INFO - ============Finished Negative Get a List -- @1.1 
+
+
+
+2020-05-23 09:07:48,765 - basic_logger - INFO - =============Started Negative Get a List -- @1.2 
+2020-05-23 09:07:48,959 - basic_logger - INFO - Negative Get a List -- @1.2 
+2020-05-23 09:07:48,960 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:48,960 - basic_logger - INFO - <given "Defines "Verb" request to "/lists/{list_id}_invalid"">
+2020-05-23 09:07:48,960 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:48,960 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:48,961 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:48,961 - basic_logger - INFO - ============Finished Negative Get a List -- @1.2 
+
+
+
+2020-05-23 09:07:49,736 - basic_logger - INFO - =============Started Negative Get a List -- @1.3 
+2020-05-23 09:07:49,929 - basic_logger - INFO - Negative Get a List -- @1.3 
+2020-05-23 09:07:49,930 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:49,930 - basic_logger - INFO - <given "Defines "Verb" request to "/lists/inv_{list_id}_lid"">
+2020-05-23 09:07:49,930 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:49,931 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:49,931 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:49,932 - basic_logger - INFO - ============Finished Negative Get a List -- @1.3 
+
+
+
+2020-05-23 09:07:50,276 - basic_logger - INFO - =============Started Negative Create a List -- @1.1 
+2020-05-23 09:07:50,709 - basic_logger - INFO - Negative Create a List -- @1.1 
+2020-05-23 09:07:50,709 - basic_logger - INFO - negative
+2020-05-23 09:07:50,710 - basic_logger - INFO - <given "Defines "POST" request to "/lists/"">
+2020-05-23 09:07:50,710 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:50,710 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:50,710 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:50,711 - basic_logger - INFO - ============Finished Negative Create a List -- @1.1 
+
+
+
+2020-05-23 09:07:50,712 - basic_logger - INFO - =============Started Negative Create a List -- @1.2 
+2020-05-23 09:07:51,042 - basic_logger - INFO - Negative Create a List -- @1.2 
+2020-05-23 09:07:51,042 - basic_logger - INFO - negative
+2020-05-23 09:07:51,042 - basic_logger - INFO - <given "Defines "POST" request to "/lists/"">
+2020-05-23 09:07:51,042 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:51,043 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:51,043 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:51,043 - basic_logger - INFO - ============Finished Negative Create a List -- @1.2 
+
+
+
+2020-05-23 09:07:51,043 - basic_logger - INFO - =============Started Negative Create a List -- @1.3 
+2020-05-23 09:07:51,374 - basic_logger - INFO - Negative Create a List -- @1.3 
+2020-05-23 09:07:51,375 - basic_logger - INFO - negative
+2020-05-23 09:07:51,375 - basic_logger - INFO - <given "Defines "POST" request to "/lists/"">
+2020-05-23 09:07:51,375 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:51,375 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:51,375 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:51,375 - basic_logger - INFO - ============Finished Negative Create a List -- @1.3 
+
+
+
+2020-05-23 09:07:51,827 - basic_logger - INFO - =============Started Negative Update a List -- @1.1 
+2020-05-23 09:07:52,176 - basic_logger - INFO - Negative Update a List -- @1.1 
+2020-05-23 09:07:52,176 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:52,177 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}"">
+2020-05-23 09:07:52,177 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:52,177 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:52,177 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:52,178 - basic_logger - INFO - ============Finished Negative Update a List -- @1.1 
+
+
+
+2020-05-23 09:07:52,976 - basic_logger - INFO - =============Started Negative Update a List -- @1.2 
+2020-05-23 09:07:53,316 - basic_logger - INFO - Negative Update a List -- @1.2 
+2020-05-23 09:07:53,316 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:53,316 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}"">
+2020-05-23 09:07:53,317 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:53,317 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:53,317 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:53,318 - basic_logger - INFO - ============Finished Negative Update a List -- @1.2 
+
+
+
+2020-05-23 09:07:54,069 - basic_logger - INFO - =============Started Negative Update a List -- @1.3 
+2020-05-23 09:07:54,403 - basic_logger - INFO - Negative Update a List -- @1.3 
+2020-05-23 09:07:54,403 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:54,403 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}"">
+2020-05-23 09:07:54,403 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:54,404 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:54,404 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:54,404 - basic_logger - INFO - ============Finished Negative Update a List -- @1.3 
+
+
+
+2020-05-23 09:07:55,171 - basic_logger - INFO - =============Started Negative Delete a List -- @1.1 
+2020-05-23 09:07:55,513 - basic_logger - INFO - Negative Delete a List -- @1.1 
+2020-05-23 09:07:55,514 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:55,514 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}/closed"">
+2020-05-23 09:07:55,514 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:55,514 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:55,514 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:55,515 - basic_logger - INFO - ============Finished Negative Delete a List -- @1.1 
+
+
+
+2020-05-23 09:07:56,280 - basic_logger - INFO - =============Started Negative Delete a List -- @1.2 
+2020-05-23 09:07:56,622 - basic_logger - INFO - Negative Delete a List -- @1.2 
+2020-05-23 09:07:56,622 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:56,623 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}/closed"">
+2020-05-23 09:07:56,623 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:56,623 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:56,623 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:56,624 - basic_logger - INFO - ============Finished Negative Delete a List -- @1.2 
+
+
+
+2020-05-23 09:07:57,807 - basic_logger - INFO - =============Started Negative Delete a List -- @1.3 
+2020-05-23 09:07:58,173 - basic_logger - INFO - Negative Delete a List -- @1.3 
+2020-05-23 09:07:58,173 - basic_logger - INFO - negative fixture.create.list fixture.delete.list
+2020-05-23 09:07:58,173 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}/closed"">
+2020-05-23 09:07:58,174 - basic_logger - INFO - <when "The request is sent">
+2020-05-23 09:07:58,174 - basic_logger - INFO - <then "The status code should be 400">
+2020-05-23 09:07:58,174 - basic_logger - INFO - <then "The schema is validated with "error_schema.json"">
+2020-05-23 09:07:58,175 - basic_logger - INFO - ============Finished Negative Delete a List -- @1.3 
+
+
+
+2020-05-23 09:07:58,937 - basic_logger - INFO - =============Started "Get a List" with wrong user token -- @1.1 
+2020-05-23 09:07:59,293 - basic_logger - INFO - "Get a List" with wrong user token -- @1.1 
+2020-05-23 09:07:59,293 - basic_logger - INFO - smoke authorization fixture.create.list fixture.delete.list
+2020-05-23 09:07:59,293 - basic_logger - INFO - <given "Defines "GET" request to "/lists/{list_id}"">
+2020-05-23 09:07:59,294 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:07:59,294 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:07:59,294 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:07:59,294 - basic_logger - INFO - ============Finished "Get a List" with wrong user token -- @1.1 
+
+
+
+2020-05-23 09:08:00,084 - basic_logger - INFO - =============Started "Update a List" with wrong user token -- @1.2 
+2020-05-23 09:08:00,422 - basic_logger - INFO - "Update a List" with wrong user token -- @1.2 
+2020-05-23 09:08:00,422 - basic_logger - INFO - smoke authorization fixture.create.list fixture.delete.list
+2020-05-23 09:08:00,422 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}"">
+2020-05-23 09:08:00,422 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:08:00,423 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:08:00,423 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:08:00,423 - basic_logger - INFO - ============Finished "Update a List" with wrong user token -- @1.2 
+
+
+
+2020-05-23 09:08:01,222 - basic_logger - INFO - =============Started "Delete a list" with wrong user token -- @1.3 
+2020-05-23 09:08:01,578 - basic_logger - INFO - "Delete a list" with wrong user token -- @1.3 
+2020-05-23 09:08:01,578 - basic_logger - INFO - smoke authorization fixture.create.list fixture.delete.list
+2020-05-23 09:08:01,578 - basic_logger - INFO - <given "Defines "PUT" request to "/lists/{list_id}/closed"">
+2020-05-23 09:08:01,579 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:08:01,579 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:08:01,579 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:08:01,579 - basic_logger - INFO - ============Finished "Delete a list" with wrong user token -- @1.3 
+
+
+
+2020-05-23 09:08:02,331 - basic_logger - INFO - =============Started "Get Actions for a List" with wrong user token -- @1.4 
+2020-05-23 09:08:02,697 - basic_logger - INFO - "Get Actions for a List" with wrong user token -- @1.4 
+2020-05-23 09:08:02,698 - basic_logger - INFO - smoke authorization fixture.create.list fixture.delete.list
+2020-05-23 09:08:02,698 - basic_logger - INFO - <given "Defines "GET" request to "/lists/{list_id}/actions"">
+2020-05-23 09:08:02,698 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:08:02,699 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:08:02,699 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:08:02,699 - basic_logger - INFO - ============Finished "Get Actions for a List" with wrong user token -- @1.4 
+
+
+
+2020-05-23 09:08:03,516 - basic_logger - INFO - =============Started "Get the Board a List is on" with wrong user token -- @1.5 
+2020-05-23 09:08:03,882 - basic_logger - INFO - "Get the Board a List is on" with wrong user token -- @1.5 
+2020-05-23 09:08:03,883 - basic_logger - INFO - smoke authorization fixture.create.list fixture.delete.list
+2020-05-23 09:08:03,883 - basic_logger - INFO - <given "Defines "GET" request to "/lists/{list_id}/board"">
+2020-05-23 09:08:03,883 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:08:03,884 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:08:03,884 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:08:03,884 - basic_logger - INFO - ============Finished "Get the Board a List is on" with wrong user token -- @1.5 
+
+
+
+2020-05-23 09:08:04,667 - basic_logger - INFO - =============Started "Get Cards in a List" with wrong user token -- @1.6 
+2020-05-23 09:08:05,046 - basic_logger - INFO - "Get Cards in a List" with wrong user token -- @1.6 
+2020-05-23 09:08:05,046 - basic_logger - INFO - smoke authorization fixture.create.list fixture.delete.list
+2020-05-23 09:08:05,047 - basic_logger - INFO - <given "Defines "GET" request to "/lists/{list_id}/cards"">
+2020-05-23 09:08:05,047 - basic_logger - INFO - <given "Set wrong user token">
+2020-05-23 09:08:05,047 - basic_logger - INFO - <when "The request with wrong token is sent">
+2020-05-23 09:08:05,047 - basic_logger - INFO - <then "The status code should be 401">
+2020-05-23 09:08:05,047 - basic_logger - INFO - ============Finished "Get Cards in a List" with wrong user token -- @1.6 
+
+
+

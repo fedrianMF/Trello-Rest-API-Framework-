@@ -1,4 +1,5 @@
-@lists @fixture.create.board @fixture.delete.board
+@lists
+@fixture.create.board @fixture.delete.board
 Feature: Lists
 
     @smoke @fixture.create.list @fixture.delete.list
@@ -11,27 +12,27 @@ Feature: Lists
     @acceptance @fixture.delete.list
     Scenario: Create a List
         Given Defines "POST" request to "/lists/"
-            | key    | value                    |
-            | name   | MyTestListForPOST        |
+            | key    | value                          |
+            | name   | My Test List For POST Scenario |
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "list_create_schema.json"
         And The body response must be contains
-            | key     |  value                   |
-            | name    | MyTestListForPOST        |
+            | key     |  value                         |
+            | name    | My Test List For POST Scenario |
 
     @acceptance
     @fixture.create.list @fixture.delete.list
     Scenario: Update a List
         Given Defines "PUT" request to "/lists/{list_id}"
-            | key  |   value            |
-            | name |  MyTestListForPUT  |
+            | key  |   value                        |
+            | name |  My Test List For PUT Scenario |
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "list_update_schema.json"
         And The body response must be contains
-            |key     | value                    |
-            |name    | MyTestListForPUT         |
+            |key     | value                         |
+            |name    | My Test List For PUT Scenario |
     
     @acceptance @fixture.create.list
     Scenario: Delete a list
@@ -41,8 +42,8 @@ Feature: Lists
         When The request is sent
         Then The status code should be 200
         And The body response must be contains
-            |key     | value                     |
-            |name    | List create at before tag |
+            | key    | value           |
+            | name   | Before Tag List |
     
     @acceptance @fixture.create.list
     Scenario: Get Actions for a List
@@ -65,60 +66,6 @@ Feature: Lists
         Then The status code should be 200
         And The schema is validated with "list_get_cards.json"
     
-    @negative @fixture.create.list @fixture.delete.list
-    Scenario Outline: Negative Get a List
-        Given Defines "Verb" request to "<Endpoint>"
-        When The request is sent
-        Then The status code should be <Response>
-        And The schema is validated with "error_schema.json"
-        Examples:
-        | Verb | Endpoint                 | Response |
-        | GET  | /lists/invalid_{list_id} | 400      |
-        | GET  | /lists/{list_id}_invalid | 400      |
-        | GET  | /lists/inv_{list_id}_lid | 400      |
-
-    @negative
-    Scenario Outline: Negative Create a List
-        Given Defines "<Verb>" request to "/lists/"
-            | key   | value          |
-            | <Key> | <Value>        |
-        When The request is sent
-        Then The status code should be <Response>
-        And The schema is validated with "error_schema.json"
-        Examples:
-        | Verb | Key           | Value      | Response |
-        | POST | name          |            | 400      |
-        | POST | idListSource  |            | 400      |
-        | POST | pos           | -1         | 400      |
-
-    @negative @fixture.create.list @fixture.delete.list
-    Scenario Outline: Negative Update a List
-        Given Defines "<Verb>" request to "/lists/{list_id}"
-            | key   | value          |
-            | <Key> | <Value>        |
-        When The request is sent
-        Then The status code should be <Response>
-        And The schema is validated with "error_schema.json"
-        Examples:
-        | Verb | Key    | Value      | Response |
-        | PUT  | name   |            | 400      |
-        | PUT  | closed | no_boolean | 400      |
-        | PUT  | pos    | -1         | 400      |
-
-    @negative @fixture.create.list @fixture.delete.list
-    Scenario Outline: Negative Delete a List
-        Given Defines "PUT" request to "/lists/{list_id}/closed"
-            | key   | value          |
-            | <Key> | <Value>        |
-        When The request is sent
-        Then The status code should be 400
-        And The schema is validated with "error_schema.json"
-        Examples:
-            | Key   | Value       |
-            | value | no_boolean  |
-            | value | -1          |
-            | value | 2.25        |
-
     @smoke @authorization @fixture.create.list @fixture.delete.list
     Scenario Outline: "<action>" with wrong user token
         Given Defines "<verb>" request to "<endpoint>"
@@ -133,3 +80,57 @@ Feature: Lists
             | GET  | /lists/{list_id}/actions | Get Actions for a List     |
             | GET  | /lists/{list_id}/board   | Get the Board a List is on |
             | GET  | /lists/{list_id}/cards   | Get Cards in a List        |
+    
+    @negative @fixture.create.list @fixture.delete.list
+    Scenario Outline: Is not possible Get a List with invalid parameters
+        Given Defines "Verb" request to "<Endpoint>"
+        When The request is sent
+        Then The status code should be <Response>
+        And The schema is validated with "error_schema.json"
+        Examples:
+        | Verb | Endpoint                 | Response |
+        | GET  | /lists/invalid_{list_id} | 400      |
+        | GET  | /lists/{list_id}_invalid | 400      |
+        | GET  | /lists/inv_{list_id}_lid | 400      |
+
+    @negative
+    Scenario Outline: Is not possible Create a List with invalid parameters
+        Given Defines "<Verb>" request to "/lists/"
+            | key   | value          |
+            | <Key> | <Value>        |
+        When The request is sent
+        Then The status code should be <Response>
+        And The schema is validated with "error_schema.json"
+        Examples:
+        | Verb | Key           | Value      | Response |
+        | POST | name          |            | 400      |
+        | POST | idListSource  |            | 400      |
+        | POST | pos           | -1         | 400      |
+
+    @negative @fixture.create.list @fixture.delete.list
+    Scenario Outline: Is not possible Update a List with invalid parameters
+        Given Defines "<Verb>" request to "/lists/{list_id}"
+            | key   | value          |
+            | <Key> | <Value>        |
+        When The request is sent
+        Then The status code should be <Response>
+        And The schema is validated with "error_schema.json"
+        Examples:
+        | Verb | Key    | Value      | Response |
+        | PUT  | name   |            | 400      |
+        | PUT  | closed | no_boolean | 400      |
+        | PUT  | pos    | -1         | 400      |
+
+    @negative @fixture.create.list @fixture.delete.list
+    Scenario Outline: Is not possible Delete a List with invalid parameters
+        Given Defines "PUT" request to "/lists/{list_id}/closed"
+            | key   | value          |
+            | <Key> | <Value>        |
+        When The request is sent
+        Then The status code should be 400
+        And The schema is validated with "error_schema.json"
+        Examples:
+            | Key   | Value       |
+            | value | no_boolean  |
+            | value | -1          |
+            | value | 2.25        |

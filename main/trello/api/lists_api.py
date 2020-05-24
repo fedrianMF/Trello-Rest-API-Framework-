@@ -10,6 +10,8 @@ class ListsAPI:
     def create_list(name, board_id):
         """ Create a list inside a board
 
+        :param name: name of List
+        :type name: String
         :param board_id: id of Board where list will create
         :type board_id: String
         """
@@ -25,8 +27,10 @@ class ListsAPI:
     def archive_list(list_id, value):
         """ Archive a list
 
-        :param list_id: id of list
-        :type board_id: String
+        :param list_id: id of list to archive
+        :type list_id: String
+        :param value: id of list
+        :type value: Boolean
         """
         endpoint = f"/lists/{list_id}/closed"
         body = {
