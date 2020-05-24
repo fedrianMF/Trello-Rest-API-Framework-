@@ -89,6 +89,36 @@ Feature: Boards
         And The schema is validated with "board_get_lists_schema.json"
 
     @smoke @authorization
+    Scenario: Create a Board with wrong user token
+        Given A "POST" request to "/boards/"
+        And Set wrong user token
+        When The request with wrong token is sent
+        Then The status code should be 401
+
+    @smoke @authorization
+    @fixture.create.board @fixture.delete.board
+    Scenario Outline: "<action>" with wrong user token
+        Given A "<verb>" request to "<endpoint>"
+        And Set wrong user token
+        When The request with wrong token is sent
+        Then The status code should be 401
+        Examples:
+            | verb   | endpoint                               | action                              |
+            | GET    | /boards/{board_id}                     | Get a Board                         |
+            | PUT    | /boards/{board_id}                     | Update a Board                      |
+            | DELETE | /boards/{board_id}                     | Delete a Board                      |
+            | GET    | /boards/{board_id}/labels              | Get Labels on a Board               |
+            | GET    | /boards/{board_id}/lists               | Get Lists on a Board                |
+
+    @smoke @authorization
+    @fixture.create.board @fixture.get.member @fixture.delete.board
+    Scenario: Add a Member to Board with wrong user token
+        Given A "PUT" request to "/boards/{board_id}/members/{member_id}"
+        And Set wrong user token
+        When The request with wrong token is sent
+        Then The status code should be 401
+
+    @smoke @authorization
     @fixture.create.board @fixture.get.member @fixture.add.member.board @fixture.delete.board
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
@@ -97,15 +127,8 @@ Feature: Boards
         Then The status code should be 401
         Examples:
             | verb   | endpoint                               | action                              |
-            | POST   | /boards/                               | Create a Board                      |
-            | GET    | /boards/{board_id}                     | Get a Board                         |
-            | PUT    | /boards/{board_id}                     | Update a Board                      |
-            | DELETE | /boards/{board_id}                     | Delete a Board                      |
-            | PUT    | /boards/{board_id}/members/{member_id} | Add a Member to Board               |
             | DELETE | /boards/{board_id}/members/{member_id} | Delete a Member from Board          |
             | GET    | /boards/{board_id}/memberships         | Get memberships of a specific Board |
-            | GET    | /boards/{board_id}/labels              | Get Labels on a Board               |
-            | GET    | /boards/{board_id}/lists               | Get Lists on a Board                |
 
     @negative @fixture.create.board @fixture.delete.board
     Scenario Outline: Is not possible Get a Board with invalid parameters
@@ -160,4 +183,3 @@ Feature: Boards
             | DELETE | /boards/{board_id}_invalid | 400      |
             | DELETE | /boards/inva_{board_id}lid | 400      |
             | DELETE | /boards/inva{board_id}_lid | 400      |
-
