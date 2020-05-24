@@ -3,7 +3,7 @@ Feature: Boards
 
     @smoke @fixture.create.board @fixture.delete.board
     Scenario: Get a Board
-        Given Defines "GET" request to "/boards/{board_id}"
+        Given A "GET" request to "/boards/{board_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_schema.json"
@@ -11,7 +11,7 @@ Feature: Boards
     @acceptance
     @fixture.delete.board
     Scenario: Create a Board
-        Given Defines "POST" request to "/boards/"
+        Given A "POST" request to "/boards/"
             | key  | value                                        |
             | name | My Test Board For POST Scenario              |
             | desc | Here is a little description for API testing |
@@ -25,7 +25,7 @@ Feature: Boards
 
     @acceptance @fixture.create.board @fixture.delete.board
     Scenario: Update a Board
-        Given Defines "PUT" request to "/boards/{board_id}"
+        Given A "PUT" request to "/boards/{board_id}"
             | key  | value                           |
             | name | My Test Board For PUT Scenario  |
             | desc | Here goes new board description |
@@ -39,7 +39,7 @@ Feature: Boards
 
     @acceptance @fixture.create.board
     Scenario: Delete a Board
-        Given Defines "DELETE" request to "/boards/{board_id}"
+        Given A "DELETE" request to "/boards/{board_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_delete_schema.json"
@@ -47,7 +47,7 @@ Feature: Boards
     @smoke @fixture.create.board @fixture.delete.board
     Scenario: Add a Member to Board
         Given Get second member information
-        And Defines "PUT" request to "/boards/{board_id}/members/{member_id}"
+        And A "PUT" request to "/boards/{board_id}/members/{member_id}"
             | key  | value |
             | type | admin |
         When The request is sent
@@ -61,7 +61,7 @@ Feature: Boards
     @fixture.get.member @fixture.create.board @fixture.add.member.board @fixture.delete.board
     Scenario: Delete a Member from Board
         Given Get second member information
-        And Defines "DELETE" request to "/boards/{board_id}/members/{member_id}"
+        And A "DELETE" request to "/boards/{board_id}/members/{member_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_delete_member_schema.json"
@@ -69,21 +69,21 @@ Feature: Boards
     @acceptance
     @fixture.get.member @fixture.create.board @fixture.add.member.board @fixture.delete.board
     Scenario: Get memberships of a specific Board
-        Given Defines "GET" request to "/boards/{board_id}/memberships"
+        Given A "GET" request to "/boards/{board_id}/memberships"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_members_schema.json"
 
     @acceptance @fixture.create.board @fixture.delete.board
     Scenario: Get Labels on a Board
-        Given Defines "GET" request to "/boards/{board_id}/labels"
+        Given A "GET" request to "/boards/{board_id}/labels"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_labels_schema.json"
 
     @acceptance @fixture.create.board @fixture.delete.board
     Scenario: Get Lists on a Board
-        Given Defines "GET" request to "/boards/{board_id}/lists"
+        Given A "GET" request to "/boards/{board_id}/lists"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_lists_schema.json"
@@ -91,7 +91,7 @@ Feature: Boards
     @smoke @authorization
     @fixture.create.board @fixture.get.member @fixture.add.member.board @fixture.delete.board
     Scenario Outline: "<action>" with wrong user token
-        Given Defines "<verb>" request to "<endpoint>"
+        Given A "<verb>" request to "<endpoint>"
         And Set wrong user token
         When The request with wrong token is sent
         Then The status code should be 401
@@ -109,7 +109,7 @@ Feature: Boards
 
     @negative @fixture.create.board @fixture.delete.board
     Scenario Outline: Is not possible Get a Board with invalid parameters
-        Given Defines "Verb" request to "<Endpoint>"
+        Given A "Verb" request to "<Endpoint>"
         When The request is sent
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
@@ -121,7 +121,7 @@ Feature: Boards
 
     @negative
     Scenario Outline: Is not possible Create a Board with invalid parameters
-        Given Defines "<Verb>" request to "/boards/"
+        Given A "<Verb>" request to "/boards/"
             | key   | value   |
             | <Key> | <Value> |
         When The request is sent
@@ -135,7 +135,7 @@ Feature: Boards
 
     @negative @fixture.create.board @fixture.delete.board
     Scenario Outline: Is not possible Update a Board with invalid parameters
-        Given Defines "<Verb>" request to "/boards/{board_id}"
+        Given A "<Verb>" request to "/boards/{board_id}"
             | key   | value   |
             | <Key> | <Value> |
         When The request is sent
@@ -150,7 +150,7 @@ Feature: Boards
 
     @negative @fixture.create.board @fixture.delete.board
     Scenario Outline: Is not possible Delete a Board with invalid parameters
-        Given Defines "<Verb>" request to "<Endpoint>"
+        Given A "<Verb>" request to "<Endpoint>"
         When The request is sent
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"

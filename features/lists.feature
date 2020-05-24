@@ -4,14 +4,14 @@ Feature: Lists
 
     @smoke @fixture.create.list @fixture.delete.list
     Scenario: Get a List
-        Given Defines "GET" request to "/lists/{list_id}"
+        Given A "GET" request to "/lists/{list_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "list_get_schema.json"
 
     @acceptance @fixture.delete.list
     Scenario: Create a List
-        Given Defines "POST" request to "/lists/"
+        Given A "POST" request to "/lists/"
             | key    | value                          |
             | name   | My Test List For POST Scenario |
         When The request is sent
@@ -24,7 +24,7 @@ Feature: Lists
     @acceptance
     @fixture.create.list @fixture.delete.list
     Scenario: Update a List
-        Given Defines "PUT" request to "/lists/{list_id}"
+        Given A "PUT" request to "/lists/{list_id}"
             | key  |   value                        |
             | name |  My Test List For PUT Scenario |
         When The request is sent
@@ -36,7 +36,7 @@ Feature: Lists
     
     @acceptance @fixture.create.list
     Scenario: Delete a list
-        Given Defines "PUT" request to "/lists/{list_id}/closed"
+        Given A "PUT" request to "/lists/{list_id}/closed"
             | key   | value |
             | value | true  |
         When The request is sent
@@ -48,28 +48,28 @@ Feature: Lists
     
     @acceptance @fixture.create.list
     Scenario: Get Actions for a List
-        Given Defines "GET" request to "/lists/{list_id}/actions"
+        Given A "GET" request to "/lists/{list_id}/actions"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "list_get_actions.json"
 
     @acceptance @fixture.create.list
     Scenario: Get the Board a List is on
-        Given Defines "GET" request to "/lists/{list_id}/board"
+        Given A "GET" request to "/lists/{list_id}/board"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "list_get_board.json"
 
     @acceptance @fixture.create.list
     Scenario: Get Cards in a List
-        Given Defines "GET" request to "/lists/{list_id}/cards"
+        Given A "GET" request to "/lists/{list_id}/cards"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "list_get_cards.json"
     
     @smoke @authorization @fixture.create.list @fixture.delete.list
     Scenario Outline: "<action>" with wrong user token
-        Given Defines "<verb>" request to "<endpoint>"
+        Given A "<verb>" request to "<endpoint>"
         And Set wrong user token
         When The request with wrong token is sent
         Then The status code should be 401
@@ -84,7 +84,7 @@ Feature: Lists
     
     @negative @fixture.create.list @fixture.delete.list
     Scenario Outline: Is not possible Get a List with invalid parameters
-        Given Defines "Verb" request to "<Endpoint>"
+        Given A "Verb" request to "<Endpoint>"
         When The request is sent
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
@@ -96,7 +96,7 @@ Feature: Lists
 
     @negative
     Scenario Outline: Is not possible Create a List with invalid parameters
-        Given Defines "<Verb>" request to "/lists/"
+        Given A "<Verb>" request to "/lists/"
             | key   | value          |
             | <Key> | <Value>        |
         When The request is sent
@@ -110,7 +110,7 @@ Feature: Lists
 
     @negative @fixture.create.list @fixture.delete.list
     Scenario Outline: Is not possible Update a List with invalid parameters
-        Given Defines "<Verb>" request to "/lists/{list_id}"
+        Given A "<Verb>" request to "/lists/{list_id}"
             | key   | value          |
             | <Key> | <Value>        |
         When The request is sent
@@ -124,7 +124,7 @@ Feature: Lists
 
     @negative @fixture.create.list @fixture.delete.list
     Scenario Outline: Is not possible Delete a List with invalid parameters
-        Given Defines "PUT" request to "/lists/{list_id}/closed"
+        Given A "PUT" request to "/lists/{list_id}/closed"
             | key   | value          |
             | <Key> | <Value>        |
         When The request is sent

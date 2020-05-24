@@ -8,7 +8,7 @@ from main.trello.utils.file_reader import FileReader
 from main.trello.api.member_api import MemberAPI
 
 
-@step(u'Defines "{http_method}" request to "{endpoint}"')
+@step(u'A "{http_method}" request to "{endpoint}"')
 def step_retrieve_numbers_dt(context, http_method, endpoint):
     """Sample step to retrieve numbers
 
