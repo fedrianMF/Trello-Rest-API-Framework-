@@ -41,6 +41,7 @@ Feature: Lists
             | value | true  |
         When The request is sent
         Then The status code should be 200
+        And The schema is validated with "list_delete_schema.json"
         And The body response must be contains
             | key    | value           |
             | name   | Before Tag List |
