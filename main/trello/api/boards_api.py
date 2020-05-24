@@ -13,8 +13,8 @@ class BoardsAPI:
 
         :param name: Name for the new board
         :type name: String
-        :param desc: Description for the new board
-        :type desc: String
+        :param description: Description for the new board
+        :type description: String
         """
         body = {
             "name": name,
@@ -28,8 +28,6 @@ class BoardsAPI:
     def delete_board(board_id):
         """ Create a board
 
-        :param request_manager: request manager to create a board
-        :type request_manager: RequestManager
         :param board_id: request manager to create a board
         :type board_id: String
         """
@@ -40,12 +38,12 @@ class BoardsAPI:
     def add_member_to_board(board_id, member_id, type_user):
         """ Add a member to board
 
-        :param request_manager: request manager to add a member to board
-        :type request_manager: RequestManager
-        :param board_id: Board id to add a member
+        :param board_id: Board id where Member will be added
         :type board_id: String
-        :param member_id: Member id for add to board
-        :type board_id: String
+        :param member_id: Member id to add to Board
+        :type member_id: String
+        :param type_user: type user of Member
+        :type type_user: String
         """
         body = {
             "type": type_user

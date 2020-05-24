@@ -11,12 +11,8 @@ class MemberAPI:    # pylint: disable=R0903
     def get_member_inf(auth2):
         """ Get member information
 
-        :param key: key for the current user
-        :type key: String
-        :param token: token for the current user
-        :type token: String
-        :param oauth: oauth token for the current user
-        :type oauth: String
+        :param auth2: oauth token for the current user
+        :type auth2: String
         """
         endpoint = "/members/me"
         status_code, json_response = RM.get_instance().do_request(  # pylint: disable=W0612

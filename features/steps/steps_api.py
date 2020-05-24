@@ -3,7 +3,7 @@ from behave import step  # pylint: disable=E0611
 from assertpy import assert_that
 from requests_oauthlib import OAuth1
 from main.core.utils.api_constants import HttpMethods
-from main.core.utils.request_utils import RequestUtils as r_utils
+from main.core.utils.request_utils import RequestUtils as ru
 from main.trello.utils.file_reader import FileReader
 from main.trello.api.member_api import MemberAPI
 
@@ -73,10 +73,10 @@ def step_impl_validate_body(context):
     :param context: Global context from behave
     :type context: obj
     """
-    body_response = r_utils.generate_data(context.table)
+    body_response = ru.generate_data(context.table)
     if hasattr(context, "info_user"):
         body_response.update(context.info_user)
-    assert_that(r_utils.validate_body(body_response, context.json_response),
+    assert_that(ru.validate_body(body_response, context.json_response),
                 f"Expected that {context.json_response} no contains {body_response} items"
                 ).is_true()
 
@@ -91,7 +91,7 @@ def step_impl_validate_schema(context, schema):
     :type schema: String
     """
     json_schema = FileReader.read_schema(schema)
-    assert_that(r_utils.validate_body_schema(context.json_response, json_schema),
+    assert_that(ru.validate_body_schema(context.json_response, json_schema),
                 f"The response should contains {json_schema}").is_true()
 
 
