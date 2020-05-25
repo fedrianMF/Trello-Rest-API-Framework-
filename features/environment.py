@@ -43,9 +43,7 @@ def after_scenario(context, scenario):  # pylint: disable=W0613
     """After scenario hook if the scenario is failed take a screenshot
     """
     context.logger.info(scenario.name)
-    
     context.logger.info(' '.join(scenario.tags))
-    
     if scenario.status == Status.failed:
         context.logger.error(f"============ Failed scenario {scenario.name}")
     else:

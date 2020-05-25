@@ -14,4 +14,3 @@ class LoggerUtils:  # pylint: disable=R0903
         """
         logging.config.fileConfig('logger.conf')
         return logging.getLogger(logger)
-

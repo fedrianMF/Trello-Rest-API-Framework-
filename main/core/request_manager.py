@@ -43,15 +43,15 @@ class RequestsManager:  # pylint: disable=R0903
         :type endpoint: obj
         """
         logger = log_util.config_logger('basic_logger')
-        logger.info('http method: ' + http_method)
-        logger.info('endpoint: ' + endpoint)
+        logger.info('http method: %s', http_method)
+        logger.info('endpoint: %s', endpoint)
         auth = self.auth
         self.auth = kwargs.get("auth", self.auth)
         if not isinstance(body, dict):
             body = utils.generate_data(body)
-        logger.info('body: ' + str(body))
+        logger.info('body: %s', str(body))
         url = f"{self.basic_url}{endpoint}"
-        logger.info('complete URL: ' + url)
+        logger.info('complete URL: %s', url)
         logger.info('send request...')
         if http_method == "GET":
             response = requests.request(str(http_method), url, headers=self.headers, auth=self.auth)
@@ -61,11 +61,11 @@ class RequestsManager:  # pylint: disable=R0903
             response = requests.request(str(http_method), url,
                                         auth=self.auth, params=body)
         self.auth = auth
-        logger.info('response status code: ' + str(response.status_code))
+        logger.info('response status code: %s', str(response.status_code))
         if response.status_code is not HTTPStatus.OK.value:
-            logger.error('response: ' + str(response.text))
+            logger.error('response: %s', str(response.text))
             return response.status_code, {"message": response.text}
-        logger.info('json response: ' + str(response.json()))
+        logger.info('json response: %s', str(response.json()))
         return response.status_code, response.json()
 
     def close_session(self):
