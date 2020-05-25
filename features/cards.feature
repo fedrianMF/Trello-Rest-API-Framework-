@@ -52,7 +52,7 @@ Feature: Cards
         Then The status code should be 200
         And The schema is validated with "card_delete_schema.json"
 
-    @fixture.create.card @fixture.delete.card
+    @acceptance @fixture.create.card @fixture.delete.card
     Scenario: Add a Member to a Card
         Given Get second member information
         And A "POST" request to "/cards/{card_id}/idMembers"
@@ -66,6 +66,7 @@ Feature: Cards
             | username        | juanrivera89 |
             | initials        | ER           |
 
+    @acceptance
     @fixture.create.card @fixture.get.member @fixture.add.member.card @fixture.delete.card
     Scenario: Remove a Member from a Card
         Given A "DELETE" request to "/cards/{card_id}/idMembers/{member_id}"
