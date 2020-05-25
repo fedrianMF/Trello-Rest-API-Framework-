@@ -28,6 +28,21 @@ class RequestUtils:
         return data
 
     @staticmethod
+    def generate_body(dictionary):
+        """Generate values for string dictionary
+
+        :param dictionary: string to structure
+        :type dictionary: dict
+        """
+        for key in dictionary.keys():
+            if dictionary[key] == 'None':
+                dictionary[key] = None
+            elif dictionary[key] == 'True':
+                dictionary[key] = True
+            elif dictionary[key] == 'False':
+                dictionary[key] = False
+
+    @staticmethod
     def validate_body_schema(json_response, json_schema):
         """Validatebody with expected_data
 
