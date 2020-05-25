@@ -137,7 +137,7 @@ Feature: Boards
     @smoke @authorization
     Scenario: Create a Board with wrong user token
         Given A "POST" request to "/boards/"
-        And Set wrong user token
+        And Set wrong user token with "invalid"
         When The request with wrong token is sent
         Then The status code should be 401
 
@@ -145,22 +145,22 @@ Feature: Boards
     @fixture.create.board @fixture.delete.board
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
-        And Set wrong user token
+        And Set wrong user token with "<invalid>"
         When The request with wrong token is sent
         Then The status code should be 401
         Examples:
-            | verb   | endpoint                  | action                |
-            | GET    | /boards/{board_id}        | Get a Board           |
-            | PUT    | /boards/{board_id}        | Update a Board        |
-            | DELETE | /boards/{board_id}        | Delete a Board        |
-            | GET    | /boards/{board_id}/labels | Get Labels on a Board |
-            | GET    | /boards/{board_id}/lists  | Get Lists on a Board  |
+            | verb   | endpoint                  | action                | invalid |
+            | GET    | /boards/{board_id}        | Get a Board           | ""      |
+            | PUT    | /boards/{board_id}        | Update a Board        | ! exap  |
+            | DELETE | /boards/{board_id}        | Delete a Board        | */!     |
+            | GET    | /boards/{board_id}/labels | Get Labels on a Board | ...     |
+            | GET    | /boards/{board_id}/lists  | Get Lists on a Board  | 6       |
 
     @smoke @authorization
     @fixture.create.board @fixture.get.member @fixture.delete.board
     Scenario: Add a Member to Board with wrong user token
         Given A "PUT" request to "/boards/{board_id}/members/{member_id}"
-        And Set wrong user token
+        And Set wrong user token with "648"
         When The request with wrong token is sent
         Then The status code should be 401
 
@@ -168,13 +168,13 @@ Feature: Boards
     @fixture.create.board @fixture.get.member @fixture.add.member.board @fixture.delete.board
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
-        And Set wrong user token
+        And Set wrong user token with "<invalid>"
         When The request with wrong token is sent
         Then The status code should be 401
         Examples:
-            | verb   | endpoint                               | action                              |
-            | DELETE | /boards/{board_id}/members/{member_id} | Delete a Member from Board          |
-            | GET    | /boards/{board_id}/memberships         | Get memberships of a specific Board |
+            | verb   | endpoint                               | action                              | invalid |
+            | DELETE | /boards/{board_id}/members/{member_id} | Delete a Member from Board          | Ç       |
+            | GET    | /boards/{board_id}/memberships         | Get memberships of a specific Board | -.qp    |
 
     @negative @fixture.create.board @fixture.delete.board
     Scenario Outline: Is not possible Get a Board with invalid parameters

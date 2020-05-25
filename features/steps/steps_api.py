@@ -94,16 +94,16 @@ def step_impl_validate_schema(context, schema):
                 f"The response should contains {json_schema}").is_true()
 
 
-@step(u'Set wrong user token')
-def step_impl_set_wrong_token(context):
+@step(u'Set wrong user token with "{invalid}"')
+def step_impl_set_wrong_token(context, invalid):
     """Set wrong user token
 
     :param context: Global context from behave
     :type context: obj
     """
     context.wrong_auth = OAuth1(context.config.userdata['primary_user_key'],
-                                context.config.userdata['primary_user_token'] + 'invalid',
-                                context.config.userdata['primary_user_token'] + 'invalid',
+                                context.config.userdata['primary_user_token'] + invalid,
+                                context.config.userdata['primary_user_token'] + invalid,
                                 context.config.userdata['primary_user_oauth_token'])
 
 
