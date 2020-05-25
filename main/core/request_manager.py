@@ -63,7 +63,6 @@ class RequestsManager:  # pylint: disable=R0903
         self.auth = auth
         logger.info('response status code: %s', str(response.status_code))
         if response.status_code is not HTTPStatus.OK.value:
-            logger.error('response: %s', str(response.text))
             return response.status_code, {"message": response.text}
         logger.info('json response: %s', str(response.json()))
         return response.status_code, response.json()
