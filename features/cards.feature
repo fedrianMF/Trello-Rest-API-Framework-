@@ -76,20 +76,20 @@ Feature: Cards
     @smoke @authorization @fixture.create.card @fixture.delete.card
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
-        And Set wrong user token
+        And Set wrong user token with "<invalid>"
         When The request with wrong token is sent
         Then The status code should be 401
         Examples:
-            | verb   | endpoint         | action        |
-            | GET    | /cards/{card_id} | Get a Card    |
-            | PUT    | /cards/{card_id} | Update a Card |
-            | DELETE | /cards/{card_id} | Delete a Card |
+            | verb   | endpoint         | action        | invalid |
+            | GET    | /cards/{card_id} | Get a Card    | ^+""    |
+            | PUT    | /cards/{card_id} | Update a Card | &aksd   |
+            | DELETE | /cards/{card_id} | Delete a Card | this    |
 
     @smoke @authorization
     @fixture.create.card @fixture.get.member @fixture.add.member.card @fixture.delete.card
     Scenario: Remove a Member from a Card with wrong user token
         Given A "DELETE" request to "/cards/{card_id}/idMembers/{member_id}"
-        And Set wrong user token
+        And Set wrong user token with " 10293"
         When The request with wrong token is sent
         Then The status code should be 401
 

@@ -84,17 +84,17 @@ Feature: Lists
     @smoke @authorization @fixture.create.list @fixture.delete.list
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
-        And Set wrong user token
+        And Set wrong user token with "<invalid>"
         When The request with wrong token is sent
         Then The status code should be 401
         Examples:
-            | verb | endpoint                 | action                     |
-            | GET  | /lists/{list_id}         | Get a List                 |
-            | PUT  | /lists/{list_id}         | Update a List              |
-            | PUT  | /lists/{list_id}/closed  | Delete a list              |
-            | GET  | /lists/{list_id}/actions | Get Actions for a List     |
-            | GET  | /lists/{list_id}/board   | Get the Board a List is on |
-            | GET  | /lists/{list_id}/cards   | Get Cards in a List        |
+            | verb | endpoint                 | action                     | invalid |
+            | GET  | /lists/{list_id}         | Get a List                 | 0913481 |
+            | PUT  | /lists/{list_id}         | Update a List              | 13 13   |
+            | PUT  | /lists/{list_id}/closed  | Delete a list              | []      |
+            | GET  | /lists/{list_id}/actions | Get Actions for a List     | some    |
+            | GET  | /lists/{list_id}/board   | Get the Board a List is on | ---     |
+            | GET  | /lists/{list_id}/cards   | Get Cards in a List        | @=ajdn  |
 
     @negative @fixture.create.list @fixture.delete.list
     Scenario Outline: Is not possible Get a List with invalid parameters
