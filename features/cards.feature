@@ -60,6 +60,11 @@ Feature: Cards
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "card_remove_member_schema.json"
+        And The body response must be contains
+            | key             | value        |
+            | activityBlocked | False        |
+            | username        | juanrivera89 |
+            | initials        | ER           |
 
     @fixture.create.card @fixture.get.member @fixture.add.member.card @fixture.delete.card
     Scenario: Remove a Member from a Card
