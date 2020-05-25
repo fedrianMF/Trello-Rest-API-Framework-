@@ -4,6 +4,7 @@ import requests
 from requests import Session
 from requests_oauthlib import OAuth1
 from main.core.utils.request_utils import RequestUtils as utils
+from main.core.utils.logger_utils import LoggerUtils as log_util
 from main.trello.utils.file_reader import FileReader as reader
 
 
@@ -41,11 +42,17 @@ class RequestsManager:  # pylint: disable=R0903
         :param endpoint: Application's endpoint method
         :type endpoint: obj
         """
+        logger = log_util.config_logger('basic_logger')
+        logger.info('http method: ' + http_method)
+        logger.info('endpoint: ' + endpoint)
         auth = self.auth
         self.auth = kwargs.get("auth", self.auth)
         if not isinstance(body, dict):
             body = utils.generate_data(body)
+        logger.info('body: ' + str(body))
         url = f"{self.basic_url}{endpoint}"
+        logger.info('complete URL: ' + url)
+        logger.info('send request...')
         if http_method == "GET":
             response = requests.request(str(http_method), url, headers=self.headers, auth=self.auth)
         elif http_method == "DELETE":
@@ -54,8 +61,11 @@ class RequestsManager:  # pylint: disable=R0903
             response = requests.request(str(http_method), url,
                                         auth=self.auth, params=body)
         self.auth = auth
+        logger.info('response status code: ' + str(response.status_code))
         if response.status_code is not HTTPStatus.OK.value:
+            logger.error('response: ' + str(response.text))
             return response.status_code, {"message": response.text}
+        logger.info('json response: ' + str(response.json()))
         return response.status_code, response.json()
 
     def close_session(self):
