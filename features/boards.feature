@@ -184,8 +184,8 @@ Feature: Boards
         And The schema is validated with "error_schema.json"
         Examples:
             | Verb | Endpoint                   | Response |
-            | GET  | /boards/invalid_{board_id} | 400      |
-            | GET  | /boards/{board_id}_invalid | 400      |
+            | GET  | /boards/{board_id} 123u    | 400      |
+            | GET  | /boards/1345%{board_id}es  | 400      |
             | GET  | /boards/inv_{board_id}_lid | 400      |
 
     @negative
@@ -200,7 +200,7 @@ Feature: Boards
             | Verb | Key           | Value      | Response |
             | POST | name          |            | 400      |
             | POST | defaultLists  | no_boolean | 400      |
-            | POST | defaultLabels | no_boolean | 400      |
+            | POST | defaultLabels | bolean     | 400      |
 
     @negative @fixture.create.board @fixture.delete.board
     Scenario Outline: Is not possible Update a Board with invalid parameters
@@ -211,11 +211,11 @@ Feature: Boards
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
         Examples:
-            | Verb | Key              | Value      | Response |
-            | PUT  | name             |            | 400      |
-            | PUT  | closed           | no_boolean | 400      |
-            | PUT  | prefs/selfJoin   | no_boolean | 400      |
-            | PUT  | prefs/cardCovers |            | 400      |
+            | Verb | Key              | Value | Response |
+            | PUT  | name             |       | 400      |
+            | PUT  | closed           | flase | 400      |
+            | PUT  | prefs/selfJoin   | !"·!" | 400      |
+            | PUT  | prefs/cardCovers |       | 400      |
 
     @negative @fixture.create.board @fixture.delete.board
     Scenario Outline: Is not possible Delete a Board with invalid parameters

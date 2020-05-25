@@ -103,10 +103,10 @@ Feature: Lists
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
         Examples:
-            | Verb | Endpoint                 | Response |
-            | GET  | /lists/invalid_{list_id} | 400      |
-            | GET  | /lists/{list_id}_invalid | 400      |
-            | GET  | /lists/inv_{list_id}_lid | 400      |
+            | Verb | Endpoint                   | Response |
+            | GET  | /lists/invalid_{list_id}   | 400      |
+            | GET  | /lists/{list_id}123·       | 400      |
+            | GET  | /lists/ !&={list_id} //234 | 400      |
 
     @negative
     Scenario Outline: Is not possible Create a List with invalid parameters

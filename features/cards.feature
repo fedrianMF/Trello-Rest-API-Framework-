@@ -114,9 +114,9 @@ Feature: Cards
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
         Examples:
-            | Verb | Key         | Value      | Response |
-            | POST | dueComplete | no_boolean | 400      |
-            | POST | pos         | -1         | 400      |
+            | Verb | Key         | Value   | Response |
+            | POST | dueComplete | /112837 | 400      |
+            | POST | pos         | -1      | 400      |
 
     @negative @fixture.create.card @fixture.delete.card
     Scenario Outline: Is not possible Update a Card with invalid parameters
@@ -127,9 +127,9 @@ Feature: Cards
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
         Examples:
-            | Verb | Key    | Value      | Response |
-            | PUT  | closed | no_boolean | 400      |
-            | PUT  | pos    | -1         | 400      |
+            | Verb | Key    | Value | Response |
+            | PUT  | closed | )($)  | 400      |
+            | PUT  | pos    | -1    | 400      |
 
     @negative @fixture.create.card @fixture.delete.card
     Scenario Outline: Is not possible Delete a Card with invalid parameters
@@ -138,8 +138,8 @@ Feature: Cards
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
         Examples:
-            | Verb   | Endpoint                 | Response |
-            | DELETE | /cards/invalid_{card_id} | 400      |
-            | DELETE | /cards/{card_id}_invalid | 400      |
-            | DELETE | /cards/inva_{card_id}lid | 400      |
-            | DELETE | /cards/inva{card_id}_lid | 400      |
+            | Verb   | Endpoint                    | Response |
+            | DELETE | /cards/i{card_id}!"·"       | 400      |
+            | DELETE | /cards/{card_id}98          | 400      |
+            | DELETE | /cards/95{card_id} []       | 400      |
+            | DELETE | /cards/inva{card_id}31{asd} | 400      |
