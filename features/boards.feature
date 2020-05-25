@@ -7,6 +7,13 @@ Feature: Boards
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_schema.json"
+        And The body response must be contains
+            | key            | value |
+            | descData       | None  |
+            | closed         | False |
+            | idOrganization | None  |
+            | idEnterprise   | None  |
+            | pinned         | False |
 
     @acceptance
     @fixture.delete.board
@@ -19,9 +26,14 @@ Feature: Boards
         Then The status code should be 200
         And The schema is validated with "board_get_schema.json"
         And The body response must be contains
-            | key  | value                                        |
-            | name | My Test Board For POST Scenario              |
-            | desc | Here is a little description for API testing |
+            | key            | value                                        |
+            | name           | My Test Board For POST Scenario              |
+            | desc           | Here is a little description for API testing |
+            | descData       | None                                         |
+            | closed         | False                                        |
+            | idOrganization | None                                         |
+            | idEnterprise   | None                                         |
+            | pinned         | False                                        |
 
     @acceptance @fixture.create.board @fixture.delete.board
     Scenario: Update a Board
@@ -33,9 +45,14 @@ Feature: Boards
         And The schema is validated with "board_update_schema.json"
         And The status code should be 200
         And The body response must be contains
-            | key  | value                           |
-            | name | My Test Board For PUT Scenario  |
-            | desc | Here goes new board description |
+            | key            | value                           |
+            | name           | My Test Board For PUT Scenario  |
+            | desc           | Here goes new board description |
+            | descData       | None                            |
+            | closed         | False                           |
+            | idOrganization | None                            |
+            | idEnterprise   | None                            |
+            | pinned         | False                           |
 
     @acceptance @fixture.create.board
     Scenario: Delete a Board
@@ -43,6 +60,9 @@ Feature: Boards
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_delete_schema.json"
+        And The body response must be contains
+            | key    | value |
+            | _value | None  |
 
     @smoke @fixture.create.board @fixture.delete.board
     Scenario: Add a Member to Board
@@ -54,8 +74,10 @@ Feature: Boards
         Then The status code should be 200
         And The schema is validated with "board_members_schema.json"
         And The body response must be contains
-            | key  | value |
-            | type | admin |
+            | key         | value |
+            | type        | admin |
+            | unconfirmed | False |
+            | deactivated | False |
 
     @smoke
     @fixture.get.member @fixture.create.board @fixture.add.member.board @fixture.delete.board
@@ -65,6 +87,13 @@ Feature: Boards
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_delete_member_schema.json"
+        And The body response must be contains
+            | key            | value |
+            | descData       | None  |
+            | closed         | False |
+            | idOrganization | None  |
+            | idEnterprise   | None  |
+            | pinned         | False |
 
     @acceptance
     @fixture.get.member @fixture.create.board @fixture.add.member.board @fixture.delete.board
@@ -73,6 +102,11 @@ Feature: Boards
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_members_schema.json"
+        And The body response must be contains
+            | key         | value |
+            | memberType  | admin |
+            | unconfirmed | False |
+            | deactivated | False |
 
     @acceptance @fixture.create.board @fixture.delete.board
     Scenario: Get Labels on a Board
@@ -80,6 +114,13 @@ Feature: Boards
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_labels_schema.json"
+        And The body response must be contains
+            | key   | value  |
+            | name  |        |
+            | color | green  |
+            | color | yellow |
+            | color | orange |
+            | color | red    |
 
     @acceptance @fixture.create.board @fixture.delete.board
     Scenario: Get Lists on a Board
@@ -87,6 +128,11 @@ Feature: Boards
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "board_get_lists_schema.json"
+        And The body response must be contains
+            | key        | value |
+            | closed     | False |
+            | softLimit  | None  |
+            | subscribed | False |
 
     @smoke @authorization
     Scenario: Create a Board with wrong user token
@@ -103,12 +149,12 @@ Feature: Boards
         When The request with wrong token is sent
         Then The status code should be 401
         Examples:
-            | verb   | endpoint                               | action                              |
-            | GET    | /boards/{board_id}                     | Get a Board                         |
-            | PUT    | /boards/{board_id}                     | Update a Board                      |
-            | DELETE | /boards/{board_id}                     | Delete a Board                      |
-            | GET    | /boards/{board_id}/labels              | Get Labels on a Board               |
-            | GET    | /boards/{board_id}/lists               | Get Lists on a Board                |
+            | verb   | endpoint                  | action                |
+            | GET    | /boards/{board_id}        | Get a Board           |
+            | PUT    | /boards/{board_id}        | Update a Board        |
+            | DELETE | /boards/{board_id}        | Delete a Board        |
+            | GET    | /boards/{board_id}/labels | Get Labels on a Board |
+            | GET    | /boards/{board_id}/lists  | Get Lists on a Board  |
 
     @smoke @authorization
     @fixture.create.board @fixture.get.member @fixture.delete.board

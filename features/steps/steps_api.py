@@ -74,8 +74,7 @@ def step_impl_validate_body(context):
     :type context: obj
     """
     body_response = ru.generate_data(context.table)
-    if hasattr(context, "info_user"):
-        body_response.update(context.info_user)
+    ru.generate_body(body_response)
     assert_that(ru.validate_body(body_response, context.json_response),
                 f"Expected that {context.json_response} no contains {body_response} items"
                 ).is_true()
