@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  triggers{
+    cron('0 * * * *')
+  }
   stages {
     stage('Download GitLab'){
       steps {
