@@ -96,7 +96,7 @@ Feature: Cards
 
     @negative @fixture.create.card @fixture.delete.card
     Scenario Outline: Is not possible Get a Card with invalid parameters
-        Given A "Verb" request to "<Endpoint>"
+        Given A "<Verb>" request to "<Endpoint>"
         When The request is sent
         Then The status code should be <Response>
         And The schema is validated with "error_schema.json"
