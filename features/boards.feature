@@ -15,7 +15,7 @@ Feature: Boards
             | idEnterprise   | None  |
             | pinned         | False |
 
-    @acceptance
+    @smoke
     @fixture.delete.board
     Scenario: Create a Board
         Given A "POST" request to "/boards/"
@@ -35,7 +35,7 @@ Feature: Boards
             | idEnterprise   | None                                         |
             | pinned         | False                                        |
 
-    @acceptance @fixture.create.board @fixture.delete.board
+    @smoke @fixture.create.board @fixture.delete.board
     Scenario: Update a Board
         Given A "PUT" request to "/boards/{board_id}"
             | key  | value                           |
@@ -54,7 +54,7 @@ Feature: Boards
             | idEnterprise   | None                            |
             | pinned         | False                           |
 
-    @acceptance @fixture.create.board
+    @smoke @fixture.create.board
     Scenario: Delete a Board
         Given A "DELETE" request to "/boards/{board_id}"
         When The request is sent
@@ -79,7 +79,7 @@ Feature: Boards
             | unconfirmed | False |
             | deactivated | False |
 
-    @smoke
+    @acceptance
     @fixture.get.member @fixture.create.board @fixture.add.member.board @fixture.delete.board
     Scenario: Delete a Member from Board
         Given Get second member information
@@ -134,14 +134,14 @@ Feature: Boards
             | softLimit  | None  |
             | subscribed | False |
 
-    @smoke @authorization
+    @negative @authorization
     Scenario: Create a Board with wrong user token
         Given A "POST" request to "/boards/"
         And Set wrong user token with "invalid"
         When The request with wrong token is sent
         Then The status code should be 401
 
-    @smoke @authorization
+    @negative @authorization
     @fixture.create.board @fixture.delete.board
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
@@ -156,7 +156,7 @@ Feature: Boards
             | GET    | /boards/{board_id}/labels | Get Labels on a Board | ...     |
             | GET    | /boards/{board_id}/lists  | Get Lists on a Board  | 6       |
 
-    @smoke @authorization
+    @negative @authorization
     @fixture.create.board @fixture.get.member @fixture.delete.board
     Scenario: Add a Member to Board with wrong user token
         Given A "PUT" request to "/boards/{board_id}/members/{member_id}"
@@ -164,7 +164,7 @@ Feature: Boards
         When The request with wrong token is sent
         Then The status code should be 401
 
-    @smoke @authorization
+    @negative @authorization
     @fixture.create.board @fixture.get.member @fixture.add.member.board @fixture.delete.board
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"

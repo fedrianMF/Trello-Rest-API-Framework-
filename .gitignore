@@ -35,8 +35,4 @@ __pycache__/
 ### Logs
 /logs_file.log
 
-<<<<<<< HEAD
 # End of https://www.gitignore.io/api/git,python,visualstudiocode
-=======
-# End of https://www.gitignore.io/api/git,python,visualstudiocode
->>>>>>> 22e65d9f90438cf40261280094244870aef637bc

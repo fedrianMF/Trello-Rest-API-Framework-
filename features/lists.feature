@@ -13,7 +13,7 @@ Feature: Lists
             | closed | False |
 
 
-    @acceptance @fixture.delete.list
+    @smoke @fixture.delete.list
     Scenario: Create a List
         Given A "POST" request to "/lists/"
             | key  | value                          |
@@ -26,7 +26,7 @@ Feature: Lists
             | name   | My Test List For POST Scenario |
             | closed | False                          |
 
-    @acceptance
+    @smoke
     @fixture.create.list @fixture.delete.list
     Scenario: Update a List
         Given A "PUT" request to "/lists/{list_id}"
@@ -40,7 +40,7 @@ Feature: Lists
             | name   | My Test List For PUT Scenario |
             | closed | False                         |
 
-    @acceptance @fixture.create.list
+    @smoke @fixture.create.list
     Scenario: Delete a list
         Given A "PUT" request to "/lists/{list_id}/closed"
             | key   | value |
@@ -81,7 +81,7 @@ Feature: Lists
         Then The status code should be 200
         And The schema is validated with "list_get_cards.json"
 
-    @smoke @authorization @fixture.create.list @fixture.delete.list
+    @negative @authorization @fixture.create.list @fixture.delete.list
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
         And Set wrong user token with "<invalid>"

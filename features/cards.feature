@@ -9,7 +9,7 @@ Feature: Cards
         Then The status code should be 200
         And The schema is validated with "card_get_schema.json"
 
-    @acceptance @fixture.delete.card
+    @smoke @fixture.delete.card
     Scenario: Create a Card
         Given A "POST" request to "/cards/"
             | key  | value                          |
@@ -27,7 +27,7 @@ Feature: Cards
             | due               | None                           |
             | email             | None                           |
 
-    @acceptance @fixture.create.card @fixture.delete.card
+    @smoke @fixture.create.card @fixture.delete.card
     Scenario: Update a Card
         Given A "PUT" request to "/cards/{card_id}"
             | key  | value                         |
@@ -45,7 +45,7 @@ Feature: Cards
             | due               | None                          |
             | email             | None                          |
 
-    @acceptance @fixture.create.card
+    @smoke @fixture.create.card
     Scenario: Delete a Card
         Given A "DELETE" request to "/cards/{card_id}"
         When The request is sent
@@ -74,7 +74,7 @@ Feature: Cards
         Then The status code should be 200
         And The schema is validated with "card_add_member_schema.json"
 
-    @smoke @authorization @fixture.create.card @fixture.delete.card
+    @negative @authorization @fixture.create.card @fixture.delete.card
     Scenario Outline: "<action>" with wrong user token
         Given A "<verb>" request to "<endpoint>"
         And Set wrong user token with "<invalid>"
@@ -86,7 +86,7 @@ Feature: Cards
             | PUT    | /cards/{card_id} | Update a Card | &aksd   |
             | DELETE | /cards/{card_id} | Delete a Card | this    |
 
-    @smoke @authorization
+    @negative @authorization
     @fixture.create.card @fixture.get.member @fixture.add.member.card @fixture.delete.card
     Scenario: Remove a Member from a Card with wrong user token
         Given A "DELETE" request to "/cards/{card_id}/idMembers/{member_id}"
