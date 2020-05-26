@@ -1,7 +1,4 @@
 """Module for RequestUtils"""
-
-
-import ast
 import jsonschema
 from jsonschema import validate
 from main.core.utils.boolean_utils import BooleanUtils
@@ -20,8 +17,8 @@ class RequestUtils:
         data = {}
         if body is not None:
             for row in body:
-                if row['value'] == 'True' or row['value'] == 'False':
-                    data[str(row['key'])] = ast.literal_eval(row['value'])
+                if row['value'] == 'True' or row['value'] == 'False' or row['value'] == 'None':
+                    data[str(row['key'])] = parse_data(row['value'])
                 elif row['value'].isdigit():
                     data[str(row['key'])] = int(row['value'])
                 elif BooleanUtils.is_float(row['value']):
@@ -31,12 +28,27 @@ class RequestUtils:
         return data
 
     @staticmethod
+    def generate_body(dictionary):
+        """Generate values for string dictionary
+
+        :param dictionary: string to structure
+        :type dictionary: dict
+        """
+        for key in dictionary.keys():
+            if dictionary[key] == 'None':
+                dictionary[key] = None
+            elif dictionary[key] == 'True':
+                dictionary[key] = True
+            elif dictionary[key] == 'False':
+                dictionary[key] = False
+
+    @staticmethod
     def validate_body_schema(json_response, json_schema):
         """Validatebody with expected_data
 
-        :param body: object to verify
+        :param json_response: object to verify
         :type value: string
-        :param expected_data: object to compare
+        :param json_schema: object to compare
         :type value: obj
         """
         try:
@@ -49,7 +61,9 @@ class RequestUtils:
     def validate_body(expected_body, response_data):
         """Validatebody with expected_data
 
-        :param value: object to verify
+        :param json_response: object to verify
+        :type value: string
+        :param json_schema: object to compare
         :type value: obj
         """
         for value in expected_body.values():
@@ -76,3 +90,13 @@ def has_value(obj, val):
         if isinstance(current_val, (dict, list)) and has_value(current_val, val):
             return True
     return False
+
+
+def parse_data(value):
+    """Boolean and Null parser
+
+    param value: Value to parse
+    type value: string
+    """
+    parsed_params = {"True": "true", "False": "false", "None": None}
+    return parsed_params.get(value) if value.lower() in parsed_params else value

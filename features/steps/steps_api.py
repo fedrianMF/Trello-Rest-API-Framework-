@@ -1,12 +1,14 @@
 """Module for example steps"""
 from behave import step  # pylint: disable=E0611
 from assertpy import assert_that
+from requests_oauthlib import OAuth1
 from main.core.utils.api_constants import HttpMethods
-from main.core.utils.request_utils import RequestUtils as r_utils
-from main.core.utils.file_reader import FileReader
+from main.core.utils.request_utils import RequestUtils as ru
+from main.trello.utils.file_reader import FileReader
+from main.trello.api.member_api import MemberAPI
 
 
-@step(u'Defines "{http_method}" request to "{endpoint}"')
+@step(u'A "{http_method}" request to "{endpoint}"')
 def step_retrieve_numbers_dt(context, http_method, endpoint):
     """Sample step to retrieve numbers
 
@@ -17,23 +19,20 @@ def step_retrieve_numbers_dt(context, http_method, endpoint):
     :param endpoint: Application's endpoint method
     :type endpoint: obj
     """
-    if http_method != HttpMethods.POST.value:
-        endpoint = endpoint.replace('<board_id>', context.board_id)
-    if 'member_id' in endpoint:
-        endpoint = endpoint.replace('<member_id>', context.newuser_id)
-    context.endpoint = endpoint
     context.http_method = http_method
     context.data_table = context.table
-    if 'lists' in endpoint:
-        if http_method == HttpMethods.POST.value:
-            context.data_table.add_row(['idBoard', context.board_id])
-        else:
-            context.endpoint = endpoint.replace('{id}', context.list_id)
-    if 'cards' in endpoint:
-        if http_method == HttpMethods.POST.value:
-            context.data_table.add_row(['idList', context.list_id])
-        else:
-            context.endpoint = endpoint.replace('{id}', context.card_id)
+    for key in context.id_dictionary:
+        if key in endpoint:
+            endpoint = endpoint.replace("{"+key+"_id}", context.id_dictionary[key])
+    context.endpoint = endpoint
+    if http_method == HttpMethods.POST.value:
+        if 'lists' in endpoint:
+            context.data_table.add_row(['idBoard', context.id_dictionary['board']])
+        elif 'cards' in endpoint:
+            if 'idMember' in endpoint:
+                context.data_table.add_row(['value', context.id_dictionary['member']])
+            else:
+                context.data_table.add_row(['idList', context.id_dictionary['list']])
 
 
 @step(u"The request is sent")
@@ -46,14 +45,13 @@ def step_impl_send(context):
     context.status_code, context.json_response = context.rm.do_request(context.http_method,
                                                                        context.endpoint,
                                                                        context.data_table)
-    if 'id' in context.json_response:
-        if 'idBoard' in context.json_response:
-            if 'idList' in context.json_response:
-                context.card_id = context.json_response['id']
-            else:
-                context.list_id = context.json_response['id']
-        else:
-            context.board_id = context.json_response['id']
+    if context.http_method == HttpMethods.POST.value:
+        if 'idBoard' in context.json_response and 'idList' in context.json_response:
+            context.id_dictionary['card'] = context.json_response['id']
+        elif 'idBoard' in context.json_response:
+            context.id_dictionary['list'] = context.json_response['id']
+        elif 'idOrganization' in context.json_response:
+            context.id_dictionary['board'] = context.json_response['id']
 
 
 @step(u'The status code should be {status_code:d}')
@@ -75,10 +73,9 @@ def step_impl_validate_body(context):
     :param context: Global context from behave
     :type context: obj
     """
-    body_response = r_utils.generate_data(context.table)
-    if hasattr(context, "info_user"):
-        body_response.update(context.info_user)
-    assert_that(r_utils.validate_body(body_response, context.json_response),
+    body_response = ru.generate_data(context.table)
+    ru.generate_body(body_response)
+    assert_that(ru.validate_body(body_response, context.json_response),
                 f"Expected that {context.json_response} no contains {body_response} items"
                 ).is_true()
 
@@ -93,5 +90,46 @@ def step_impl_validate_schema(context, schema):
     :type schema: String
     """
     json_schema = FileReader.read_schema(schema)
-    assert_that(r_utils.validate_body_schema(context.json_response, json_schema),
+    assert_that(ru.validate_body_schema(context.json_response, json_schema),
                 f"The response should contains {json_schema}").is_true()
+
+
+@step(u'Set wrong user token with "{invalid}"')
+def step_impl_set_wrong_token(context, invalid):
+    """Set wrong user token
+
+    :param context: Global context from behave
+    :type context: obj
+    """
+    context.wrong_auth = OAuth1(context.config.userdata['primary_user_key'],
+                                context.config.userdata['primary_user_token'] + invalid,
+                                context.config.userdata['primary_user_token'] + invalid,
+                                context.config.userdata['primary_user_oauth_token'])
+
+
+@step(u"The request with wrong token is sent")
+def step_impl_wrong_token_send(context):
+    """Sends request with wrong token
+
+    :param context: Global context from behave
+    :type context: obj
+    """
+    context.status_code, context.json_response = context.rm.do_request(context.http_method,
+                                                                       context.endpoint,
+                                                                       context.data_table,
+                                                                       auth=context.wrong_auth)
+
+
+@step(u'Get second member information')
+def step_impl_get_second_mem_inf(context):
+    """Sends request with wrong token
+
+    :param context: Global context from behave
+    :type context: obj
+    """
+    auth_sec = OAuth1(context.config.userdata['secondary_user_key'],
+                      context.config.userdata['secondary_user_token'],
+                      context.config.userdata['secondary_user_token'],
+                      context.config.userdata['secondary_user_oauth_token'])
+    context.info_user = MemberAPI.get_member_inf(auth_sec)
+    context.id_dictionary['member'] = context.info_user['id']

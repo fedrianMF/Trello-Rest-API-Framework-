@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "idMemberCreator": {
+        "type": "string"
+      },
+      "data": {
+        "type": "object",
+        "properties": {
+          "list": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ]
+          },
+          "board": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "shortLink": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "shortLink"
+            ]
+          }
+        },
+        "required": [
+          "list",
+          "board"
+        ]
+      },
+      "type": {
+        "type": "string"
+      },
+      "date": {
+        "type": "string"
+      },
+      "limits": {
+        "type": "object"
+      },
+      "memberCreator": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "activityBlocked": {
+            "type": "boolean"
+          },
+          "avatarHash": {
+            "type": "string"
+          },
+          "avatarUrl": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "idMemberReferrer": {
+            "type": "string"
+          },
+          "initials": {
+            "type": "string"
+          },
+          "nonPublic": {
+            "type": "object"
+          },
+          "nonPublicAvailable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "activityBlocked",
+          "avatarHash",
+          "avatarUrl",
+          "fullName",
+          "idMemberReferrer",
+          "initials",
+          "nonPublic",
+          "nonPublicAvailable"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "idMemberCreator",
+      "data",
+      "type",
+      "date",
+      "limits",
+      "memberCreator"
+    ]
+  }
+}
