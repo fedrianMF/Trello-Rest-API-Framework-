@@ -22,9 +22,9 @@ Feature: Lists
         Then The status code should be 200
         And The schema is validated with "list_create_schema.json"
         And The body response must be contains
-            | key    | value                          |
-            | name   | My Test List For POST Scenario |
-            | closed | False                          |
+            | key    | value                                |
+            | name   | My Test List For POST Scenario Error |
+            | closed | False                                |
 
     @smoke
     @fixture.create.list @fixture.delete.list

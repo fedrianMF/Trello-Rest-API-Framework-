@@ -45,14 +45,14 @@ Feature: Boards
         And The schema is validated with "board_update_schema.json"
         And The status code should be 200
         And The body response must be contains
-            | key            | value                           |
-            | name           | My Test Board For PUT Scenario  |
-            | desc           | Here goes new board description |
-            | descData       | None                            |
-            | closed         | False                           |
-            | idOrganization | None                            |
-            | idEnterprise   | None                            |
-            | pinned         | False                           |
+            | key            | value                                 |
+            | name           | My Test Board For PUT Scenario Error  |
+            | desc           | Here goes new board description       |
+            | descData       | None                                  |
+            | closed         | False                                 |
+            | idOrganization | None                                  |
+            | idEnterprise   | None                                  |
+            | pinned         | False                                 |
 
     @smoke @fixture.create.board
     Scenario: Delete a Board

@@ -47,7 +47,7 @@ Feature: Cards
 
     @smoke @fixture.create.card
     Scenario: Delete a Card
-        Given A "DELETE" request to "/cards/{card_id}"
+        Given A "DELETE" request to "/cards/error_{card_id}"
         When The request is sent
         Then The status code should be 200
         And The schema is validated with "card_delete_schema.json"
